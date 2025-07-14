@@ -15,7 +15,7 @@ interface ICarouselItem {
 }
 
 function Carousel() {
-const items: ICarouselItem[] = [    {
+  const items: ICarouselItem[] = [    {
     subtitle:'confira nossa linha',
     title:'corporal',
     description: 'com benefícios além da hidratação',
