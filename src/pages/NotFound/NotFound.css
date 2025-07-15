@@ -1,0 +1,21 @@
+.container-not-found {
+    width: 100vw;
+    height: 80vh;
+    display: flex;
+    justify-items: center;
+    justify-content: center;
+    text-align: center;
+    object-fit: fill;
+    background-image: url("../../assets/img_2_carousel.png");
+}
+
+.title-not-found {
+    justify-self: center;
+    max-width: 1200px;
+    text-align: center;
+    justify-content: center;
+}
+
+.title-not-found p {
+    font-size: 32px;
+}
