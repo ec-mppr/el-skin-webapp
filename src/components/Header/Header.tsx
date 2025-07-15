@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import './Header.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCartShopping, faSearch } from '@fortawesome/free-solid-svg-icons';
+import Navigation from '../Navigation/Navigation';
 
 function Header() {
   const [textoBusca, setTextoBusca] = useState('');
@@ -43,6 +44,7 @@ function Header() {
       </div>
 
       <nav className="header-nav">
+        <Navigation />
       </nav>
       
     </header>

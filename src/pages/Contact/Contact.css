@@ -1,10 +1,22 @@
 .container-contact {
-    display: flex;
     margin-left: 144px;
     margin-right: 144px;
+
+}
+
+.container-form {
+    display: flex;
+    /* margin-left: 144px;
+    margin-right: 144px; */
     align-items: center;
     gap: 2em;
     justify-content: center;
+}
+
+.container-faq {
+    margin-left: 144px;
+    margin-right: 144px;
+    padding: 2rem;
 }
 
 .column-1 {
@@ -78,4 +90,8 @@
 
 .checkbox {
     accent-color: #94426E;
+}
+
+.faq-title {
+    font-size: 20px;
 }

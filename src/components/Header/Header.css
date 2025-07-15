@@ -1,24 +1,24 @@
-
-
 .header {
   background-color: #ffffff;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
- 
-.header-top {
-  padding: 1rem 0;
   border-bottom: 1px solid #e5e5e5;
 }
- 
+
+.header-top {
+  padding: 1rem 0;
+  border-bottom: none;
+}
+
 .container {
   max-width: 1200px;
+  width: 1200px;
   margin: 0 auto;
   padding: 0 1rem;
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
- 
+
 .logo {
   font-size: 24px;
   font-family: 'Shippori Antique';
@@ -27,14 +27,14 @@
   margin: 0;
   letter-spacing: 0.5px;
 }
- 
+
 .search-bar {
   flex: 2;
   max-width: 400px;
   margin: 0 2rem;
   position: relative;
 }
- 
+
 .search-input {
   width: 100%;
   padding: 0.75rem 0rem 0.75rem 1rem;
@@ -46,15 +46,15 @@
   font-family: 'Poppins';
   border: none;
 }
- 
+
 .search-input:focus {
   border-color: #007bff;
 }
- 
+
 .search-input::placeholder {
   color: #999;
 }
- 
+
 .search-button {
   position: absolute;
   right: 0;
@@ -71,17 +71,17 @@
   justify-content: center;
   transition: background-color 0.3s ease;
 }
- 
+
 .search-button:hover {
   background-color: #f0f0f0;
 }
- 
+
 .header-actions {
   display: flex;
   align-items: center;
   gap: 1rem;
 }
- 
+
 .cart-button {
   background: none;
   border: none;
@@ -94,8 +94,16 @@
   justify-content: center;
   transition: background-color 0.3s ease;
 }
- 
+
 .cart-button:hover {
   background-color: #f0f0f0;
 }
- 
+
+.header-nav {
+  display: flex;
+  justify-items: space-between;
+  align-content: center;
+  align-items: center;
+  margin: auto;
+  width: 1230px;
+}
