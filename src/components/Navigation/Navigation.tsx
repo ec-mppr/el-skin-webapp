@@ -14,7 +14,6 @@ const listNavigationItems: NavigationItem[] = [
 ];
 
 function Navigation() {
-
   return (
     <div className='container-navegacao'>
       <ul className='lista-navegacao'>
