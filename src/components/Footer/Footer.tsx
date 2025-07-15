@@ -135,7 +135,6 @@ const Footer: React.FC = () => {
                 <ul className="footer-section-links">
                   {section.links.map((link) => (
                     <li key={link.label}>
-                      {link.label}
                       <Link className="footer-link" to={link.href} key={link.label}>{link.label}</Link> 
                     </li>
                   ))}
