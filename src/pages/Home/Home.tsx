@@ -8,11 +8,11 @@ import Banner from '../../components/Banner/Banner';
 function Home() {
   return (
     <>
-      <Header/>
+      {/* <Header/> */}
       <Banner />
       <Carousel/>
       <ProductGrid />
-      <Footer />
+      {/* <Footer /> */}
     </>
   );
 }

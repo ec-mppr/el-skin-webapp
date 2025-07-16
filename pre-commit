@@ -15,4 +15,3 @@ if [ $linting_result -ne 0 ]; then
   echo $linting_result
   exit 1
 fi
-

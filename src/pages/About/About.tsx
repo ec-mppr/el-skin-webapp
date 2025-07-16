@@ -10,7 +10,7 @@ import { Link } from 'react-router-dom';
 function About() {
   return (
     <>
-      <Header />
+      {/* <Header /> */}
       <div className="about-container">
         <section className='column-1'>
           <h2 className='about-title'>Sobre a AL SKIN</h2>
@@ -59,7 +59,7 @@ function About() {
       <div className='cover-image-container'>
         <img src={ImageCover} className='cover-image'></img>
       </div>
-      <Footer />
+      {/* <Footer /> */}
     </>
   );
 }

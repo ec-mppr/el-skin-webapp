@@ -44,7 +44,7 @@ function Contact() {
 
   return (
     <>
-      <Header />
+      {/* <Header /> */}
       <div className='container-contact'>
 
         <div className='container-form'>
@@ -102,7 +102,7 @@ function Contact() {
         </div>
       </div>
 
-      <Footer />
+      {/* <Footer /> */}
     </>
   );
 }
