@@ -1,5 +1,3 @@
-import Footer from '../../components/Footer/Footer';
-import Header from '../../components/Header/Header';
 import ImgContact from '../../assets/img_contact.jpg';
 import './Contact.css';
 import { faArrowRight } from '@fortawesome/free-solid-svg-icons';
@@ -44,7 +42,6 @@ function Contact() {
 
   return (
     <>
-      {/* <Header /> */}
       <div className='container-contact'>
 
         <div className='container-form'>
@@ -102,7 +99,6 @@ function Contact() {
         </div>
       </div>
 
-      {/* <Footer /> */}
     </>
   );
 }

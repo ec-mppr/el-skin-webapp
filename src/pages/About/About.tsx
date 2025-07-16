@@ -1,5 +1,3 @@
-import Footer from '../../components/Footer/Footer';
-import Header from '../../components/Header/Header';
 import './About.css';
 import Img1 from '../../assets/about_img_1.png';
 import Img2 from '../../assets/about_img_2.png';
@@ -10,7 +8,6 @@ import { Link } from 'react-router-dom';
 function About() {
   return (
     <>
-      {/* <Header /> */}
       <div className="about-container">
         <section className='column-1'>
           <h2 className='about-title'>Sobre a AL SKIN</h2>
@@ -59,7 +56,6 @@ function About() {
       <div className='cover-image-container'>
         <img src={ImageCover} className='cover-image'></img>
       </div>
-      {/* <Footer /> */}
     </>
   );
 }
