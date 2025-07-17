@@ -30,8 +30,8 @@
       "price": 45.99,
       "image": "prod1.jpg",
       "tags": [
-        "face",
-        "hydration"
+        { "label": "rosto", "type": "face" },
+        { "label": "hidratação", "type": "hydration" }
       ]
     },
     {
@@ -41,8 +41,8 @@
       "price": 89.90,
       "image": "prod2.jpg",
       "tags": [
-        "protection",
-        "sun"
+        { "label": "proteção", "type": "protection" },
+        { "label": "sol", "type": "sun" }
       ]
     },
     {
@@ -52,8 +52,8 @@
       "price": 32.50,
       "image": "prod3.jpg",
       "tags": [
-        "face",
-        "cleansing"
+        { "label": "rosto", "type": "face" },
+        { "label": "limpeza", "type": "cleansing" }
       ]
     },
     {
@@ -63,8 +63,8 @@
       "price": 78.20,
       "image": "prod4.jpg",
       "tags": [
-        "face",
-        "anti-aging"
+        { "label": "rosto", "type": "face" },
+        { "label": "anti-idade", "type": "anti-aging" }
       ]
     },
     {
@@ -74,8 +74,8 @@
       "price": 12.75,
       "image": "prod5.jpg",
       "tags": [
-        "lips",
-        "hydration"
+        { "label": "lábios", "type": "lips" },
+        { "label": "hidratação", "type": "hydration" }
       ]
     },
     {
@@ -85,8 +85,8 @@
       "price": 25.80,
       "image": "prod6.jpg",
       "tags": [
-        "face",
-        "exfoliation"
+        { "label": "rosto", "type": "face" },
+        { "label": "exfoliação", "type": "exfoliation" }
       ]
     },
     {
@@ -96,8 +96,8 @@
       "price": 38.40,
       "image": "prod7.jpg",
       "tags": [
-        "face",
-        "toning"
+        { "label": "rosto", "type": "face" },
+        { "label": "tônico", "type": "toning" }
       ]
     },
     {
@@ -107,8 +107,8 @@
       "price": 65.30,
       "image": "prod8.jpg",
       "tags": [
-        "body",
-        "hydration"
+        { "label": "corpo", "type": "body" },
+        { "label": "hidratação", "type": "hydration" }
       ]
     }
   ]

@@ -1,8 +1,4 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-// import Img1 from '../assets/img_1_carousel.png';
-// import Img1 from '../../assets/img_1_carousel.png';
-// import Img2 from '../../assets/img_2_carousel.png';
-// import Img3 from '../../assets/img_3_carousel.png';
 import { faAngleLeft, faAngleRight } from '@fortawesome/free-solid-svg-icons';
 import styles from './Carousel.module.css';
 import { useEffect, useRef, useState } from 'react';
@@ -17,7 +13,6 @@ interface ICarouselItem {
 }
 
 function Carousel() {
-  // let items: ICarouselItem[] = [];
   const [items, setItems] = useState<ICarouselItem[]>([]);
 
   const [idxItemAtual, setIdxItemAtual] = useState(0);
@@ -34,7 +29,6 @@ function Carousel() {
 
   useEffect(() => {
     axios.get('http://localhost:3001/carousel').then((response) => {
-      console.log('requisição feita', response.data);
       setItems(response.data);
     });
   }, []);
