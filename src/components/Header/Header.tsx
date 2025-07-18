@@ -3,10 +3,10 @@ import './Header.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCartShopping, faSearch } from '@fortawesome/free-solid-svg-icons';
 import Navigation from '../Navigation/Navigation';
+import Cart from '../Cart/Cart';
 
 function Header() {
   const [textoBusca, setTextoBusca] = useState('');
-
 
   function handleOnChange(e: React.ChangeEvent<HTMLInputElement>) {
     setTextoBusca(e.target.value);
@@ -14,6 +14,11 @@ function Header() {
 
   function onClickSearch(): void {
     console.log(`Você pesquisou por: ${textoBusca}`);
+  }
+
+  function openCart(event: React.MouseEvent<HTMLButtonElement, MouseEvent>): void {
+    event.preventDefault();
+    console.log('TODO: abrir carrinho');
   }
 
   return (
@@ -36,9 +41,10 @@ function Header() {
           </div>
 
           <div className="header-actions">
-            <button className="cart-button">
+            <button className="cart-button" onClick={openCart}>
               <FontAwesomeIcon icon={faCartShopping} />
             </button>
+            <Cart />
           </div>
         </div>
       </div>

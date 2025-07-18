@@ -1,10 +1,13 @@
 import './ProductGrid.css';
 import ProductCard, { IProduct } from '../ProductCard/ProductCard';
-import { useEffect, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import axios from 'axios';
+import { CartContext } from '../../context/cartContext';
 
 function ProductGrid() {
   const [products, setProducts] = useState<IProduct[]>([]);
+  const [cart, setCart] = useState(useContext(CartContext));
+  // const [cart, setCart] = useContext(Cart)
 
   useEffect(() => {
     axios.get('http://localhost:3001/products').then((response) => {
@@ -20,7 +23,9 @@ function ProductGrid() {
 
   const handleBuyClick = (productId: string, event: React.MouseEvent) => {
     event.stopPropagation();
+    setCart({ cartProducts: [...cart.cartProducts, productId] });
     console.log(`Comprar produto: ${productId}`);
+    console.log(cart);
   };
 
   return (
