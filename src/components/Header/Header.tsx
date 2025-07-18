@@ -44,7 +44,7 @@ function Header() {
             <button className="cart-button" onClick={openCart}>
               <FontAwesomeIcon icon={faCartShopping} />
             </button>
-            <Cart />
+            <Cart isShowing={true} />
           </div>
         </div>
       </div>

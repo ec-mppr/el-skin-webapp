@@ -24,8 +24,7 @@ function ProductGrid() {
   const handleBuyClick = (productId: string, event: React.MouseEvent) => {
     event.stopPropagation();
     setCart({ cartProducts: [...cart.cartProducts, productId] });
-    console.log(`Comprar produto: ${productId}`);
-    console.log(cart);
+    console.log(cart.cartProducts);
   };
 
   return (
