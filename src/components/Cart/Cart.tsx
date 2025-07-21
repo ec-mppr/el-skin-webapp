@@ -1,9 +1,12 @@
 import { useContext, useEffect, useState } from 'react';
 import './Cart.css';
 import { CartContext } from '../../context/cartContext';
+import { faXmark } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 interface CartProps {
   isShowing: boolean
+  closeCart: () => void
 }
 
 function Cart(props: CartProps) {
@@ -15,9 +18,13 @@ function Cart(props: CartProps) {
 
   if (props.isShowing) {
     return (
-      <div>
-        <h2 className="cart-title">Carrinho de Compras</h2>
-        <div className="cart-container">
+      <div className="cart-container">
+        <div className="cart-header">
+          <h3 className="cart-title">Carrinho</h3>
+          <FontAwesomeIcon icon={faXmark} color='white' className='cart-close-icon' size="lg" onClick={() => props.closeCart()}/>
+        </div>
+
+        <div className="cart-body">
           {cartContext.cartProducts.length > 0 ? (
             cartContext.cartProducts.map((productId) => (
               <div key={productId} className="cart-item">

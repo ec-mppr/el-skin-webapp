@@ -1,16 +1,18 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './App.css';
-// import Home from './pages/Home/Home';
-// import About from './pages/About/About';
-// import { BrowserRouter, Routes, Route } from 'react-router-dom';
-// import Contact from './pages/Contact/Contact';
-// import NotFound from './pages/NotFound/NotFound';
 import AppRouter from './routes';
+import { CartContext } from './context/cartContext';
 
-function App() {
+function App() {  
+  const [cartProducts, setCartProducts] = useState([] as string[]);
   return (
     <div className="App">
-      <AppRouter />
+      <CartContext value={{
+        cartProducts: cartProducts,
+        setCartProducts: setCartProducts,
+      }} >
+        <AppRouter />
+      </CartContext>
     </div>
   );
 }

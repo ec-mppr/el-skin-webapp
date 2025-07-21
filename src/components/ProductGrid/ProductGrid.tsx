@@ -6,9 +6,8 @@ import { CartContext } from '../../context/cartContext';
 
 function ProductGrid() {
   const [products, setProducts] = useState<IProduct[]>([]);
-  const [cart, setCart] = useState(useContext(CartContext));
-  // const [cart, setCart] = useContext(Cart)
-
+  const { cartProducts, setCartProducts } = useContext(CartContext);
+  
   useEffect(() => {
     axios.get('http://localhost:3001/products').then((response) => {
       setProducts(response.data);
@@ -23,15 +22,14 @@ function ProductGrid() {
 
   const handleBuyClick = (productId: string, event: React.MouseEvent) => {
     event.stopPropagation();
-    setCart({ cartProducts: [...cart.cartProducts, productId] });
-    console.log(cart.cartProducts);
+    setCartProducts([...cartProducts, productId]);
   };
 
   return (
     <section className="product-grid-section">
       <div className="product-grid-container">
         <h2 className="product-grid-title">{title}</h2>
-        
+
         <div className="product-grid">
           {products.map((product) => (
             <ProductCard

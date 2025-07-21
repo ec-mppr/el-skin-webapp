@@ -7,6 +7,7 @@ import Cart from '../Cart/Cart';
 
 function Header() {
   const [textoBusca, setTextoBusca] = useState('');
+  const [showCart, setShowCart] = useState<boolean>(false);
 
   function handleOnChange(e: React.ChangeEvent<HTMLInputElement>) {
     setTextoBusca(e.target.value);
@@ -18,7 +19,7 @@ function Header() {
 
   function openCart(event: React.MouseEvent<HTMLButtonElement, MouseEvent>): void {
     event.preventDefault();
-    console.log('TODO: abrir carrinho');
+    setShowCart(!showCart);
   }
 
   return (
@@ -44,7 +45,7 @@ function Header() {
             <button className="cart-button" onClick={openCart}>
               <FontAwesomeIcon icon={faCartShopping} />
             </button>
-            <Cart isShowing={true} />
+            <Cart isShowing={showCart} closeCart={() => setShowCart(false)} />
           </div>
         </div>
       </div>

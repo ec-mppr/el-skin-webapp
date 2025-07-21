@@ -1,7 +1,8 @@
-import { createContext } from 'react';
+import { createContext, SetStateAction, Dispatch } from 'react';
 
-type CartContextType = {
-  cartProducts: string[],
+export interface ICartContext {
+  cartProducts: string[];
+  setCartProducts: Dispatch<SetStateAction<string[]>>;
 }
-export const CartContext = createContext<CartContextType>({cartProducts: []});
+export const CartContext = createContext<ICartContext>({cartProducts: [], setCartProducts: () => null});
 
