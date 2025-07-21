@@ -1,16 +1,18 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import './Header.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCartShopping, faSearch } from '@fortawesome/free-solid-svg-icons';
 import Navigation from '../Navigation/Navigation';
 import Cart from '../Cart/Cart';
+import { SearchContext } from '../../context/searchContext';
 
 function Header() {
   const [textoBusca, setTextoBusca] = useState('');
   const [showCart, setShowCart] = useState<boolean>(false);
+  const { search, setSearch} = useContext(SearchContext);
 
   function handleOnChange(e: React.ChangeEvent<HTMLInputElement>) {
-    setTextoBusca(e.target.value);
+    setSearch(e.target.value);
   }
 
   function onClickSearch(): void {
