@@ -1,10 +1,19 @@
-.cart-container {
+.cart-overlay {
+    width: 100%;
     z-index: 999;
     position: fixed;
-    top: 1%;
-    right: 10%;
-    min-width: 200px;
-    min-height: 200px;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.3);
+}
+
+.cart-container {
+    position: fixed;
+    margin-top: 20%;
+    margin-left: 40%;
     background-color: white;
     border-radius: 12px;
     box-shadow: 12px 4px 12px rgba(0, 0, 0, 0.08);
@@ -20,8 +29,8 @@
     position: relative;
     top: 0;
     background-color: #94426E;
-    border-top-left-radius: 16px;
-    border-top-right-radius: 16px;
+    border-top-left-radius: 12px;
+    border-top-right-radius: 12px;
     width: 100%;
     align-items: center;
     justify-content: space-between;
@@ -42,4 +51,6 @@
 
 .cart-item {}
 
-.empty-cart {}
+.empty-cart {
+    padding: 2rem 2rem 2rem 2rem;
+}

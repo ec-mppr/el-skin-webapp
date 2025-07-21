@@ -1,21 +1,17 @@
 import React, { useState } from 'react';
 import './App.css';
 import AppRouter from './routes';
-import { CartContext } from './context/cartContext';
-import { SearchProvider } from './context/searchContext';
+import { CartProvider } from './context/CartContext';
+import { SearchProvider } from './context/SearchContext';
 
 function App() {  
-  const [cartProducts, setCartProducts] = useState([] as string[]);
   return (
     <div className="App">
-      <CartContext value={{
-        cartProducts: cartProducts,
-        setCartProducts: setCartProducts,
-      }} >
+      <CartProvider>
         <SearchProvider>
           <AppRouter />
         </SearchProvider>
-      </CartContext>
+      </CartProvider>
     </div>
   );
 }

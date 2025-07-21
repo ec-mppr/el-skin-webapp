@@ -2,12 +2,12 @@ import './ProductGrid.css';
 import ProductCard, { IProduct } from '../ProductCard/ProductCard';
 import { useContext, useEffect, useState } from 'react';
 import axios from 'axios';
-import { CartContext } from '../../context/cartContext';
-import { SearchContext } from '../../context/searchContext';
+import { CartProduct, useCartContext } from '../../context/CartContext';
+import { SearchContext } from '../../context/SearchContext';
 
 function ProductGrid() {
   const [products, setProducts] = useState<IProduct[]>([]);
-  const { cartProducts, setCartProducts } = useContext(CartContext);
+  const  { cartProducts, setCartProducts } = useCartContext();
   const [filteredProducts, setFilteredProducts] = useState<IProduct[]>([]);
   const { search } = useContext(SearchContext);
   
@@ -36,7 +36,8 @@ function ProductGrid() {
 
   const handleBuyClick = (productId: string, event: React.MouseEvent) => {
     event.stopPropagation();
-    setCartProducts([...cartProducts, productId]);
+    const addedItem = { id: productId } as CartProduct;
+    setCartProducts([...cartProducts, addedItem]);
   };
 
   return (

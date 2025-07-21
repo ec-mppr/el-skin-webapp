@@ -4,7 +4,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCartShopping, faSearch } from '@fortawesome/free-solid-svg-icons';
 import Navigation from '../Navigation/Navigation';
 import Cart from '../Cart/Cart';
-import { SearchContext } from '../../context/searchContext';
+import { SearchContext } from '../../context/SearchContext';
 
 function Header() {
   const [textoBusca, setTextoBusca] = useState('');
