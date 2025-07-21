@@ -1,0 +1,97 @@
+.container-contact {
+    margin-left: 144px;
+    margin-right: 144px;
+
+}
+
+.container-form {
+    display: flex;
+    /* margin-left: 144px;
+    margin-right: 144px; */
+    align-items: center;
+    gap: 2em;
+    justify-content: center;
+}
+
+.container-faq {
+    margin-left: 144px;
+    margin-right: 144px;
+    padding: 2rem;
+}
+
+.column-1 {
+    flex: 1;
+    /* max-width: 600px; */
+}
+
+.column-2 {
+    flex: 1;
+    /* max-width: 600px; */
+}
+
+.title-contact {
+    font-size: 20px;
+}
+
+.form-contact {
+    display: flex;
+    flex-direction: column;
+}
+
+.checkbox-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.single-checkbox-container {
+    padding-right: 2rem;
+    padding-bottom: 1rem;
+    display: flex;   
+}
+
+.button-enviar-mensagem {
+    background-color: #94426E;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    text-align: center;
+    display: flex;
+    padding: 15px 61px;
+    cursor: pointer;
+    width: 100%;
+    justify-content: center;
+    margin: auto;
+}
+
+.button-enviar-mensagem:hover {
+    cursor: pointer;
+    opacity: 70%;
+    transition: opacity 0.5s ease;
+}
+
+.icon-enviar-mensagem {
+    padding: 1rem 0 1rem 0.5rem;
+}
+
+.text-input {
+    width: 100%;
+    padding: 0.75rem 0rem 0.75rem 1rem;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 16px;
+    outline: none;
+    transition: border-color 0.3s ease;
+    background-color: #F5F5F5;
+    font-family: 'Poppins';
+    border: none;
+    margin-bottom: 1rem;
+}
+
+.checkbox {
+    accent-color: #94426E;
+}
+
+.faq-title {
+    font-size: 20px;
+}
