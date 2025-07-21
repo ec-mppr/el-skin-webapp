@@ -3,6 +3,8 @@ import './Cart.css';
 import { useCartContext } from '../../context/CartContext';
 import { faXmark } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { getDetailsProduct } from '../../services/productService';
+import { IProduct } from '../../types/IProduct';
 
 interface CartProps {
   isShowing: boolean
@@ -10,10 +12,10 @@ interface CartProps {
 }
 
 function Cart(props: CartProps) {
-  const cartContext = useCartContext();
+  const { cartProducts } = useCartContext();
 
   useEffect(() => {
-    console.log(cartContext.cartProducts);
+    console.log(cartProducts);
     // TODO: buscar detalhes do produto na db por id
   });
 
@@ -27,8 +29,8 @@ function Cart(props: CartProps) {
           </div>
 
           <div className="cart-body">
-            {cartContext.cartProducts.length > 0 ? (
-              cartContext.cartProducts.map((product) => (
+            {cartProducts.length > 0 ? (
+              cartProducts.map((product) => (
                 <div key={product.id} className="cart-item">
                   <p>Produto: {product.id}</p>
                 </div>

@@ -6,4 +6,11 @@ async function getProducts(): Promise<IProduct[]> {
   return response.data;
 }
 
-export { getProducts };
+async function getDetailsProduct(productId: string): Promise<IProduct | undefined> {
+  const response = await get<IProduct[]>(Endpoint.PRODUCTS);
+  const productsList = response.data;
+  const product = productsList.find((product) => product.id = productId);
+  return product;
+}
+
+export { getProducts, getDetailsProduct };
