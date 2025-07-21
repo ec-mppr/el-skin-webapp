@@ -7,7 +7,6 @@ import Cart from '../Cart/Cart';
 import { SearchContext } from '../../context/SearchContext';
 
 function Header() {
-  const [textoBusca, setTextoBusca] = useState('');
   const [showCart, setShowCart] = useState<boolean>(false);
   const { search, setSearch} = useContext(SearchContext);
 
@@ -16,7 +15,7 @@ function Header() {
   }
 
   function onClickSearch(): void {
-    console.log(`Você pesquisou por: ${textoBusca}`);
+    console.log(`Você pesquisou por: ${search}`);
   }
 
   function openCart(event: React.MouseEvent<HTMLButtonElement, MouseEvent>): void {

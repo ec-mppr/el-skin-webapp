@@ -25,6 +25,11 @@
   justify-items: center;
 }
 
+.product-not-found-text {
+  text-align: center;
+  font-size: 24px;
+}
+
 /* Animation for smooth loading */
 @keyframes fadeInUp {
   from {

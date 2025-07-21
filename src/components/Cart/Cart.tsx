@@ -1,4 +1,4 @@
-import { useContext, useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import './Cart.css';
 import { useCartContext } from '../../context/CartContext';
 import { faXmark } from '@fortawesome/free-solid-svg-icons';

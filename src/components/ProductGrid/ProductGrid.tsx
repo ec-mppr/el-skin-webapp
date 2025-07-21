@@ -1,20 +1,26 @@
 import './ProductGrid.css';
-import ProductCard, { IProduct } from '../ProductCard/ProductCard';
+import ProductCard from '../ProductCard/ProductCard';
 import { useContext, useEffect, useState } from 'react';
-import axios from 'axios';
 import { CartProduct, useCartContext } from '../../context/CartContext';
 import { SearchContext } from '../../context/SearchContext';
+import { getProducts } from '../../services/productService';
+import { IProduct } from '../../types/IProduct';
 
 function ProductGrid() {
   const [products, setProducts] = useState<IProduct[]>([]);
-  const  { cartProducts, setCartProducts } = useCartContext();
+  const { cartProducts, setCartProducts } = useCartContext();
   const [filteredProducts, setFilteredProducts] = useState<IProduct[]>([]);
   const { search } = useContext(SearchContext);
-  
+
   useEffect(() => {
-    axios.get('http://localhost:3001/products').then((response) => {
-      setProducts(response.data);
-    });
+    getProducts()
+      .then((data: IProduct[]) => {
+        setProducts(data);
+      })
+      .catch((error: Error) => {
+        console.error('Erro ao buscar produtos:', error);
+      }
+      );
   }, []);
 
   useEffect(() => {
@@ -44,17 +50,22 @@ function ProductGrid() {
     <section className="product-grid-section">
       <div className="product-grid-container">
         <h2 className="product-grid-title">{title}</h2>
-
-        <div className="product-grid">
-          {filteredProducts.map((product) => (
-            <ProductCard
-              key={product.id}
-              product={product}
-              onProductClick={handleProductClick}
-              onBuyClick={handleBuyClick}
-            />
-          ))}
-        </div>
+        {filteredProducts.length > 0 ?
+          <div className="product-grid">
+            {filteredProducts.map((product) => (
+              <ProductCard
+                key={product.id}
+                product={product}
+                onProductClick={handleProductClick}
+                onBuyClick={handleBuyClick}
+              />
+            ))}
+          </div>
+          :
+          <div>
+            <p className="product-not-found-text">Nenhum produto encontrado</p>
+          </div>
+        }
       </div>
     </section>
   );

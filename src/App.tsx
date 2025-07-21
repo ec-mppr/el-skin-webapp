@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import './App.css';
 import AppRouter from './routes';
 import { CartProvider } from './context/CartContext';
