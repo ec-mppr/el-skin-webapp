@@ -18,13 +18,16 @@ interface CartProviderProps {
 type CartContextType = {
   state: { cartProducts: CartProduct[] };
   dispatch: React.Dispatch<CartAction>;
+  data: { cartQuantityTotal: number };
 }
 const CartContext = createContext<CartContextType>({} as CartContextType);
 
 export const CartProvider: React.FC<CartProviderProps> = ({ children }) => {
-  const [state, dispatch] = useReducer(cartReducer, {cartProducts: []});
+  const [state, dispatch] = useReducer(cartReducer, { cartProducts: [] });
 
-  return <CartContext value={{state: state, dispatch: dispatch}}>
+  const cartQuantityTotal = state.cartProducts.reduce((total, product) => total + product.quantity, 0);
+
+  return <CartContext value={{ state: state, dispatch: dispatch, data: { cartQuantityTotal: cartQuantityTotal } }}>
     {children}
   </CartContext>;
 };

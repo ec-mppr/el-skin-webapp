@@ -79,7 +79,6 @@
 .header-actions {
   display: flex;
   align-items: center;
-  gap: 1rem;
 }
 
 .cart-button {
@@ -106,4 +105,10 @@
   align-items: center;
   margin: auto;
   width: 1230px;
+}
+
+.cart-button-quantity {
+  font-size: 0.8rem;
+  font-weight: bold;
+  color: #dcb241;
 }

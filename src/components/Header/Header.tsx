@@ -5,10 +5,12 @@ import { faCartShopping, faSearch } from '@fortawesome/free-solid-svg-icons';
 import Navigation from '../Navigation/Navigation';
 import Cart from '../Cart/Cart';
 import { SearchContext } from '../../context/SearchContext';
+import { useCartContext } from '../../context/CartContext';
 
 function Header() {
   const [showCart, setShowCart] = useState<boolean>(false);
   const { search, setSearch} = useContext(SearchContext);
+  const { data } = useCartContext();
 
   function handleOnChange(e: React.ChangeEvent<HTMLInputElement>) {
     setSearch(e.target.value);
@@ -46,6 +48,7 @@ function Header() {
             <button className="cart-button" onClick={openCart}>
               <FontAwesomeIcon icon={faCartShopping} />
             </button>
+            <p className='cart-button-quantity'>{data.cartQuantityTotal}</p>
             <Cart isShowing={showCart} closeCart={() => setShowCart(false)} />
           </div>
         </div>
