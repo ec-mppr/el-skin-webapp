@@ -11,35 +11,16 @@ interface CartProps {
 }
 
 function Cart(props: CartProps) {
-  const removeProduct = (productId: string) => {
-    const newList = cartProducts.flatMap((product) => {
-      if (product.id == productId) {
-        if (product.quantity > 0) {
-          product.quantity--;
-          return product;
-        } else {
-          return [];
-        }
-      }
-      return product;
-    });
-    setCartProducts(newList);
-  };
+  const { 
+    cartProducts,
+    increaseQuantityProduct,
+    decreaseQuantityProduct 
+  } = useCartContext();
 
-  const addProduct = (productId: string) => {
-    const newList = cartProducts.flatMap((product) => {
-      if (product.id == productId) {
-        if (product.quantity < 100) {
-          product.quantity++;
-          return product;
-        }
-      }
-      return product;
-    });
-    setCartProducts(newList);
+  const formattedPrice = (price: number): string => {
+    const roundedPrice = price.toFixed(2);
+    return `R$${roundedPrice}`;
   };
-
-  const { cartProducts, setCartProducts } = useCartContext();
 
   if (props.isShowing) {
     return (
@@ -59,10 +40,11 @@ function Cart(props: CartProps) {
                     <div className='cart-item-details'>
                       <p className='cart-item-title'>{product.name}</p>
                       <div className='cart-item-quantity-container'>
-                        <FontAwesomeIcon icon={faMinusSquare} size="xl" color={'rgb(255, 81, 28)'} className='button-minus' onClick={() => removeProduct(product.id)} />
+                        <FontAwesomeIcon icon={faMinusSquare} size="xl" color={'rgb(255, 81, 28)'} className='button-minus' onClick={() => decreaseQuantityProduct(product)} />
                         <input className='quantity-number' readOnly value={product.quantity} />
-                        <FontAwesomeIcon icon={faPlusSquare} size="xl" color={'rgba(63, 194, 7, 1)'} className='button-plus' onClick={() => addProduct(product.id)} />
+                        <FontAwesomeIcon icon={faPlusSquare} size="xl" color={'rgba(63, 194, 7, 1)'} className='button-plus' onClick={() => increaseQuantityProduct(product)} />
                       </div>
+                      <p className='cart-item-price'>{formattedPrice(product.totalPrice ?? product.price)}</p>
                     </div>
                   </div>
                   <hr className='cart-item-divider'></hr>
