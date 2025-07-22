@@ -5,14 +5,11 @@ import { CartProduct, useCartContext } from '../../context/CartContext';
 import { SearchContext } from '../../context/SearchContext';
 import { getProducts } from '../../services/productService';
 import { IProduct } from '../../types/IProduct';
+import { CartActionType } from '../../reducer/cartReducer';
 
 function ProductGrid() {
   const [products, setProducts] = useState<IProduct[]>([]);
-  const {
-    cartProducts,
-    addProduct,
-    increaseQuantityProduct,
-  } = useCartContext();
+  const { state, dispatch } = useCartContext();
   const [filteredProducts, setFilteredProducts] = useState<IProduct[]>([]);
   const { search } = useContext(SearchContext);
 
@@ -46,14 +43,22 @@ function ProductGrid() {
 
   const handleBuyClick = (product: IProduct, event: React.MouseEvent) => {
     event.stopPropagation();
-    const alreadyAdded = cartProducts.find((prevProduct) => prevProduct.id == product.id);
+    const alreadyAdded = state.cartProducts.find((prevProduct) => prevProduct.id == product.id);
     if (alreadyAdded) {
-      increaseQuantityProduct(alreadyAdded);
+      increaseProductQuantity(alreadyAdded);
       return;
     } else {
       addProduct(product);
       return;
     }
+  };
+
+  const addProduct = (product: IProduct) => {
+    dispatch({ type: CartActionType.ADD_PRODUCT, productToAdd: product });
+  };
+
+  const increaseProductQuantity = (alreadyAddedProduct: CartProduct) => {
+    dispatch({ type: CartActionType.INCREASE_QUANTITY, cartProduct: alreadyAddedProduct });
   };
 
   return (
