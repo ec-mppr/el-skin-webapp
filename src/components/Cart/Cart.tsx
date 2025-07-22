@@ -3,8 +3,7 @@ import './Cart.css';
 import { useCartContext } from '../../context/CartContext';
 import { faXmark } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { getDetailsProduct } from '../../services/productService';
-import { IProduct } from '../../types/IProduct';
+import { faPlusSquare, faMinusSquare } from '@fortawesome/free-solid-svg-icons';
 
 interface CartProps {
   isShowing: boolean
@@ -12,12 +11,35 @@ interface CartProps {
 }
 
 function Cart(props: CartProps) {
-  const { cartProducts } = useCartContext();
+  const removeProduct = (productId: string) => {
+    const newList = cartProducts.flatMap((product) => {
+      if (product.id == productId) {
+        if (product.quantity > 0) {
+          product.quantity--;
+          return product;
+        } else {
+          return [];
+        }
+      }
+      return product;
+    });
+    setCartProducts(newList);
+  };
 
-  useEffect(() => {
-    console.log(cartProducts);
-    // TODO: buscar detalhes do produto na db por id
-  });
+  const addProduct = (productId: string) => {
+    const newList = cartProducts.flatMap((product) => {
+      if (product.id == productId) {
+        if (product.quantity < 100) {
+          product.quantity++;
+          return product;
+        }
+      }
+      return product;
+    });
+    setCartProducts(newList);
+  };
+
+  const { cartProducts, setCartProducts } = useCartContext();
 
   if (props.isShowing) {
     return (
@@ -25,14 +47,25 @@ function Cart(props: CartProps) {
         <div className="cart-container">
           <div className="cart-header">
             <h3 className="cart-title">Carrinho</h3>
-            <FontAwesomeIcon icon={faXmark} color='white' className='cart-close-icon' size="lg" onClick={() => props.closeCart()}/>
+            <FontAwesomeIcon icon={faXmark} color='white' className='cart-close-icon' size="lg" onClick={() => props.closeCart()} />
           </div>
 
           <div className="cart-body">
             {cartProducts.length > 0 ? (
               cartProducts.map((product) => (
                 <div key={product.id} className="cart-item">
-                  <p>Produto: {product.id}</p>
+                  <div className="cart-item-inner">
+                    <img className='cart-item-image' src={product.image ?? '/prod1.jpg'} width={160} />
+                    <div className='cart-item-details'>
+                      <p className='cart-item-title'>{product.name}</p>
+                      <div className='cart-item-quantity-container'>
+                        <FontAwesomeIcon icon={faMinusSquare} size="xl" color={'rgb(255, 81, 28)'} className='button-minus' onClick={() => removeProduct(product.id)} />
+                        <input className='quantity-number' readOnly value={product.quantity} />
+                        <FontAwesomeIcon icon={faPlusSquare} size="xl" color={'rgba(63, 194, 7, 1)'} className='button-plus' onClick={() => addProduct(product.id)} />
+                      </div>
+                    </div>
+                  </div>
+                  <hr className='cart-item-divider'></hr>
                 </div>
               ))
             ) : (

@@ -40,10 +40,26 @@ function ProductGrid() {
     console.log(`Produto clicado: ${productId}`);
   };
 
-  const handleBuyClick = (productId: string, event: React.MouseEvent) => {
+  const handleBuyClick = (product: IProduct, event: React.MouseEvent) => {
     event.stopPropagation();
-    const addedItem = { id: productId } as CartProduct;
-    setCartProducts([...cartProducts, addedItem]);
+    const alreadyAdded = cartProducts.find((prevProduct) => prevProduct.id == product.id);
+    console.log(alreadyAdded);
+    if (alreadyAdded) {
+      const prevAddedProducts = cartProducts.map((listedProduct) => {
+        if (listedProduct.id == product.id) {
+          listedProduct.quantity++;
+          return listedProduct;
+        } else {
+          return listedProduct;
+        }
+      });
+      setCartProducts([...prevAddedProducts]);
+      return;
+    } else {
+      const addedItem = { ...product, 'quantity': 1 } as CartProduct;
+      setCartProducts([...cartProducts, addedItem]);
+      return;
+    }
   };
 
   return (

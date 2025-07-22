@@ -1,7 +1,13 @@
 import React, { createContext, Dispatch, ReactNode, SetStateAction, useContext, useMemo, useState } from 'react';
+import { IProduct } from '../types/IProduct';
 
 export interface CartProduct {
   id: string;
+  name: string;
+  description: string;
+  price: number;
+  image: string;
+  quantity: number;
 }
 
 export type CartContextType = {

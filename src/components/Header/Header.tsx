@@ -5,15 +5,10 @@ import { faCartShopping, faSearch } from '@fortawesome/free-solid-svg-icons';
 import Navigation from '../Navigation/Navigation';
 import Cart from '../Cart/Cart';
 import { SearchContext } from '../../context/SearchContext';
-import { useCartContext } from '../../context/CartContext';
-import { getDetailsProduct } from '../../services/productService';
-import { IProduct } from '../../types/IProduct';
 
 function Header() {
   const [showCart, setShowCart] = useState<boolean>(false);
   const { search, setSearch} = useContext(SearchContext);
-  const { cartProducts } = useCartContext();
-  const [cartProductsDetails, setCartProductsDetails] = useState<IProduct[]>([]);
 
   function handleOnChange(e: React.ChangeEvent<HTMLInputElement>) {
     setSearch(e.target.value);
@@ -25,17 +20,6 @@ function Header() {
 
   async function openCart(event: React.MouseEvent<HTMLButtonElement, MouseEvent>): Promise<void> {
     event.preventDefault();
-    const productsDetails: IProduct[] = [];
-    const promises = cartProducts.map(async (product) => {
-      getDetailsProduct(product.id).then((details) => {
-        if (details) {
-          console.log(details);
-          productsDetails.push(details);
-        }
-      });
-    });
-    await Promise.all(promises);
-    setCartProductsDetails(productsDetails);
     setShowCart(!showCart);
   }
 
