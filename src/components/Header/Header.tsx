@@ -1,19 +1,28 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import './Header.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCartShopping, faSearch } from '@fortawesome/free-solid-svg-icons';
 import Navigation from '../Navigation/Navigation';
+import Cart from '../Cart/Cart';
+import { SearchContext } from '../../context/SearchContext';
+import { useCartContext } from '../../context/CartContext';
 
 function Header() {
-  const [textoBusca, setTextoBusca] = useState('');
-
+  const [showCart, setShowCart] = useState<boolean>(false);
+  const { search, setSearch} = useContext(SearchContext);
+  const { data } = useCartContext();
 
   function handleOnChange(e: React.ChangeEvent<HTMLInputElement>) {
-    setTextoBusca(e.target.value);
+    setSearch(e.target.value);
   }
 
   function onClickSearch(): void {
-    console.log(`Você pesquisou por: ${textoBusca}`);
+    console.log(`Você pesquisou por: ${search}`);
+  }
+
+  async function openCart(event: React.MouseEvent<HTMLButtonElement, MouseEvent>): Promise<void> {
+    event.preventDefault();
+    setShowCart(!showCart);
   }
 
   return (
@@ -36,9 +45,11 @@ function Header() {
           </div>
 
           <div className="header-actions">
-            <button className="cart-button">
+            <button className="cart-button" onClick={openCart}>
               <FontAwesomeIcon icon={faCartShopping} />
             </button>
+            <p className='cart-button-quantity'>{data.cartQuantityTotal}</p>
+            <Cart isShowing={showCart} closeCart={() => setShowCart(false)} />
           </div>
         </div>
       </div>

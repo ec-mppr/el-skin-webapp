@@ -1,134 +1,86 @@
-
-import Prod1 from '../../assets/prod1.jpg';
-import Prod2 from '../../assets/prod2.jpg';
-import Prod3 from '../../assets/prod3.jpg';
-import Prod4 from '../../assets/prod4.jpg';
-import Prod5 from '../../assets/prod5.jpg';
-import Prod6 from '../../assets/prod6.jpg';
-import Prod7 from '../../assets/prod7.jpg';
-import Prod8 from '../../assets/prod8.jpg';
 import './ProductGrid.css';
-import ProductCard, { IProduct } from '../ProductCard/ProductCard';
-
-const defaultProducts: IProduct[] = [
-  {
-    id: '1',
-    name: 'Protetor solar AL SUN',
-    description: 'alta proteção e pele luminosa sem grude nem pelo encarnado',
-    price: 79.90,
-    image: Prod1,
-    tags: [
-      { label: 'proteção', type: 'protection' },
-      { label: 'rosto', type: 'face' }
-    ]
-  },
-  {
-    id: '2',
-    name: 'Protetor solar AL SUN',
-    description: 'alta proteção e pele luminosa sem grude nem pelo encarnado',
-    price: 79.90,
-    image: Prod2,
-    tags: [
-      { label: 'proteção', type: 'protection' },
-      { label: 'rosto', type: 'face' }
-    ]
-  },
-  {
-    id: '3',
-    name: 'Protetor solar AL SUN',
-    description: 'alta proteção e pele luminosa sem grude nem pelo encarnado',
-    price: 79.90,
-    image: Prod3,
-    tags: [
-      { label: 'proteção', type: 'protection' },
-      { label: 'rosto', type: 'face' }
-    ]
-  },
-  {
-    id: '4',
-    name: 'Protetor solar AL SUN',
-    description: 'alta proteção e pele luminosa sem grude nem pelo encarnado',
-    price: 79.90,
-    image: Prod4,
-    tags: [
-      { label: 'proteção', type: 'protection' },
-      { label: 'rosto', type: 'face' }
-    ]
-  },
-  {
-    id: '5',
-    name: 'Protetor solar AL SUN',
-    description: 'alta proteção e pele luminosa sem grude nem pelo encarnado',
-    price: 79.90,
-    image: Prod5,
-    tags: [
-      { label: 'proteção', type: 'protection' },
-      { label: 'rosto', type: 'face' }
-    ]
-  },
-  {
-    id: '6',
-    name: 'Protetor solar AL SUN',
-    description: 'alta proteção e pele luminosa sem grude nem pelo encarnado',
-    price: 79.90,
-    image: Prod8,
-    tags: [
-      { label: 'proteção', type: 'protection' },
-      { label: 'rosto', type: 'face' }
-    ]
-  },
-  {
-    id: '7',
-    name: 'Protetor solar AL SUN',
-    description: 'alta proteção e pele luminosa sem grude nem pelo encarnado',
-    price: 79.90,
-    image: Prod6,
-    tags: [
-      { label: 'proteção', type: 'protection' },
-      { label: 'rosto', type: 'face' }
-    ]
-  },
-  {
-    id: '8',
-    name: 'Protetor solar AL SUN',
-    description: 'alta proteção e pele luminosa sem grude nem pelo encarnado',
-    price: 79.90,
-    image: Prod7,
-    tags: [
-      { label: 'proteção', type: 'protection' },
-      { label: 'rosto', type: 'face' }
-    ]
-  }
-];
+import ProductCard from '../ProductCard/ProductCard';
+import { useContext, useEffect, useState } from 'react';
+import { CartProduct, useCartContext } from '../../context/CartContext';
+import { SearchContext } from '../../context/SearchContext';
+import { getProducts } from '../../services/productService';
+import { IProduct } from '../../types/IProduct';
+import { CartActionType } from '../../reducer/cartReducer';
 
 function ProductGrid() {
+  const [products, setProducts] = useState<IProduct[]>([]);
+  const { state, dispatch } = useCartContext();
+  const [filteredProducts, setFilteredProducts] = useState<IProduct[]>([]);
+  const { search } = useContext(SearchContext);
+
+  useEffect(() => {
+    getProducts()
+      .then((data: IProduct[]) => {
+        setProducts(data);
+      })
+      .catch((error: Error) => {
+        console.error('Erro ao buscar produtos:', error);
+      }
+      );
+  }, []);
+
+  useEffect(() => {
+    if (search) {
+      setFilteredProducts(products.filter(product =>
+        product.name.toLowerCase().includes(search.toLowerCase()) ||
+        product.description.toLowerCase().includes(search.toLowerCase())
+      ));
+    } else {
+      setFilteredProducts([...products]);
+    }
+  }, [search, products]);
+
   const title = 'nossos queridinhos estão aqui';
-  const products = defaultProducts;
 
   const handleProductClick = (productId: string) => {
     console.log(`Produto clicado: ${productId}`);
   };
 
-  const handleBuyClick = (productId: string, event: React.MouseEvent) => {
+  const handleBuyClick = (product: IProduct, event: React.MouseEvent) => {
     event.stopPropagation();
-    console.log(`Comprar produto: ${productId}`);
+    const alreadyAdded = state.cartProducts.find((prevProduct) => prevProduct.id == product.id);
+    if (alreadyAdded) {
+      increaseProductQuantity(alreadyAdded);
+      return;
+    } else {
+      addProduct(product);
+      return;
+    }
+  };
+
+  const addProduct = (product: IProduct) => {
+    dispatch({ type: CartActionType.ADD_PRODUCT, payload:  { productToAdd: product } });
+  };
+
+  const increaseProductQuantity = (alreadyAddedProduct: CartProduct) => {
+    dispatch({ type: CartActionType.INCREASE_QUANTITY, payload: { cartProduct: alreadyAddedProduct } });
   };
 
   return (
     <section className="product-grid-section">
       <div className="product-grid-container">
         <h2 className="product-grid-title">{title}</h2>
-        
-        <div className="product-grid">
-          {products.map((product) => (
-            <ProductCard
-              key={product.id}
-              product={product}
-              onProductClick={handleProductClick}
-              onBuyClick={handleBuyClick}
-            />
-          ))}
-        </div>
+        {filteredProducts.length > 0 ?
+          <div className="product-grid">
+            {filteredProducts.map((product) => (
+              <ProductCard
+                key={product.id}
+                product={product}
+                onProductClick={handleProductClick}
+                onBuyClick={handleBuyClick}
+              />
+            ))}
+          </div>
+          :
+          <div>
+            <p className="product-not-found-text">Nenhum produto encontrado</p>
+          </div>
+        }
       </div>
     </section>
   );

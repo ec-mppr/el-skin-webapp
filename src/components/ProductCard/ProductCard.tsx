@@ -1,22 +1,11 @@
 import React from 'react';
 import './ProductCard.css';
-
-export interface IProduct {
-  id: string;
-  name: string;
-  description: string;
-  price: number;
-  image: string;
-  tags: Array<{
-    label: string;
-    type: 'protection' | 'face';
-  }>;
-}
+import { IProduct } from '../../types/IProduct';
 
 interface ProductCardProps {
   product: IProduct;
   onProductClick: (productId: string) => void;
-  onBuyClick: (productId: string, event: React.MouseEvent) => void;
+  onBuyClick: (product: IProduct, event: React.MouseEvent) => void;
 }
 
 const ProductCard: React.FC<ProductCardProps> = ({
@@ -60,7 +49,7 @@ const ProductCard: React.FC<ProductCardProps> = ({
           </span>
           <button 
             className="product-buy-button"
-            onClick={(e) => onBuyClick(product.id, e)}
+            onClick={(e) => onBuyClick(product, e)}
             type="button"
           >
             comprar
