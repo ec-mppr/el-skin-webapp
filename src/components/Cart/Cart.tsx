@@ -2,7 +2,7 @@ import './Cart.css';
 import { useCartContext } from '../../context/CartContext';
 import { faXmark } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faPlusSquare, faMinusSquare } from '@fortawesome/free-solid-svg-icons';
+import { faPlusSquare, faMinusSquare, faTrashCan } from '@fortawesome/free-solid-svg-icons';
 import { CartActionType } from '../../reducer/cartReducer';
 
 interface CartProps {
@@ -11,7 +11,7 @@ interface CartProps {
 }
 
 function Cart(props: CartProps) {
-  const { state, dispatch } = useCartContext();
+  const { state, dispatch, data } = useCartContext();
 
   const formattedPrice = (price: number): string => {
     const roundedPrice = price.toFixed(2);
@@ -36,12 +36,13 @@ function Cart(props: CartProps) {
                     <div className='cart-item-details'>
                       <p className='cart-item-title'>{product.name}</p>
                       <div className='cart-item-quantity-container'>
-                        <FontAwesomeIcon icon={faMinusSquare} size="xl" color={'rgb(255, 81, 28)'} className='button-minus' onClick={() => dispatch({type: CartActionType.DECREASE_QUANTITY, payload: { cartProduct: product }})} />
+                        <FontAwesomeIcon icon={faMinusSquare} size="xl" className='button-minus' onClick={() => dispatch({type: CartActionType.DECREASE_QUANTITY, payload: { cartProduct: product }})} />
                         <input className='quantity-number' readOnly value={product.quantity} />
-                        <FontAwesomeIcon icon={faPlusSquare} size="xl" color={'rgba(63, 194, 7, 1)'} className='button-plus' onClick={() => dispatch({type: CartActionType.INCREASE_QUANTITY, payload: { cartProduct: product }})} />
+                        <FontAwesomeIcon icon={faPlusSquare} size="xl" className='button-plus' onClick={() => dispatch({type: CartActionType.INCREASE_QUANTITY, payload: { cartProduct: product }})} />
                       </div>
                       <p className='cart-item-price'>{formattedPrice(product.totalPrice ?? product.price)}</p>
                     </div>
+                    <FontAwesomeIcon icon={faTrashCan} size='xl' className='button-remove' color={'rgb(255, 81, 28)'} onClick={() => dispatch({type: CartActionType.REMOVE_PRODUCT, payload: { cartProduct: product }})} />
                   </div>
                   <hr className='cart-item-divider'></hr>
                 </div>
@@ -49,6 +50,10 @@ function Cart(props: CartProps) {
             ) : (
               <p className="empty-cart">Seu carrinho está vazio.</p>
             )}
+            <div className='footer'>
+              <p className='total-price'><span className='total-price-label'>Total:</span> <span>{formattedPrice(data.cartPriceTotal)}</span></p>
+              <button className='finalizar-compra-button'>Finalizar compra</button>
+            </div>
           </div>
         </div>
       </div>

@@ -2,21 +2,22 @@ import { CartProduct } from '../context/CartContext';
 import { IProduct } from '../types/IProduct';
 
 export type CartAction = {
-    type: CartActionType;
-    payload: {
-      cartProduct?: CartProduct;
-      productToAdd?: IProduct;
-    };
+  type: CartActionType;
+  payload: {
+    cartProduct?: CartProduct;
+    productToAdd?: IProduct;
+  };
 }
 
 export enum CartActionType {
-    ADD_PRODUCT = 'ADD_PRODUCT',
-    INCREASE_QUANTITY = 'INCREASE_QUANTITY',
-    DECREASE_QUANTITY = 'DECREASE_QUANTITY',
+  ADD_PRODUCT = 'ADD_PRODUCT',
+  INCREASE_QUANTITY = 'INCREASE_QUANTITY',
+  DECREASE_QUANTITY = 'DECREASE_QUANTITY',
+  REMOVE_PRODUCT = 'REMOVE_PRODUCT'
 }
 
 export type CartState = {
-    cartProducts: CartProduct[]
+  cartProducts: CartProduct[]
 }
 
 export const cartReducer = (state: CartState, action: CartAction): CartState => {
@@ -60,6 +61,20 @@ export const cartReducer = (state: CartState, action: CartAction): CartState => 
           }
         }
         return prevProduct;
+      });
+      const newState = ({ cartProducts: [...prevAddedProducts] });
+      return newState;
+    }
+    return state;
+  }
+  case CartActionType.REMOVE_PRODUCT: {
+    if (action.payload.cartProduct) {
+      const prevAddedProducts = state.cartProducts.flatMap((prevProduct) => {
+        if (prevProduct.id == action.payload.cartProduct?.id) {
+          return [];
+        }
+        return prevProduct;
+
       });
       const newState = ({ cartProducts: [...prevAddedProducts] });
       return newState;

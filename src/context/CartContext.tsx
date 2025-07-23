@@ -18,7 +18,7 @@ interface CartProviderProps {
 type CartContextType = {
   state: { cartProducts: CartProduct[] };
   dispatch: React.Dispatch<CartAction>;
-  data: { cartQuantityTotal: number };
+  data: { cartQuantityTotal: number, cartPriceTotal: number };
 }
 const CartContext = createContext<CartContextType>({} as CartContextType);
 
@@ -27,7 +27,9 @@ export const CartProvider: React.FC<CartProviderProps> = ({ children }) => {
 
   const cartQuantityTotal = state.cartProducts.reduce((total, product) => total + product.quantity, 0);
 
-  return <CartContext value={{ state: state, dispatch: dispatch, data: { cartQuantityTotal: cartQuantityTotal } }}>
+  const cartPriceTotal = state.cartProducts.reduce((total, product) => total + product.price, 0);
+
+  return <CartContext value={{ state: state, dispatch: dispatch, data: { cartQuantityTotal: cartQuantityTotal, cartPriceTotal: cartPriceTotal } }}>
     {children}
   </CartContext>;
 };

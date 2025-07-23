@@ -55,6 +55,7 @@
 
 .cart-body {
     padding: 2rem 2rem 2rem 2rem;
+    
 }
 
 .cart-item {
@@ -62,13 +63,14 @@
 
 .cart-item-inner {
     display: flex;
+    align-items: center;
     padding: 0 1rem 2rem 1rem;
 }
 
 .cart-item-details {
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: start;
     justify-items: center;
     justify-content: center;
     width: 100%;
@@ -86,8 +88,9 @@
 
 .cart-item-quantity-container {
     display: flex;
+    margin-left: 0;
     align-items: center;
-    justify-content: center;
+    justify-content: start;
 }
 
 .cart-item-divider {
@@ -102,6 +105,15 @@
 
 .button-minus {
     padding: 1rem;
+}
+
+.button-remove {
+    /* margin-top: 1rem; */
+    cursor: pointer;
+}
+
+.button-remove:hover {
+    transform: scale(120%);
 }
 
 .button-minus:hover {
@@ -126,4 +138,51 @@
     border: none;
     font-family: 'Shippori Antique', sans-serif;
     font-size: 16px;
+}
+
+.footer {
+    display: flex;
+    justify-items: space-between;
+    justify-content: space-between;
+    align-items: center;
+    background-color: white;
+}
+
+.total-price {
+    font-size: 1.1rem;
+    padding: 0 0.5rem 0 0.5rem;
+    width: 50%;
+}
+
+.total-price-label {
+    font-weight: bold;
+}
+
+.finalizar-compra-button {
+  background: linear-gradient(135deg, #8B4A8B 0%, #A855A8 100%);
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 32px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-transform: lowercase;
+  margin: 0;
+}
+
+.finalizar-compra-button:hover {
+  background: linear-gradient(135deg, #7A3E7A 0%, #9333EA 100%);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(139, 74, 139, 0.3);
+}
+
+.finalizar-compra-button:active {
+  transform: translateY(0);
+}
+
+.finalizar-compra-button:focus {
+  outline: 2px solid #8B4A8B;
+  outline-offset: 2px;
 }
