@@ -36,9 +36,9 @@ function Cart(props: CartProps) {
                     <div className='cart-item-details'>
                       <p className='cart-item-title'>{product.name}</p>
                       <div className='cart-item-quantity-container'>
-                        <FontAwesomeIcon icon={faMinusSquare} size="xl" color={'rgb(255, 81, 28)'} className='button-minus' onClick={() => dispatch({type: CartActionType.DECREASE_QUANTITY, cartProduct: product})} />
+                        <FontAwesomeIcon icon={faMinusSquare} size="xl" color={'rgb(255, 81, 28)'} className='button-minus' onClick={() => dispatch({type: CartActionType.DECREASE_QUANTITY, payload: { cartProduct: product }})} />
                         <input className='quantity-number' readOnly value={product.quantity} />
-                        <FontAwesomeIcon icon={faPlusSquare} size="xl" color={'rgba(63, 194, 7, 1)'} className='button-plus' onClick={() => dispatch({type: CartActionType.INCREASE_QUANTITY, cartProduct: product})} />
+                        <FontAwesomeIcon icon={faPlusSquare} size="xl" color={'rgba(63, 194, 7, 1)'} className='button-plus' onClick={() => dispatch({type: CartActionType.INCREASE_QUANTITY, payload: { cartProduct: product }})} />
                       </div>
                       <p className='cart-item-price'>{formattedPrice(product.totalPrice ?? product.price)}</p>
                     </div>

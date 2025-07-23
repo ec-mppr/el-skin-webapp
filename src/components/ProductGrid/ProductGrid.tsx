@@ -54,11 +54,11 @@ function ProductGrid() {
   };
 
   const addProduct = (product: IProduct) => {
-    dispatch({ type: CartActionType.ADD_PRODUCT, productToAdd: product });
+    dispatch({ type: CartActionType.ADD_PRODUCT, payload:  { productToAdd: product } });
   };
 
   const increaseProductQuantity = (alreadyAddedProduct: CartProduct) => {
-    dispatch({ type: CartActionType.INCREASE_QUANTITY, cartProduct: alreadyAddedProduct });
+    dispatch({ type: CartActionType.INCREASE_QUANTITY, payload: { cartProduct: alreadyAddedProduct } });
   };
 
   return (
