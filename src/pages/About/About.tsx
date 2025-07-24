@@ -3,7 +3,7 @@ import Img1 from '../../assets/about_img_1.png';
 import Img2 from '../../assets/about_img_2.png';
 import ImageCover from '../../assets/about_img_cover.jpg';
 import IconFaleConosco from '../../assets/icon_fale_conosco.svg';
-import { Link } from 'react-router-dom';
+import { Link } from 'react-router';
 
 function About() {
   return (
