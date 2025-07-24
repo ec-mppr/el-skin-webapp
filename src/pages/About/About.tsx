@@ -44,11 +44,9 @@ function About() {
           </div>
           
           <div className='button-fale-conosco-container'>
-            <Link to={'/contact'} className='link-fale-conosco'>
-              <button className='button-fale-conosco'>
-                <img src={IconFaleConosco} alt='Fale conosco' className='icon-fale-conosco'></img>
-                <p>Fale conosco</p>
-              </button>
+            <Link to={'/contact'} className='link-fale-conosco button-fale-conosco'>
+              <img src={IconFaleConosco} className='icon-fale-conosco'></img>
+              <p>Fale conosco</p>
             </Link>
           </div>
         </section>

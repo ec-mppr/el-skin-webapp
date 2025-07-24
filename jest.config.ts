@@ -1,9 +1,9 @@
 // require('ts-jest');
 import { createDefaultPreset } from 'ts-jest';
 const tsJestTransformCfg = createDefaultPreset().transform;
+import type { Config } from 'jest';
 
-/** @type {import('jest').Config} */
-const config = {
+const config: Config = {
   clearMocks: true,
   collectCoverage: true,
   collectCoverageFrom: ['src/**'],
@@ -18,7 +18,6 @@ const config = {
   testMatch: ['**/?(*.)+(spec|test).[tj]s?(x)'],
   transform: { '.(ts|tsx)': 'ts-jest' },
   setupFilesAfterEnv: ['<rootDir>/jest.setup.ts'],
-  // setupFilesAfterEnv: ['<rootDir>/setupTests.ts'],
 };
 
 export default config;
