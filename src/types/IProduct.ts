@@ -6,6 +6,6 @@ export interface IProduct {
   image: string;
   tags: Array<{
     label: string;
-    type: 'protection' | 'face';
+    type: 'protection' | 'face' | 'hydration' | 'body' | 'exfoliation' | 'lips' | 'anti-aging';
   }>;
 }

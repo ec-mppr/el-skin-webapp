@@ -10,6 +10,7 @@ const config: Config = {
   coverageDirectory: 'coverage',
   coverageProvider: 'v8',
   moduleDirectories: ['node_modules', 'src'], // @see https://stackoverflow.com/a/51174924/1614677
+  modulePaths: ['<rootDir>/src'],
   preset: 'ts-jest',
   resetMocks: true,
   restoreMocks: true,
@@ -17,6 +18,7 @@ const config: Config = {
   testEnvironment: 'jsdom',
   testMatch: ['**/?(*.)+(spec|test).[tj]s?(x)'],
   transform: { '.(ts|tsx)': 'ts-jest' },
+  transformIgnorePatterns: ['node_modules/(?!axios)'],
   setupFilesAfterEnv: ['<rootDir>/jest.setup.ts'],
 };
 
