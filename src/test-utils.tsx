@@ -1,5 +1,5 @@
 import { ReactElement } from 'react';
-import { CartProvider } from './context/CartContext';
+import { CartProduct, CartProvider } from './context/CartContext';
 import { SearchProvider } from './context/SearchContext';
 import { render, RenderOptions } from '@testing-library/react';
 import { BrowserRouter, BrowserRouter as Router } from 'react-router';

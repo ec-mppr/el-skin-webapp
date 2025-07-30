@@ -1,4 +1,4 @@
-import { render, screen, jest, test, act, renderWithRouter } from 'test-utils';
+import { render, screen, act, renderWithRouter } from 'test-utils';
 import ProductCard from './ProductCard';
 import { IProduct } from 'types/IProduct';
 import userEvent from '@testing-library/user-event';

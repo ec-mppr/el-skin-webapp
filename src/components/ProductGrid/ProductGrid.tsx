@@ -54,7 +54,7 @@ function ProductGrid() {
   };
 
   const addProduct = (product: IProduct) => {
-    dispatch({ type: CartActionType.ADD_PRODUCT, payload:  { productToAdd: product } });
+    dispatch({ type: CartActionType.ADD_PRODUCT, payload: { productToAdd: product } });
   };
 
   const increaseProductQuantity = (alreadyAddedProduct: CartProduct) => {
@@ -68,12 +68,15 @@ function ProductGrid() {
         {filteredProducts.length > 0 ?
           <div className="product-grid">
             {filteredProducts.map((product) => (
-              <ProductCard
-                key={product.id}
-                product={product}
-                onProductClick={handleProductClick}
-                onBuyClick={handleBuyClick}
-              />
+              <div key={product.id} data-testid="product-card-grid"
+              >
+                <ProductCard
+                  key={product.id}
+                  product={product}
+                  onProductClick={handleProductClick}
+                  onBuyClick={handleBuyClick}
+                />
+              </div>
             ))}
           </div>
           :
