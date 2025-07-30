@@ -54,7 +54,7 @@ function About() {
         </section>
       </div>
       <div className='cover-image-container'>
-        <img src={ImageCover} className='cover-image'></img>
+        <img src={ImageCover} className='cover-image' alt="Cover"></img>
       </div>
     </>
   );
