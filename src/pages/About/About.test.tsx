@@ -1,9 +1,9 @@
-import { render, screen, jest, test, act, renderWithRouter } from 'test-utils';
+import { customRender, screen, jest, test, act, renderWithRouter } from 'test-utils';
 import { userEvent } from '@testing-library/user-event';
 import About from './About';
 
 test('loads and displays page title', async () => {
-  render(<About />);
+  customRender(<About />);
 
   await screen.findByRole('heading');
 
@@ -29,13 +29,13 @@ test('has a button that navigates to contact page', async () => {
 });
 
 test('loads and displays main text', async () => {
-  render(<About />);
+  customRender(<About />);
   
   expect(screen.getByText(/QUEM SOMOS/i)).toBeInTheDocument();
 });
 
 test('has images with alt text', async () => {
-  render(<About/>);
+  customRender(<About/>);
   expect(screen.getByAltText('Conta-gotas')).toBeInTheDocument();
   expect(screen.getByAltText('Hidratante')).toBeInTheDocument();
 });

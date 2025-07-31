@@ -1,4 +1,4 @@
-import { render, screen, act, renderWithRouter } from 'test-utils';
+import { customRender, screen, act, renderWithRouter } from 'test-utils';
 import ProductCard from './ProductCard';
 import { IProduct } from 'types/IProduct';
 import userEvent from '@testing-library/user-event';
@@ -31,7 +31,7 @@ const secondProduct: IProduct = {
 };
 
 test('has product title', async () => {
-  render(<ProductCard
+  customRender(<ProductCard
     product={firstProduct}
     onProductClick={handleProductClick}
     onBuyClick={handleBuyClick} />);
@@ -42,7 +42,7 @@ test('has product title', async () => {
 test('clicking buy product button triggers a function that receives the product info', async () => {
   const user = userEvent.setup();
 
-  render(<ProductCard
+  customRender(<ProductCard
     product={firstProduct}
     onProductClick={handleProductClick}
     onBuyClick={handleBuyClick} />);

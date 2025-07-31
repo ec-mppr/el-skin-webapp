@@ -35,5 +35,5 @@ const renderWithRouter = (
 
 export * from '@testing-library/react';
 export * from '@jest/globals';
-export { customRender as render };
+export { customRender };
 export { renderWithRouter};

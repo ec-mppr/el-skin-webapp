@@ -1,4 +1,4 @@
-import { render, test, screen, fireEvent, act, waitFor } from 'test-utils';
+import { customRender, test, screen, fireEvent, act, waitFor } from 'test-utils';
 import ProductGrid from './ProductGrid';
 import { productsMock } from 'mocks/productsMock';
 import { SearchContext } from 'context/SearchContext';
@@ -7,13 +7,13 @@ import { useState } from 'react';
 import React from 'react';
 
 test('renders full list of products', async () => {
-  render(<ProductGrid />);
+  customRender(<ProductGrid />);
   const productsList = await screen.findAllByTestId('product-card');
   expect(productsList).toHaveLength(productsMock.length);
 });
 
 test('products are filtered by search term', async () => {
-  render(
+  customRender(
     <SearchContext value={{ search: 'hidratante', setSearch: () => null }}>
       <ProductGrid />
     </SearchContext>
@@ -23,7 +23,7 @@ test('products are filtered by search term', async () => {
 });
 
 test('message is shown if no product is found with search term', async () => {
-  render(
+  customRender(
     <SearchContext value={{ search: 'olhos', setSearch: () => null }}>
       <ProductGrid />
     </SearchContext>
@@ -35,7 +35,7 @@ test('message is shown if no product is found with search term', async () => {
 
 test('triggers a function on product click', async () => {
   const consoleSpy = jest.spyOn(console, 'log');
-  render(<ProductGrid />);
+  customRender(<ProductGrid />);
   const productsList = await screen.findAllByTestId('product-card');
   const firstProduct = productsList[0];
   const user = userEvent.setup();

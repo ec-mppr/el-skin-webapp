@@ -48,7 +48,7 @@ function Header() {
             <button className="cart-button" data-testid="cart-button" onClick={openCart}>
               <FontAwesomeIcon icon={faCartShopping} />
             </button>
-            <p className='cart-button-quantity'>{data.cartQuantityTotal}</p>
+            <p className='cart-button-quantity' data-testid='cart-button-quantity'>{data.cartQuantityTotal}</p>
             <Cart isShowing={showCart} closeCart={() => setShowCart(false)} />
           </div>
         </div>
