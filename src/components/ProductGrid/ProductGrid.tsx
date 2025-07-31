@@ -3,7 +3,7 @@ import ProductCard from '../ProductCard/ProductCard';
 import { useContext, useEffect, useState } from 'react';
 import { CartProduct, useCartContext } from '../../context/CartContext';
 import { SearchContext } from '../../context/SearchContext';
-import { getProducts } from '../../services/productService';
+import productService from '../../services/productService';
 import { IProduct } from '../../types/IProduct';
 import { CartActionType } from '../../reducer/cartReducer';
 
@@ -14,7 +14,7 @@ function ProductGrid() {
   const { search } = useContext(SearchContext);
 
   useEffect(() => {
-    getProducts()
+    productService.getProducts()
       .then((data: IProduct[]) => {
         setProducts(data);
       })
