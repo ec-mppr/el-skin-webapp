@@ -23,10 +23,11 @@ test('submitting search prints the search term to the console', async () => {
   customRender(<Header/>);
   const searchInput = screen.getByPlaceholderText('O que você está procurando?');
   const searchButton = screen.getByTestId('search-button');
-  const typing = user.type(searchInput, 'hidratante');
+  const searchTerm = 'hidratante';
+  const typing = user.type(searchInput, searchTerm);
   const clickingButton = user.click(searchButton);
   Promise.all([typing, clickingButton]).then(() => {
-    expect(consoleSpy).toHaveBeenCalledWith('Você pesquisou por: hidratante');
+    expect(consoleSpy).toHaveBeenCalledWith(`Você pesquisou por: ${searchTerm}`);
   });
 });
 

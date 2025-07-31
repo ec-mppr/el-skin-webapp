@@ -24,7 +24,7 @@ function Cart(props: CartProps) {
         <div className="cart-container">
           <div className="cart-header">
             <h3 className="cart-title">Carrinho</h3>
-            <FontAwesomeIcon icon={faXmark} color='white' className='cart-close-icon' size="lg" onClick={() => props.closeCart()} />
+            <FontAwesomeIcon icon={faXmark} color='white' data-testid="cart-close" className='cart-close-icon' size="lg" onClick={() => props.closeCart()} />
           </div>
 
           <div className="cart-body">
@@ -34,15 +34,15 @@ function Cart(props: CartProps) {
                   <div className="cart-item-inner">
                     <img className='cart-item-image' src={product.image ?? '/prod1.jpg'} width={160} />
                     <div className='cart-item-details'>
-                      <p className='cart-item-title'>{product.name}</p>
+                      <p className='cart-item-title' data-testid="cart-item-title">{product.name}</p>
                       <div className='cart-item-quantity-container'>
-                        <FontAwesomeIcon icon={faMinusSquare} size="xl" className='button-minus' onClick={() => dispatch({type: CartActionType.DECREASE_QUANTITY, payload: { cartProduct: product }})} />
-                        <input className='quantity-number' readOnly value={product.quantity} />
-                        <FontAwesomeIcon icon={faPlusSquare} size="xl" className='button-plus' onClick={() => dispatch({type: CartActionType.INCREASE_QUANTITY, payload: { cartProduct: product }})} />
+                        <FontAwesomeIcon icon={faMinusSquare} size="xl" className='button-minus' data-testid='decrease-quantity-button' onClick={() => dispatch({ type: CartActionType.DECREASE_QUANTITY, payload: { cartProduct: product } })} />
+                        <input className='quantity-number' data-testid="quantity-number" readOnly value={product.quantity} />
+                        <FontAwesomeIcon icon={faPlusSquare} size="xl" className='button-plus' data-testid='increase-quantity-button' onClick={() => dispatch({ type: CartActionType.INCREASE_QUANTITY, payload: { cartProduct: product } })} />
                       </div>
                       <p className='cart-item-price'>{formattedPrice(product.totalPrice ?? product.price)}</p>
                     </div>
-                    <FontAwesomeIcon icon={faTrashCan} size='xl' className='button-remove' color={'rgb(255, 81, 28)'} onClick={() => dispatch({type: CartActionType.REMOVE_PRODUCT, payload: { cartProduct: product }})} />
+                    <FontAwesomeIcon icon={faTrashCan} size='xl' className='button-remove' color={'rgb(255, 81, 28)'} onClick={() => dispatch({ type: CartActionType.REMOVE_PRODUCT, payload: { cartProduct: product } })} />
                   </div>
                   <hr className='cart-item-divider'></hr>
                 </div>
