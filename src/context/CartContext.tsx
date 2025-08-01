@@ -37,6 +37,7 @@ export const CartProvider: React.FC<CartProviderProps> = ({ children }) => {
 export const useCartContext = (): CartContextType => {
   const context = useContext(CartContext);
   if (!context) {
+    console.error('useCartContext must be used within a CartProvider');
     throw new Error('useCartContext must be used within a CartProvider');
   }
   return context;

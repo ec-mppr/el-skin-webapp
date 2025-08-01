@@ -39,16 +39,16 @@ function Header() {
               placeholder="O que você está procurando?"
               className="search-input"
               onChange={handleOnChange}/>
-            <button className="search-button" onClick={onClickSearch}>
+            <button className="search-button" data-testid="search-button" onClick={onClickSearch}>
               <FontAwesomeIcon icon={faSearch}/>
             </button>
           </div>
 
           <div className="header-actions">
-            <button className="cart-button" onClick={openCart}>
+            <button className="cart-button" data-testid="cart-button" onClick={openCart}>
               <FontAwesomeIcon icon={faCartShopping} />
             </button>
-            <p className='cart-button-quantity'>{data.cartQuantityTotal}</p>
+            <p className='cart-button-quantity' data-testid='cart-button-quantity'>{data.cartQuantityTotal}</p>
             <Cart isShowing={showCart} closeCart={() => setShowCart(false)} />
           </div>
         </div>

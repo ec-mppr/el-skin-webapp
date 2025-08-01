@@ -2,19 +2,22 @@
 .footer {
   background-color: #f8f9fa;
   margin-top: 60px;
+  display: flex;
+  flex-direction: column;
 }
 
 .footer-container {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 0 20px;
+  padding: 1rem 2rem;
+  border: none;
 }
 
 /* Social Icons Section */
 .footer-social {
-  background-color: #ffffff;
+  background-color: #f8f9fa;
   padding: 40px 0;
-  border-bottom: 1px solid #e9ecef;
+  width: 100%;
 }
 
 .social-icons {
@@ -53,17 +56,22 @@
 /* Links Section */
 .footer-links {
   background-color: #f8f9fa;
-  padding: 50px 0;
+  border: none;
+  width: 100%;
 }
 
 .footer-sections {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 40px;
+  grid-template-columns: [sobre] auto [loja] auto [atendimento] auto [blog] auto;
+  grid-template-rows: [row-1] 100%;
+  gap: 80px;
 }
 
-.footer-section {
+/* https://developer.mozilla.org/en-US/docs/Web/CSS/Attribute_selectors */
+[class|="footer-section"] {
   text-align: left;
+  grid-column: auto / auto;
+  grid-row: auto / auto;
 }
 
 .footer-section-title {
@@ -115,6 +123,7 @@
   color: white;
   padding: 30px 0;
   text-align: center;
+  width: 100%;
 }
 
 .footer-brand-name {
