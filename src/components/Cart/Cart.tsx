@@ -11,11 +11,16 @@ interface CartProps {
 }
 
 function Cart(props: CartProps) {
-  const { state, dispatch, data } = useCartContext();
+  const { updateQuantity, totalPrice, getTotalItems, items, removeItem } = useCartContext();
 
   const formattedPrice = (price: number): string => {
     const roundedPrice = price.toFixed(2);
     return `R$${roundedPrice}`;
+  };
+
+  const totalProductPrice = (price: number, quantity: number): string => {
+    const total = price * quantity;
+    return formattedPrice(total);
   };
 
   if (props.isShowing) {
@@ -28,21 +33,21 @@ function Cart(props: CartProps) {
           </div>
 
           <div className="cart-body">
-            {state.cartProducts.length > 0 ? (
-              state.cartProducts.map((product) => (
+            {items.length > 0 ? (
+              items.map((product) => (
                 <div key={product.id} className="cart-item">
                   <div className="cart-item-inner">
                     <img className='cart-item-image' src={product.image ?? '/prod1.jpg'} width={160} />
                     <div className='cart-item-details'>
                       <p className='cart-item-title' data-testid="cart-item-title">{product.name}</p>
                       <div className='cart-item-quantity-container'>
-                        <FontAwesomeIcon icon={faMinusSquare} size="xl" className='button-minus' data-testid='decrease-quantity-button' onClick={() => dispatch({ type: CartActionType.DECREASE_QUANTITY, payload: { cartProduct: product } })} />
+                        <FontAwesomeIcon icon={faMinusSquare} size="xl" className='button-minus' data-testid='decrease-quantity-button' onClick={() => updateQuantity(product.id, product.quantity - 1)} />
                         <input className='quantity-number' data-testid="quantity-number" readOnly value={product.quantity} />
-                        <FontAwesomeIcon icon={faPlusSquare} size="xl" className='button-plus' data-testid='increase-quantity-button' onClick={() => dispatch({ type: CartActionType.INCREASE_QUANTITY, payload: { cartProduct: product } })} />
+                        <FontAwesomeIcon icon={faPlusSquare} size="xl" className='button-plus' data-testid='increase-quantity-button' onClick={() => updateQuantity(product.id, product.quantity + 1)} />
                       </div>
-                      <p className='cart-item-price'>{formattedPrice(product.totalPrice ?? product.price)}</p>
+                      <p className='cart-item-price'>{totalProductPrice(product.price, product.quantity)}</p>
                     </div>
-                    <FontAwesomeIcon icon={faTrashCan} size='xl' className='button-remove' color={'rgb(255, 81, 28)'} onClick={() => dispatch({ type: CartActionType.REMOVE_PRODUCT, payload: { cartProduct: product } })} />
+                    <FontAwesomeIcon icon={faTrashCan} size='xl' className='button-remove' color={'rgb(255, 81, 28)'} onClick={() => removeItem(product.id)} />
                   </div>
                   <hr className='cart-item-divider'></hr>
                 </div>
@@ -51,7 +56,7 @@ function Cart(props: CartProps) {
               <p className="empty-cart">Seu carrinho está vazio.</p>
             )}
             <div className='footer'>
-              <p className='total-price'><span className='total-price-label'>Total:</span> <span>{formattedPrice(data.cartPriceTotal)}</span></p>
+              <p className='total-price'><span className='total-price-label'>Total:</span> <span>{formattedPrice(totalPrice)}</span></p>
               <button className='finalizar-compra-button'>Finalizar compra</button>
             </div>
           </div>

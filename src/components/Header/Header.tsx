@@ -6,11 +6,12 @@ import Navigation from '../Navigation/Navigation';
 import Cart from '../Cart/Cart';
 import { SearchContext } from '../../context/SearchContext';
 import { useCartContext } from '../../context/CartContext';
+import { useCart } from 'hooks/useCart';
 
 function Header() {
   const [showCart, setShowCart] = useState<boolean>(false);
   const { search, setSearch} = useContext(SearchContext);
-  const { data } = useCartContext();
+  const { getTotalItems } = useCartContext();
 
   function handleOnChange(e: React.ChangeEvent<HTMLInputElement>) {
     setSearch(e.target.value);
@@ -48,7 +49,7 @@ function Header() {
             <button className="cart-button" data-testid="cart-button" onClick={openCart}>
               <FontAwesomeIcon icon={faCartShopping} />
             </button>
-            <p className='cart-button-quantity' data-testid='cart-button-quantity'>{data.cartQuantityTotal}</p>
+            <p className='cart-button-quantity' data-testid='cart-button-quantity'>{getTotalItems()}</p>
             <Cart isShowing={showCart} closeCart={() => setShowCart(false)} />
           </div>
         </div>

@@ -9,7 +9,7 @@ import { CartActionType } from '../../reducer/cartReducer';
 
 function ProductGrid() {
   const [products, setProducts] = useState<IProduct[]>([]);
-  const { state, dispatch } = useCartContext();
+  const { items, addItem, updateQuantity } = useCartContext();
   const [filteredProducts, setFilteredProducts] = useState<IProduct[]>([]);
   const { search } = useContext(SearchContext);
 
@@ -41,24 +41,16 @@ function ProductGrid() {
     console.log(`Produto clicado: ${productId}`);
   };
 
-  const handleBuyClick = (product: IProduct, event: React.MouseEvent) => {
+  const handleBuyClick = (productId: string, event: React.MouseEvent) => {
     event.stopPropagation();
-    const alreadyAdded = state.cartProducts.find((prevProduct) => prevProduct.id == product.id);
-    if (alreadyAdded) {
-      increaseProductQuantity(alreadyAdded);
-      return;
-    } else {
-      addProduct(product);
+    const productToBuy = products.find((prevProduct) => prevProduct.id == productId);
+
+    if (!productToBuy) {
+      console.error(`Produto com id ${productId} não encontrado`);
       return;
     }
-  };
 
-  const addProduct = (product: IProduct) => {
-    dispatch({ type: CartActionType.ADD_PRODUCT, payload: { productToAdd: product } });
-  };
-
-  const increaseProductQuantity = (alreadyAddedProduct: CartProduct) => {
-    dispatch({ type: CartActionType.INCREASE_QUANTITY, payload: { cartProduct: alreadyAddedProduct } });
+    addItem(productToBuy);
   };
 
   return (
