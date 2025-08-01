@@ -3,7 +3,7 @@ import ProductCard from '../ProductCard/ProductCard';
 import { useContext, useEffect, useState } from 'react';
 import { CartProduct, useCartContext } from '../../context/CartContext';
 import { SearchContext } from '../../context/SearchContext';
-import { getProducts } from '../../services/productService';
+import productService from '../../services/productService';
 import { IProduct } from '../../types/IProduct';
 import { CartActionType } from '../../reducer/cartReducer';
 
@@ -14,7 +14,7 @@ function ProductGrid() {
   const { search } = useContext(SearchContext);
 
   useEffect(() => {
-    getProducts()
+    productService.getProducts()
       .then((data: IProduct[]) => {
         setProducts(data);
       })
@@ -54,7 +54,7 @@ function ProductGrid() {
   };
 
   const addProduct = (product: IProduct) => {
-    dispatch({ type: CartActionType.ADD_PRODUCT, payload:  { productToAdd: product } });
+    dispatch({ type: CartActionType.ADD_PRODUCT, payload: { productToAdd: product } });
   };
 
   const increaseProductQuantity = (alreadyAddedProduct: CartProduct) => {
@@ -68,12 +68,15 @@ function ProductGrid() {
         {filteredProducts.length > 0 ?
           <div className="product-grid">
             {filteredProducts.map((product) => (
-              <ProductCard
-                key={product.id}
-                product={product}
-                onProductClick={handleProductClick}
-                onBuyClick={handleBuyClick}
-              />
+              <div key={product.id} data-testid="product-card-grid"
+              >
+                <ProductCard
+                  key={product.id}
+                  product={product}
+                  onProductClick={handleProductClick}
+                  onBuyClick={handleBuyClick}
+                />
+              </div>
             ))}
           </div>
           :

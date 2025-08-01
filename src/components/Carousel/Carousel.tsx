@@ -3,6 +3,7 @@ import { faAngleLeft, faAngleRight } from '@fortawesome/free-solid-svg-icons';
 import styles from './Carousel.module.css';
 import { useEffect, useRef, useState } from 'react';
 import axios from 'axios';
+import { Endpoint, get } from 'services/api';
 
 interface ICarouselItem {
   id: number;
@@ -28,10 +29,14 @@ function Carousel() {
   }
 
   useEffect(() => {
-    axios.get('http://localhost:3001/carousel').then((response) => {
+    getCarouselItems();
+  }, []);
+
+  async function getCarouselItems() {
+    await get<ICarouselItem[]>(Endpoint.CAROUSEL).then((response) => {
       setItems(response.data);
     });
-  }, []);
+  }
 
   useEffect(() => {
     timer.current = setInterval(() => {

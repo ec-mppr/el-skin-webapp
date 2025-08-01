@@ -20,6 +20,7 @@ const ProductCard: React.FC<ProductCardProps> = ({
   return (
     <a
       className="product-card"
+      data-testid="product-card"
       onClick={() => onProductClick(product.id)}>
       <div className="product-image">
         <img 

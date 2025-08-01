@@ -3,7 +3,7 @@ import Img1 from '../../assets/about_img_1.png';
 import Img2 from '../../assets/about_img_2.png';
 import ImageCover from '../../assets/about_img_cover.jpg';
 import IconFaleConosco from '../../assets/icon_fale_conosco.svg';
-import { Link } from 'react-router-dom';
+import { Link } from 'react-router';
 
 function About() {
   return (
@@ -44,11 +44,9 @@ function About() {
           </div>
           
           <div className='button-fale-conosco-container'>
-            <Link to={'/contact'} className='link-fale-conosco'>
-              <button className='button-fale-conosco'>
-                <img src={IconFaleConosco} alt='Fale conosco' className='icon-fale-conosco'></img>
-                <p>Fale conosco</p>
-              </button>
+            <Link to={'/contact'} className='link-fale-conosco button-fale-conosco'>
+              <img src={IconFaleConosco} className='icon-fale-conosco'></img>
+              <p>Fale conosco</p>
             </Link>
           </div>
         </section>
