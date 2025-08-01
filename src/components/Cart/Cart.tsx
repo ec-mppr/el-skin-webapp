@@ -3,7 +3,6 @@ import { useCartContext } from '../../context/CartContext';
 import { faXmark } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlusSquare, faMinusSquare, faTrashCan } from '@fortawesome/free-solid-svg-icons';
-import { CartActionType } from '../../reducer/cartReducer';
 
 interface CartProps {
   isShowing: boolean

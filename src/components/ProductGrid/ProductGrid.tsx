@@ -5,7 +5,6 @@ import { CartProduct, useCartContext } from '../../context/CartContext';
 import { SearchContext } from '../../context/SearchContext';
 import productService from '../../services/productService';
 import { IProduct } from '../../types/IProduct';
-import { CartActionType } from '../../reducer/cartReducer';
 
 function ProductGrid() {
   const [products, setProducts] = useState<IProduct[]>([]);

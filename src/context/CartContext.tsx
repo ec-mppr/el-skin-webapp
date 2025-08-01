@@ -1,5 +1,4 @@
 import React, { createContext, ReactNode, useContext, useReducer } from 'react';
-import { CartAction, cartReducer } from '../reducer/cartReducer';
 import { useCart, UseCartReturn } from 'hooks/useCart';
 
 export interface CartProduct {
