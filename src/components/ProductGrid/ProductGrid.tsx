@@ -5,13 +5,14 @@ import { CartProduct, useCartContext } from '../../context/CartContext';
 import { SearchContext } from '../../context/SearchContext';
 import productService from '../../services/productService';
 import { IProduct } from '../../types/IProduct';
-import { CartActionType } from '../../reducer/cartReducer';
+import { useSearch } from 'hooks/useSearch';
 
 function ProductGrid() {
   const [products, setProducts] = useState<IProduct[]>([]);
-  const { state, dispatch } = useCartContext();
+  const { items, addItem, updateQuantity } = useCartContext();
   const [filteredProducts, setFilteredProducts] = useState<IProduct[]>([]);
-  const { search } = useContext(SearchContext);
+  // const { search } = useContext(SearchContext);
+  const { term } = useSearch();
 
   useEffect(() => {
     productService.getProducts()
@@ -25,15 +26,15 @@ function ProductGrid() {
   }, []);
 
   useEffect(() => {
-    if (search) {
+    if (term) {
       setFilteredProducts(products.filter(product =>
-        product.name.toLowerCase().includes(search.toLowerCase()) ||
-        product.description.toLowerCase().includes(search.toLowerCase())
+        product.name.toLowerCase().includes(term.toLowerCase()) ||
+        product.description.toLowerCase().includes(term.toLowerCase())
       ));
     } else {
       setFilteredProducts([...products]);
     }
-  }, [search, products]);
+  }, [term, products]);
 
   const title = 'nossos queridinhos estão aqui';
 
@@ -41,24 +42,16 @@ function ProductGrid() {
     console.log(`Produto clicado: ${productId}`);
   };
 
-  const handleBuyClick = (product: IProduct, event: React.MouseEvent) => {
+  const handleBuyClick = (productId: string, event: React.MouseEvent) => {
     event.stopPropagation();
-    const alreadyAdded = state.cartProducts.find((prevProduct) => prevProduct.id == product.id);
-    if (alreadyAdded) {
-      increaseProductQuantity(alreadyAdded);
-      return;
-    } else {
-      addProduct(product);
+    const productToBuy = products.find((prevProduct) => prevProduct.id == productId);
+
+    if (!productToBuy) {
+      console.error(`Produto com id ${productId} não encontrado`);
       return;
     }
-  };
 
-  const addProduct = (product: IProduct) => {
-    dispatch({ type: CartActionType.ADD_PRODUCT, payload: { productToAdd: product } });
-  };
-
-  const increaseProductQuantity = (alreadyAddedProduct: CartProduct) => {
-    dispatch({ type: CartActionType.INCREASE_QUANTITY, payload: { cartProduct: alreadyAddedProduct } });
+    addItem(productToBuy);
   };
 
   return (

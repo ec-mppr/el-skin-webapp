@@ -50,5 +50,5 @@ test('clicking buy product button triggers a function that receives the product 
   await screen.findByText(/comprar/i);
   await user.click(screen.getByText(/comprar/i));
   expect(handleBuyClick).toBeCalled();
-  expect(handleBuyClick).toHaveBeenCalledWith(firstProduct, expect.anything());
+  expect(handleBuyClick).toHaveBeenCalledWith(firstProduct.id, expect.anything());
 });
