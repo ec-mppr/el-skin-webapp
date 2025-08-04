@@ -5,6 +5,7 @@ import Footer from './components/Footer/Footer';
 import Header from './components/Header/Header';
 import NotFound from './pages/NotFound/NotFound';
 import Contact from './pages/Contact/Contact';
+import { GlobalStyle } from 'styles/GlobalStyle';
 
 export default function AppRouter() {
   return (
@@ -16,6 +17,7 @@ export default function AppRouter() {
         <Route path="/contact" element={<Contact />} />
         <Route path="*" element={<NotFound/>} />
       </Routes>
+      <GlobalStyle />
       <Footer />
     </Router>
   );

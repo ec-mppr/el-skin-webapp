@@ -1,22 +1,4 @@
-.about-container {
-    display: flex;
-    margin-left: 144px;
-    margin-right: 144px;
-    align-items: center;
-    gap: 2em;
-    justify-content: center;
-}
-
-.column-1 {
-    flex: 1;
-    max-width: 600px;
-}
-
-.column-2 {
-    flex: 1;
-    max-width: 600px;
-}
-
+/* TODO: encontrar uma forma de criar um styled component do tipo Link do React Router */
 .button-fale-conosco {
     background-color: #94426E;
     color: white;
@@ -37,38 +19,4 @@
     cursor: pointer;
     opacity: 70%;
     transition: opacity 0.5s ease;
-}
-
-.about-title {
-    font-size: 20px;
-}
-
-.about-subtitulo {
-    font-weight: normal;
-    margin-top: 3.75rem;
-}
-
-.icon-fale-conosco {
-    margin-right: 12px;
-}
-
-.button-fale-conosco-container {
-    text-align: center;
-    margin: auto;
-    width: 50%;
-    margin-top: 3.75rem;
-}
-
-.cover-image {
-    object-fit: cover;
-    width: 100vw;
-}
-
-.cover-image-container {
-    margin-top: 3rem;
-    position: relative;
-    width: 100%;
-    height: 100%;
-    display: flex;
-    object-fit: cover;
 }
