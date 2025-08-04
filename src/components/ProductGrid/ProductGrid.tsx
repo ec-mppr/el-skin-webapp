@@ -1,10 +1,10 @@
-import './ProductGrid.css';
 import ProductCard from '../ProductCard/ProductCard';
 import { useContext, useEffect, useState } from 'react';
 import { CartProduct, useCartContext } from '../../context/CartContext';
 import { SearchContext } from '../../context/SearchContext';
 import productService from '../../services/productService';
 import { IProduct } from '../../types/IProduct';
+import styled from 'styled-components';
 
 function ProductGrid() {
   const [products, setProducts] = useState<IProduct[]>([]);
@@ -53,11 +53,11 @@ function ProductGrid() {
   };
 
   return (
-    <section className="product-grid-section">
-      <div className="product-grid-container">
-        <h2 className="product-grid-title">{title}</h2>
+    <StyledProductGridSection>
+      <StyledProductGridContainer>
+        <StyledProductGridTitle>{title}</StyledProductGridTitle>
         {filteredProducts.length > 0 ?
-          <div className="product-grid">
+          <StyledProductGrid>
             {filteredProducts.map((product) => (
               <div key={product.id} data-testid="product-card-grid"
               >
@@ -69,15 +69,46 @@ function ProductGrid() {
                 />
               </div>
             ))}
-          </div>
+          </StyledProductGrid>
           :
           <div>
-            <p className="product-not-found-text">Nenhum produto encontrado</p>
+            <StyledProductNotFoundText>Nenhum produto encontrado</StyledProductNotFoundText>
           </div>
         }
-      </div>
-    </section>
+      </StyledProductGridContainer>
+    </StyledProductGridSection>
   );
 }
+
+const StyledProductGridSection = styled.section`
+  padding: 60px 20px;
+  background-color: #ffffff;
+`;
+
+const StyledProductGridContainer = styled.div`
+  max-width: 1200px;
+  margin: 0 auto;
+`;
+
+const StyledProductGridTitle = styled.h2`
+  text-align: center;
+  font-size: 24px;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 40px;
+  font-family: 'Arial', sans-serif;
+`;
+
+const StyledProductGrid = styled.div`
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 25px;
+  justify-items: center;
+`;
+
+const StyledProductNotFoundText = styled.p`
+  text-align: center;
+  font-size: 24px;
+`;
 
 export default ProductGrid;
