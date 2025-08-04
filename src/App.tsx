@@ -2,20 +2,21 @@ import React from 'react';
 import './App.css';
 import AppRouter from './routes';
 import { CartProvider } from './context/CartContext';
-import { SearchProvider } from './context/SearchContext';
 import { ThemeProvider } from 'styled-components';
 import { theme } from './styles/theme';
+import { store } from './store';
+import { Provider } from 'react-redux';
 
-function App() {  
+function App() {
   return (
     <div className="App">
-      <ThemeProvider theme={theme}>
-        <CartProvider>
-          <SearchProvider>
+      <Provider store={store}>
+        <ThemeProvider theme={theme}>
+          <CartProvider>
             <AppRouter />
-          </SearchProvider>
-        </CartProvider>
-      </ThemeProvider>
+          </CartProvider>
+        </ThemeProvider>
+      </Provider>
     </div>
   );
 }

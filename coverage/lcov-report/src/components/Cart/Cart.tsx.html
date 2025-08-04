@@ -23,30 +23,30 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">93.33% </span>
+                <span class="strong">53.33% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>14/15</span>
+                <span class='fraction'>8/15</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">83.33% </span>
+                <span class="strong">50% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>5/6</span>
+                <span class='fraction'>3/6</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">87.5% </span>
+                <span class="strong">25% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>7/8</span>
+                <span class='fraction'>2/8</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">93.33% </span>
+                <span class="strong">53.33% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>14/15</span>
+                <span class='fraction'>8/15</span>
             </div>
         
             
@@ -61,7 +61,7 @@
             </div>
         </template>
     </div>
-    <div class='status-line high'></div>
+    <div class='status-line medium'></div>
     <pre><table class="coverage">
 <tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
 <a name='L2'></a><a href='#L2'>2</a>
@@ -149,39 +149,39 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">33x</span>
+<span class="cline-any cline-yes">5x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">33x</span>
-<span class="cline-any cline-yes">12x</span>
-<span class="cline-any cline-yes">12x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">33x</span>
-<span class="cline-any cline-yes">4x</span>
-<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">33x</span>
-<span class="cline-any cline-yes">8x</span>
+<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">5x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">4x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -204,7 +204,7 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">25x</span>
+<span class="cline-any cline-yes">4x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -230,9 +230,9 @@ function Cart(props: CartProps) {
     return `R$${roundedPrice}`;
   };
 &nbsp;
-  const totalProductPrice = (price: number, quantity: number): string =&gt; {
-    const total = price * quantity;
-    return formattedPrice(total);
+  const totalProductPrice = <span class="fstat-no" title="function not covered" >(p</span>rice: number, quantity: number): string =&gt; {
+    const total = <span class="cstat-no" title="statement not covered" >price * quantity;</span>
+<span class="cstat-no" title="statement not covered" >    return formattedPrice(total);</span>
   };
 &nbsp;
   if (props.isShowing) {
@@ -241,21 +241,21 @@ function Cart(props: CartProps) {
         &lt;div className="cart-container"&gt;
           &lt;div className="cart-header"&gt;
             &lt;h3 className="cart-title"&gt;Carrinho&lt;/h3&gt;
-            &lt;FontAwesomeIcon icon={faXmark} color='white' data-testid="cart-close" className='cart-close-icon' size="lg" onClick={() =&gt; props.closeCart()} /&gt;
+            &lt;FontAwesomeIcon icon={faXmark} color='white' data-testid="cart-close" className='cart-close-icon' size="lg" onClick={<span class="fstat-no" title="function not covered" >()</span> =&gt; <span class="cstat-no" title="statement not covered" >props.closeCart()}</span> /&gt;
           &lt;/div&gt;
 &nbsp;
           &lt;div className="cart-body"&gt;
             {items.length &gt; 0 ? (
-              items.map((product) =&gt; (
-                &lt;div key={product.id} className="cart-item"&gt;
+<span class="branch-0 cbranch-no" title="branch not covered" >              items.map(<span class="fstat-no" title="function not covered" >(p</span>roduct) =&gt; (</span>
+<span class="cstat-no" title="statement not covered" >                &lt;div key={product.id} className="cart-item"&gt;</span>
                   &lt;div className="cart-item-inner"&gt;
-                    &lt;img className='cart-item-image' src={product.image ?? <span class="branch-1 cbranch-no" title="branch not covered" >'/prod1.jpg'}</span> width={160} /&gt;
+                    &lt;img className='cart-item-image' src={product.image ?? '/prod1.jpg'} width={160} /&gt;
                     &lt;div className='cart-item-details'&gt;
                       &lt;p className='cart-item-title' data-testid="cart-item-title"&gt;{product.name}&lt;/p&gt;
                       &lt;div className='cart-item-quantity-container'&gt;
-                        &lt;FontAwesomeIcon icon={faMinusSquare} size="xl" className='button-minus' data-testid='decrease-quantity-button' onClick={() =&gt; updateQuantity(product.id, product.quantity - 1)} /&gt;
+                        &lt;FontAwesomeIcon icon={faMinusSquare} size="xl" className='button-minus' data-testid='decrease-quantity-button' onClick={<span class="fstat-no" title="function not covered" >()</span> =&gt; <span class="cstat-no" title="statement not covered" >updateQuantity(product.id, product.quantity - 1)}</span> /&gt;
                         &lt;input className='quantity-number' data-testid="quantity-number" readOnly value={product.quantity} /&gt;
-                        &lt;FontAwesomeIcon icon={faPlusSquare} size="xl" className='button-plus' data-testid='increase-quantity-button' onClick={() =&gt; updateQuantity(product.id, product.quantity + 1)} /&gt;
+                        &lt;FontAwesomeIcon icon={faPlusSquare} size="xl" className='button-plus' data-testid='increase-quantity-button' onClick={<span class="fstat-no" title="function not covered" >()</span> =&gt; <span class="cstat-no" title="statement not covered" >updateQuantity(product.id, product.quantity + 1)}</span> /&gt;
                       &lt;/div&gt;
                       &lt;p className='cart-item-price'&gt;{totalProductPrice(product.price, product.quantity)}&lt;/p&gt;
                     &lt;/div&gt;
@@ -292,7 +292,7 @@ export default Cart;</pre></td></tr></table></pre>
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2025-08-01T20:03:40.636Z
+                at 2025-08-04T19:15:42.260Z
             </div>
         <script src="../../../prettify.js"></script>
         <script>

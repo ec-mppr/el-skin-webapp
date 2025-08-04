@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1754078620693" clover="3.2.0">
-  <project timestamp="1754078620693" name="All files">
-    <metrics statements="174" coveredstatements="102" conditionals="34" coveredconditionals="18" methods="89" coveredmethods="49" elements="297" coveredelements="169" complexity="0" loc="174" ncloc="174" packages="19" files="29" classes="29"/>
+<coverage generated="1754334942336" clover="3.2.0">
+  <project timestamp="1754334942336" name="All files">
+    <metrics statements="192" coveredstatements="93" conditionals="34" coveredconditionals="10" methods="93" coveredmethods="35" elements="319" coveredelements="138" complexity="0" loc="192" ncloc="192" packages="21" files="32" classes="32"/>
     <package name="src">
       <metrics statements="20" coveredstatements="7" conditionals="6" coveredconditionals="0" methods="7" coveredmethods="3"/>
       <file name="App.tsx" path="C:\Users\ecamillo\Documents\LevelUp\Frontend\el-skin-webapp\src\App.tsx">
         <metrics statements="1" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
-        <line num="10" count="0" type="stmt"/>
+        <line num="11" count="0" type="stmt"/>
       </file>
       <file name="index.tsx" path="C:\Users\ecamillo\Documents\LevelUp\Frontend\el-skin-webapp\src\index.tsx">
         <metrics statements="3" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
@@ -27,17 +27,17 @@
       </file>
       <file name="routes.tsx" path="C:\Users\ecamillo\Documents\LevelUp\Frontend\el-skin-webapp\src\routes.tsx">
         <metrics statements="1" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
-        <line num="10" count="0" type="stmt"/>
+        <line num="11" count="0" type="stmt"/>
       </file>
       <file name="test-utils.tsx" path="C:\Users\ecamillo\Documents\LevelUp\Frontend\el-skin-webapp\src\test-utils.tsx">
         <metrics statements="7" coveredstatements="7" conditionals="2" coveredconditionals="0" methods="3" coveredmethods="3"/>
-        <line num="9" count="7" type="stmt"/>
-        <line num="10" count="20" type="stmt"/>
-        <line num="21" count="7" type="stmt"/>
-        <line num="24" count="20" type="stmt"/>
-        <line num="26" count="7" type="stmt"/>
-        <line num="29" count="1" type="stmt"/>
-        <line num="30" count="1" type="stmt"/>
+        <line num="8" count="7" type="stmt"/>
+        <line num="9" count="26" type="stmt"/>
+        <line num="18" count="7" type="stmt"/>
+        <line num="21" count="20" type="stmt"/>
+        <line num="23" count="7" type="stmt"/>
+        <line num="26" count="1" type="stmt"/>
+        <line num="27" count="1" type="stmt"/>
       </file>
     </package>
     <package name="src.components.Banner">
@@ -69,24 +69,24 @@
       </file>
     </package>
     <package name="src.components.Cart">
-      <metrics statements="15" coveredstatements="14" conditionals="6" coveredconditionals="5" methods="8" coveredmethods="7"/>
+      <metrics statements="15" coveredstatements="8" conditionals="6" coveredconditionals="3" methods="8" coveredmethods="2"/>
       <file name="Cart.tsx" path="C:\Users\ecamillo\Documents\LevelUp\Frontend\el-skin-webapp\src\components\Cart\Cart.tsx">
-        <metrics statements="15" coveredstatements="14" conditionals="6" coveredconditionals="5" methods="8" coveredmethods="7"/>
-        <line num="13" count="33" type="stmt"/>
-        <line num="15" count="33" type="stmt"/>
-        <line num="16" count="12" type="stmt"/>
-        <line num="17" count="12" type="stmt"/>
-        <line num="20" count="33" type="stmt"/>
-        <line num="21" count="4" type="stmt"/>
-        <line num="22" count="4" type="stmt"/>
-        <line num="25" count="33" type="cond" truecount="2" falsecount="0"/>
-        <line num="26" count="8" type="stmt"/>
-        <line num="31" count="1" type="stmt"/>
-        <line num="37" count="4" type="stmt"/>
-        <line num="43" count="1" type="stmt"/>
-        <line num="45" count="1" type="stmt"/>
+        <metrics statements="15" coveredstatements="8" conditionals="6" coveredconditionals="3" methods="8" coveredmethods="2"/>
+        <line num="13" count="5" type="stmt"/>
+        <line num="15" count="5" type="stmt"/>
+        <line num="16" count="1" type="stmt"/>
+        <line num="17" count="1" type="stmt"/>
+        <line num="20" count="5" type="stmt"/>
+        <line num="21" count="0" type="stmt"/>
+        <line num="22" count="0" type="stmt"/>
+        <line num="25" count="5" type="cond" truecount="2" falsecount="0"/>
+        <line num="26" count="1" type="stmt"/>
+        <line num="31" count="0" type="stmt"/>
+        <line num="37" count="0" type="stmt"/>
+        <line num="43" count="0" type="stmt"/>
+        <line num="45" count="0" type="stmt"/>
         <line num="49" count="0" type="stmt"/>
-        <line num="68" count="25" type="stmt"/>
+        <line num="68" count="4" type="stmt"/>
       </file>
     </package>
     <package name="src.components.Footer">
@@ -106,18 +106,18 @@
       </file>
     </package>
     <package name="src.components.Header">
-      <metrics statements="9" coveredstatements="8" conditionals="0" coveredconditionals="0" methods="5" coveredmethods="4"/>
+      <metrics statements="9" coveredstatements="7" conditionals="0" coveredconditionals="0" methods="5" coveredmethods="3"/>
       <file name="Header.tsx" path="C:\Users\ecamillo\Documents\LevelUp\Frontend\el-skin-webapp\src\components\Header\Header.tsx">
-        <metrics statements="9" coveredstatements="8" conditionals="0" coveredconditionals="0" methods="5" coveredmethods="4"/>
-        <line num="12" count="33" type="stmt"/>
-        <line num="13" count="33" type="stmt"/>
-        <line num="14" count="33" type="stmt"/>
+        <metrics statements="9" coveredstatements="7" conditionals="0" coveredconditionals="0" methods="5" coveredmethods="3"/>
+        <line num="12" count="19" type="stmt"/>
+        <line num="13" count="17" type="stmt"/>
+        <line num="14" count="17" type="stmt"/>
         <line num="17" count="10" type="stmt"/>
         <line num="21" count="0" type="stmt"/>
-        <line num="25" count="6" type="stmt"/>
-        <line num="26" count="6" type="stmt"/>
-        <line num="29" count="33" type="stmt"/>
-        <line num="53" count="1" type="stmt"/>
+        <line num="25" count="1" type="stmt"/>
+        <line num="26" count="1" type="stmt"/>
+        <line num="29" count="5" type="stmt"/>
+        <line num="53" count="0" type="stmt"/>
       </file>
     </package>
     <package name="src.components.Navigation">
@@ -125,8 +125,8 @@
       <file name="Navigation.tsx" path="C:\Users\ecamillo\Documents\LevelUp\Frontend\el-skin-webapp\src\components\Navigation\Navigation.tsx">
         <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
         <line num="9" count="3" type="stmt"/>
-        <line num="17" count="33" type="stmt"/>
-        <line num="21" count="132" type="stmt"/>
+        <line num="17" count="5" type="stmt"/>
+        <line num="21" count="20" type="stmt"/>
       </file>
     </package>
     <package name="src.components.ProductCard">
@@ -134,47 +134,47 @@
       <file name="ProductCard.tsx" path="C:\Users\ecamillo\Documents\LevelUp\Frontend\el-skin-webapp\src\components\ProductCard\ProductCard.tsx">
         <metrics statements="7" coveredstatements="7" conditionals="0" coveredconditionals="0" methods="5" coveredmethods="5"/>
         <line num="11" count="5" type="stmt"/>
-        <line num="16" count="101" type="stmt"/>
-        <line num="17" count="101" type="stmt"/>
-        <line num="20" count="101" type="stmt"/>
+        <line num="16" count="26" type="stmt"/>
+        <line num="17" count="26" type="stmt"/>
+        <line num="20" count="26" type="stmt"/>
         <line num="24" count="2" type="stmt"/>
-        <line num="38" count="200" type="stmt"/>
-        <line num="53" count="5" type="stmt"/>
+        <line num="38" count="50" type="stmt"/>
+        <line num="53" count="1" type="stmt"/>
       </file>
     </package>
     <package name="src.components.ProductGrid">
-      <metrics statements="25" coveredstatements="22" conditionals="8" coveredconditionals="7" methods="10" coveredmethods="9"/>
+      <metrics statements="25" coveredstatements="16" conditionals="8" coveredconditionals="3" methods="10" coveredmethods="6"/>
       <file name="ProductGrid.tsx" path="C:\Users\ecamillo\Documents\LevelUp\Frontend\el-skin-webapp\src\components\ProductGrid\ProductGrid.tsx">
-        <metrics statements="25" coveredstatements="22" conditionals="8" coveredconditionals="7" methods="10" coveredmethods="9"/>
-        <line num="10" count="43" type="stmt"/>
-        <line num="11" count="43" type="stmt"/>
-        <line num="12" count="43" type="stmt"/>
-        <line num="13" count="43" type="stmt"/>
-        <line num="15" count="43" type="stmt"/>
-        <line num="16" count="11" type="stmt"/>
-        <line num="18" count="10" type="stmt"/>
-        <line num="21" count="0" type="stmt"/>
-        <line num="26" count="43" type="stmt"/>
-        <line num="27" count="19" type="cond" truecount="2" falsecount="0"/>
-        <line num="28" count="3" type="stmt"/>
-        <line num="29" count="8" type="cond" truecount="2" falsecount="0"/>
-        <line num="33" count="16" type="stmt"/>
-        <line num="37" count="43" type="stmt"/>
-        <line num="39" count="43" type="stmt"/>
-        <line num="40" count="1" type="stmt"/>
-        <line num="43" count="43" type="stmt"/>
-        <line num="44" count="4" type="stmt"/>
-        <line num="45" count="4" type="stmt"/>
-        <line num="47" count="4" type="cond" truecount="1" falsecount="1"/>
-        <line num="48" count="0" type="stmt"/>
-        <line num="49" count="0" type="stmt"/>
-        <line num="52" count="4" type="stmt"/>
-        <line num="55" count="43" type="stmt"/>
-        <line num="62" count="99" type="stmt"/>
+        <metrics statements="25" coveredstatements="16" conditionals="8" coveredconditionals="3" methods="10" coveredmethods="6"/>
+        <line num="11" count="16" type="stmt"/>
+        <line num="12" count="16" type="stmt"/>
+        <line num="13" count="16" type="stmt"/>
+        <line num="15" count="16" type="stmt"/>
+        <line num="17" count="16" type="stmt"/>
+        <line num="18" count="5" type="stmt"/>
+        <line num="20" count="4" type="stmt"/>
+        <line num="23" count="0" type="stmt"/>
+        <line num="28" count="16" type="stmt"/>
+        <line num="29" count="8" type="cond" truecount="1" falsecount="1"/>
+        <line num="30" count="0" type="stmt"/>
+        <line num="31" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="35" count="8" type="stmt"/>
+        <line num="39" count="16" type="stmt"/>
+        <line num="41" count="16" type="stmt"/>
+        <line num="42" count="1" type="stmt"/>
+        <line num="45" count="16" type="stmt"/>
+        <line num="46" count="0" type="stmt"/>
+        <line num="47" count="0" type="stmt"/>
+        <line num="49" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="50" count="0" type="stmt"/>
+        <line num="51" count="0" type="stmt"/>
+        <line num="54" count="0" type="stmt"/>
+        <line num="57" count="16" type="stmt"/>
+        <line num="64" count="24" type="stmt"/>
       </file>
     </package>
     <package name="src.context">
-      <metrics statements="16" coveredstatements="13" conditionals="2" coveredconditionals="1" methods="5" coveredmethods="4"/>
+      <metrics statements="16" coveredstatements="8" conditionals="2" coveredconditionals="1" methods="5" coveredmethods="2"/>
       <file name="CartContext.tsx" path="C:\Users\ecamillo\Documents\LevelUp\Frontend\el-skin-webapp\src\context\CartContext.tsx">
         <metrics statements="10" coveredstatements="8" conditionals="2" coveredconditionals="1" methods="2" coveredmethods="2"/>
         <line num="18" count="7" type="stmt"/>
@@ -182,51 +182,59 @@
         <line num="21" count="26" type="stmt"/>
         <line num="22" count="26" type="stmt"/>
         <line num="27" count="7" type="stmt"/>
-        <line num="28" count="109" type="stmt"/>
-        <line num="29" count="109" type="cond" truecount="1" falsecount="1"/>
+        <line num="28" count="38" type="stmt"/>
+        <line num="29" count="38" type="cond" truecount="1" falsecount="1"/>
         <line num="30" count="0" type="stmt"/>
         <line num="31" count="0" type="stmt"/>
-        <line num="33" count="109" type="stmt"/>
+        <line num="33" count="38" type="stmt"/>
       </file>
       <file name="SearchContext.tsx" path="C:\Users\ecamillo\Documents\LevelUp\Frontend\el-skin-webapp\src\context\SearchContext.tsx">
-        <metrics statements="6" coveredstatements="5" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="2"/>
-        <line num="3" count="7" type="stmt"/>
+        <metrics statements="6" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="0"/>
+        <line num="3" count="0" type="stmt"/>
         <line num="5" count="0" type="stmt"/>
-        <line num="8" count="7" type="stmt"/>
-        <line num="9" count="30" type="stmt"/>
-        <line num="11" count="30" type="stmt"/>
-        <line num="16" count="30" type="stmt"/>
+        <line num="8" count="0" type="stmt"/>
+        <line num="9" count="0" type="stmt"/>
+        <line num="11" count="0" type="stmt"/>
+        <line num="16" count="0" type="stmt"/>
       </file>
     </package>
     <package name="src.hooks">
-      <metrics statements="25" coveredstatements="21" conditionals="8" coveredconditionals="5" methods="16" coveredmethods="12"/>
+      <metrics statements="30" coveredstatements="19" conditionals="8" coveredconditionals="3" methods="19" coveredmethods="9"/>
       <file name="useCart.ts" path="C:\Users\ecamillo\Documents\LevelUp\Frontend\el-skin-webapp\src\hooks\useCart.ts">
-        <metrics statements="25" coveredstatements="21" conditionals="8" coveredconditionals="5" methods="16" coveredmethods="12"/>
+        <metrics statements="25" coveredstatements="17" conditionals="8" coveredconditionals="3" methods="16" coveredmethods="8"/>
         <line num="21" count="8" type="stmt"/>
         <line num="22" count="32" type="stmt"/>
         <line num="24" count="32" type="stmt"/>
-        <line num="25" count="7" type="stmt"/>
-        <line num="26" count="7" type="stmt"/>
-        <line num="28" count="7" type="cond" truecount="2" falsecount="0"/>
-        <line num="29" count="2" type="stmt"/>
-        <line num="30" count="2" type="cond" truecount="1" falsecount="1"/>
-        <line num="36" count="5" type="stmt"/>
+        <line num="25" count="3" type="stmt"/>
+        <line num="26" count="3" type="stmt"/>
+        <line num="28" count="3" type="cond" truecount="2" falsecount="0"/>
+        <line num="29" count="1" type="stmt"/>
+        <line num="30" count="1" type="cond" truecount="1" falsecount="1"/>
+        <line num="36" count="2" type="stmt"/>
         <line num="40" count="32" type="stmt"/>
         <line num="41" count="0" type="stmt"/>
         <line num="44" count="32" type="stmt"/>
-        <line num="45" count="2" type="cond" truecount="1" falsecount="1"/>
+        <line num="45" count="0" type="cond" truecount="0" falsecount="2"/>
         <line num="46" count="0" type="stmt"/>
         <line num="47" count="0" type="stmt"/>
-        <line num="50" count="2" type="stmt"/>
-        <line num="51" count="2" type="stmt"/>
-        <line num="52" count="2" type="cond" truecount="1" falsecount="1"/>
+        <line num="50" count="0" type="stmt"/>
+        <line num="51" count="0" type="stmt"/>
+        <line num="52" count="0" type="cond" truecount="0" falsecount="2"/>
         <line num="57" count="32" type="stmt"/>
         <line num="58" count="0" type="stmt"/>
         <line num="61" count="32" type="stmt"/>
-        <line num="62" count="34" type="stmt"/>
+        <line num="62" count="6" type="stmt"/>
         <line num="65" count="32" type="stmt"/>
         <line num="66" count="32" type="stmt"/>
         <line num="69" count="32" type="stmt"/>
+      </file>
+      <file name="useSearch.ts" path="C:\Users\ecamillo\Documents\LevelUp\Frontend\el-skin-webapp\src\hooks\useSearch.ts">
+        <metrics statements="5" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="1"/>
+        <line num="5" count="2" type="stmt"/>
+        <line num="6" count="12" type="stmt"/>
+        <line num="7" count="0" type="stmt"/>
+        <line num="9" count="0" type="stmt"/>
+        <line num="12" count="0" type="stmt"/>
       </file>
     </package>
     <package name="src.mocks">
@@ -251,10 +259,18 @@
       </file>
     </package>
     <package name="src.pages.About">
-      <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+      <metrics statements="9" coveredstatements="9" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
       <file name="About.tsx" path="C:\Users\ecamillo\Documents\LevelUp\Frontend\el-skin-webapp\src\pages\About\About.tsx">
-        <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
-        <line num="9" count="4" type="stmt"/>
+        <metrics statements="9" coveredstatements="9" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <line num="9" count="1" type="stmt"/>
+        <line num="18" count="1" type="stmt"/>
+        <line num="23" count="1" type="stmt"/>
+        <line num="27" count="1" type="stmt"/>
+        <line num="32" count="1" type="stmt"/>
+        <line num="39" count="1" type="stmt"/>
+        <line num="48" count="1" type="stmt"/>
+        <line num="53" count="1" type="stmt"/>
+        <line num="58" count="4" type="stmt"/>
       </file>
     </package>
     <package name="src.pages.Contact">
@@ -291,23 +307,40 @@
       <file name="api.ts" path="C:\Users\ecamillo\Documents\LevelUp\Frontend\el-skin-webapp\src\services\api.ts">
         <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
         <line num="3" count="4" type="stmt"/>
-        <line num="11" count="11" type="stmt"/>
+        <line num="11" count="5" type="stmt"/>
       </file>
       <file name="productService.ts" path="C:\Users\ecamillo\Documents\LevelUp\Frontend\el-skin-webapp\src\services\productService.ts">
         <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
         <line num="4" count="4" type="stmt"/>
-        <line num="6" count="11" type="stmt"/>
-        <line num="7" count="10" type="stmt"/>
+        <line num="6" count="5" type="stmt"/>
+        <line num="7" count="4" type="stmt"/>
+      </file>
+    </package>
+    <package name="src.store">
+      <metrics statements="1" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+      <file name="index.ts" path="C:\Users\ecamillo\Documents\LevelUp\Frontend\el-skin-webapp\src\store\index.ts">
+        <metrics statements="1" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <line num="4" count="0" type="stmt"/>
+      </file>
+    </package>
+    <package name="src.store.slices">
+      <metrics statements="4" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
+      <file name="searchSlice.ts" path="C:\Users\ecamillo\Documents\LevelUp\Frontend\el-skin-webapp\src\store\slices\searchSlice.ts">
+        <metrics statements="4" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
+        <line num="7" count="2" type="stmt"/>
+        <line num="11" count="2" type="stmt"/>
+        <line num="19" count="0" type="stmt"/>
+        <line num="25" count="2" type="stmt"/>
       </file>
     </package>
     <package name="src.styles">
       <metrics statements="5" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="0"/>
-      <file name="GlobalStyles.tsx" path="C:\Users\ecamillo\Documents\LevelUp\Frontend\el-skin-webapp\src\styles\GlobalStyles.tsx">
+      <file name="GlobalStyle.tsx" path="C:\Users\ecamillo\Documents\LevelUp\Frontend\el-skin-webapp\src\styles\GlobalStyle.tsx">
         <metrics statements="4" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="0"/>
-        <line num="4" count="0" type="stmt"/>
+        <line num="3" count="0" type="stmt"/>
+        <line num="6" count="0" type="stmt"/>
         <line num="7" count="0" type="stmt"/>
         <line num="8" count="0" type="stmt"/>
-        <line num="9" count="0" type="stmt"/>
       </file>
       <file name="theme.ts" path="C:\Users\ecamillo\Documents\LevelUp\Frontend\el-skin-webapp\src\styles\theme.ts">
         <metrics statements="1" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>

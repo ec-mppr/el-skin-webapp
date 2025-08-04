@@ -5,12 +5,14 @@ import { CartProduct, useCartContext } from '../../context/CartContext';
 import { SearchContext } from '../../context/SearchContext';
 import productService from '../../services/productService';
 import { IProduct } from '../../types/IProduct';
+import { useSearch } from 'hooks/useSearch';
 
 function ProductGrid() {
   const [products, setProducts] = useState<IProduct[]>([]);
   const { items, addItem, updateQuantity } = useCartContext();
   const [filteredProducts, setFilteredProducts] = useState<IProduct[]>([]);
-  const { search } = useContext(SearchContext);
+  // const { search } = useContext(SearchContext);
+  const { term } = useSearch();
 
   useEffect(() => {
     productService.getProducts()
@@ -24,15 +26,15 @@ function ProductGrid() {
   }, []);
 
   useEffect(() => {
-    if (search) {
+    if (term) {
       setFilteredProducts(products.filter(product =>
-        product.name.toLowerCase().includes(search.toLowerCase()) ||
-        product.description.toLowerCase().includes(search.toLowerCase())
+        product.name.toLowerCase().includes(term.toLowerCase()) ||
+        product.description.toLowerCase().includes(term.toLowerCase())
       ));
     } else {
       setFilteredProducts([...products]);
     }
-  }, [search, products]);
+  }, [term, products]);
 
   const title = 'nossos queridinhos estão aqui';
 

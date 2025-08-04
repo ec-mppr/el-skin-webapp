@@ -4,21 +4,21 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCartShopping, faSearch } from '@fortawesome/free-solid-svg-icons';
 import Navigation from '../Navigation/Navigation';
 import Cart from '../Cart/Cart';
-import { SearchContext } from '../../context/SearchContext';
 import { useCartContext } from '../../context/CartContext';
 import { useCart } from 'hooks/useCart';
+import { useSearch } from 'hooks/useSearch';
 
 function Header() {
   const [showCart, setShowCart] = useState<boolean>(false);
-  const { search, setSearch} = useContext(SearchContext);
   const { getTotalItems } = useCartContext();
+  const { term, setTerm } = useSearch();
 
   function handleOnChange(e: React.ChangeEvent<HTMLInputElement>) {
-    setSearch(e.target.value);
+    setTerm(e.target.value);
   }
 
   function onClickSearch(): void {
-    console.log(`Você pesquisou por: ${search}`);
+    console.log(`Você pesquisou por: ${term}`);
   }
 
   async function openCart(event: React.MouseEvent<HTMLButtonElement, MouseEvent>): Promise<void> {
@@ -35,13 +35,13 @@ function Header() {
           </div>
 
           <div className="search-bar">
-            <input 
-              type="text" 
+            <input
+              type="text"
               placeholder="O que você está procurando?"
               className="search-input"
-              onChange={handleOnChange}/>
+              onChange={handleOnChange} />
             <button className="search-button" data-testid="search-button" onClick={onClickSearch}>
-              <FontAwesomeIcon icon={faSearch}/>
+              <FontAwesomeIcon icon={faSearch} />
             </button>
           </div>
 
@@ -58,7 +58,7 @@ function Header() {
       <nav className="header-nav">
         <Navigation />
       </nav>
-      
+
     </header>
   );
 }
