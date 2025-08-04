@@ -12,10 +12,6 @@ jest.mock('../hooks/useSearch.ts', () => ({
 }));
 
 describe('testing productService', () => {
-  jest.mock('./productService', () => ({
-    getProducts: jest.fn()
-  }));
-
   test('getProducts is called when rendering ProductGrid', () => {
     const getProductsSpy = jest.spyOn(productService, 'getProducts');
     customRender(<ProductGrid />);
