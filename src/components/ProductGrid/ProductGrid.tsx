@@ -53,9 +53,9 @@ function ProductGrid() {
   };
 
   return (
-    <StyledProductGridSection>
-      <StyledProductGridContainer>
-        <StyledProductGridTitle>{title}</StyledProductGridTitle>
+    <ProductGridSection>
+      <ProductGridContainer>
+        <ProductGridTitle>{title}</ProductGridTitle>
         {filteredProducts.length > 0 ?
           <StyledProductGrid>
             {filteredProducts.map((product) => (
@@ -72,25 +72,25 @@ function ProductGrid() {
           </StyledProductGrid>
           :
           <div>
-            <StyledProductNotFoundText>Nenhum produto encontrado</StyledProductNotFoundText>
+            <ProductNotFoundText>Nenhum produto encontrado</ProductNotFoundText>
           </div>
         }
-      </StyledProductGridContainer>
-    </StyledProductGridSection>
+      </ProductGridContainer>
+    </ProductGridSection>
   );
 }
 
-const StyledProductGridSection = styled.section`
+const ProductGridSection = styled.section`
   padding: 60px 20px;
   background-color: #ffffff;
 `;
 
-const StyledProductGridContainer = styled.div`
+const ProductGridContainer = styled.div`
   max-width: 1200px;
   margin: 0 auto;
 `;
 
-const StyledProductGridTitle = styled.h2`
+const ProductGridTitle = styled.h2`
   text-align: center;
   font-size: 24px;
   font-weight: 600;
@@ -106,7 +106,7 @@ const StyledProductGrid = styled.div`
   justify-items: center;
 `;
 
-const StyledProductNotFoundText = styled.p`
+const ProductNotFoundText = styled.p`
   text-align: center;
   font-size: 24px;
 `;

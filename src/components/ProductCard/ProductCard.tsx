@@ -18,49 +18,49 @@ const ProductCard: React.FC<ProductCardProps> = ({
   };
 
   return (
-    <StyledLinkCardContainer data-testid="product-card" onClick={() => onProductClick(product.id)}>
-      <StyledCard>
-        <StyledProductImageContainer>
+    <LinkCardContainer data-testid="product-card" onClick={() => onProductClick(product.id)}>
+      <Card>
+        <ProductImageContainer>
           <img
             src={product.image}
             alt={product.name}
           />
-        </StyledProductImageContainer>
+        </ProductImageContainer>
 
-        <StyledProductInfoContainer>
-          <StyledProductName>{product.name}</StyledProductName>
-          <StyledProductDescription>{product.description}</StyledProductDescription>
+        <ProductInfoContainer>
+          <ProductName>{product.name}</ProductName>
+          <ProductDescription>{product.description}</ProductDescription>
 
-          <StyledProductTags>
+          <ProductTags>
             {product.tags.map((tag) => (
-              <StyledProductTag
+              <ProductTag
                 key={`${product.id}-${tag.label}-${tag.type}`}
                 $tagType={tag.type as ProductTagType}>
                 {tag.label}
-              </StyledProductTag>
+              </ProductTag>
             ))}
 
-          </StyledProductTags>
+          </ProductTags>
 
-        </StyledProductInfoContainer>
+        </ProductInfoContainer>
 
-        <StyledProductFooter>
-          <StyledProductPrice>
+        <ProductFooter>
+          <ProductPrice>
             {formatPrice(product.price)}
 
-          </StyledProductPrice>
-          <StyledProductBuyButton onClick={(e) => onBuyClick(product.id, e)}
+          </ProductPrice>
+          <ProductBuyButton onClick={(e) => onBuyClick(product.id, e)}
             type="button">
             comprar
-          </StyledProductBuyButton>
+          </ProductBuyButton>
 
-        </StyledProductFooter>
-      </StyledCard>
-    </StyledLinkCardContainer>
+        </ProductFooter>
+      </Card>
+    </LinkCardContainer>
   );
 };
 
-const StyledCard = styled.div`
+const Card = styled.div`
   background-color: white;
   border-radius: 12px;
   overflow: hidden;
@@ -80,11 +80,11 @@ const StyledCard = styled.div`
   }
 `;
 
-const StyledLinkCardContainer = styled.a`
+const LinkCardContainer = styled.a`
   cursor: pointer;
 `;
 
-const StyledProductImageContainer = styled.div`
+const ProductImageContainer = styled.div`
   width: 100%;
   height: 200px;
   background-color: #C8B99C;
@@ -100,18 +100,18 @@ const StyledProductImageContainer = styled.div`
   }
 `;
 
-const StyledProductInfoContainer = styled.div`
+const ProductInfoContainer = styled.div`
   padding: 20px;
 `;
 
-const StyledProductFooter = styled.div`
+const ProductFooter = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 0 20px 20px 20px;
 `;
 
-const StyledProductBuyButton = styled.button`
+const ProductBuyButton = styled.button`
   background: linear-gradient(135deg, #8B4A8B 0%, #A855A8 100%);
   color: white;
   border: none;
@@ -140,13 +140,13 @@ const StyledProductBuyButton = styled.button`
 }
 `;
 
-const StyledProductPrice = styled.span`
+const ProductPrice = styled.span`
   font-size: 18px;
   font-weight: 700;
   color: #333;
 `;
 
-const StyledProductName = styled.h3`
+const ProductName = styled.h3`
   font-size: 16px;
   font-weight: 600;
   color: #333;
@@ -154,7 +154,7 @@ const StyledProductName = styled.h3`
   line-height: 1.3;
 `;
 
-const StyledProductDescription = styled.p`
+const ProductDescription = styled.p`
   font-size: 14px;
   color: #666;
   margin: 0 0 16px 0;
@@ -166,7 +166,7 @@ const StyledProductDescription = styled.p`
   overflow: hidden;
 `;
 
-const StyledProductTags = styled.div`
+const ProductTags = styled.div`
   display: flex;
   gap: 8px;
   margin-bottom: 16px;
@@ -178,7 +178,7 @@ enum ProductTagType {
   PROTECTION = 'protection'
 }
 
-const StyledProductTag = styled.span<{ $tagType: ProductTagType }>`
+const ProductTag = styled.span<{ $tagType: ProductTagType }>`
   padding: 4px 12px;
   border-radius: 16px;
   font-size: 11px;

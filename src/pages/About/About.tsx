@@ -8,9 +8,9 @@ import styled from 'styled-components';
 function About() {
   return (
     <>
-      <StyledContainer>
-        <StyledSectionColumn>
-          <StyledTitle>Sobre a AL SKIN</StyledTitle>
+      <Container>
+        <SectionColumn>
+          <Title>Sobre a AL SKIN</Title>
           <div>
             <p>QUEM SOMOS
               <br>
@@ -31,34 +31,33 @@ function About() {
               Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem.. </p>
           </div>
           <img src={Img1} alt='Conta-gotas'></img>
-        </StyledSectionColumn>
-        <StyledSectionColumn>
+        </SectionColumn>
+        <SectionColumn>
           <img src={Img2} alt='Hidratante'></img>
           <div>
-            <StyledSubtitle>
+            <Subtitle>
               VAMOS CONVERSAR?
               <br>
               </br>
               Sed ut perspiciatis unde omnis iste natus error sit voluptatem.
-            </StyledSubtitle>
+            </Subtitle>
           </div>
-          <StyledButtonContainer>
+          <ButtonContainer>
             <StyledLink to={'/contact'}>
-              <StyledContactIcon src={IconFaleConosco} />
+              <ContactIcon src={IconFaleConosco} />
               <p>Fale conosco</p>
             </StyledLink>
-          </StyledButtonContainer>
-        </StyledSectionColumn>
-      </StyledContainer>
-      <StyledCoverImageContainer>
-        <StyledCoverImage src={ImageCover} alt="Cover" />
-      </StyledCoverImageContainer>
+          </ButtonContainer>
+        </SectionColumn>
+      </Container>
+      <CoverImageContainer>
+        <CoverImage src={ImageCover} alt="Cover" />
+      </CoverImageContainer>
     </>
   );
 }
 
-
-const StyledContainer = styled.div`
+const Container = styled.div`
   display: flex;
   margin-left: 144px;
   margin-right: 144px;
@@ -67,28 +66,28 @@ const StyledContainer = styled.div`
   justify-content: center;
 `;
 
-const StyledSectionColumn = styled.section`
+const SectionColumn = styled.section`
   flex: 1;
   max-width: 600px;
 `;
 
-const StyledTitle = styled.h2`
+const Title = styled.h2`
   font-size: 20px;
 `;
 
-const StyledSubtitle = styled.p`
+const Subtitle = styled.p`
   font-weight: normal;
   margin-top: 3.75rem;
 `;
 
-const StyledButtonContainer = styled.div`
+const ButtonContainer = styled.div`
   text-align: center;
   margin: auto;
   width: 50%;
   margin-top: 3.75rem;
 `;
 
-const StyledCoverImageContainer = styled.div`
+const CoverImageContainer = styled.div`
   margin-top: 3rem;
   position: relative;
   width: 100%;
@@ -97,12 +96,12 @@ const StyledCoverImageContainer = styled.div`
   object-fit: cover;
 `;
 
-const StyledCoverImage = styled.img`
+const CoverImage = styled.img`
   object-fit: cover;
   width: 100vw;
 `;
 
-const StyledContactIcon = styled.img`
+const ContactIcon = styled.img`
   margin-right: 12px;
 `;
 

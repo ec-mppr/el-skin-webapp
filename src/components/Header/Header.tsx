@@ -28,33 +28,33 @@ function Header() {
 
   return (
     <StyledHeader>
-      <StyledHeaderTop>
-        <StyledContainer>
-          <StyledLogo to={'/'}>AL SKIN</StyledLogo>
+      <HeaderTop>
+        <Container>
+          <Logo to={'/'}>AL SKIN</Logo>
 
-          <StyledSearchBar>
-            <StyledSearchInput type="text"
+          <SearchBar>
+            <SearchInput type="text"
               placeholder="O que você está procurando?"
               onChange={handleOnChange} />
-            <StyledSearchButton data-testid="search-button" onClick={onClickSearch}>
+            <SearchButton data-testid="search-button" onClick={onClickSearch}>
               <FontAwesomeIcon icon={faSearch} />
-            </StyledSearchButton>
+            </SearchButton>
 
-          </StyledSearchBar>
-          <StyledHeaderActions >
-            <StyledCartButton data-testid="cart-button" onClick={openCart}>
+          </SearchBar>
+          <HeaderActions >
+            <CartButton data-testid="cart-button" onClick={openCart}>
               <FontAwesomeIcon icon={faCartShopping} />
-            </StyledCartButton>
+            </CartButton>
 
-            <StyledCartButtonQuantity data-testid='cart-button-quantity'>{getTotalItems()}</StyledCartButtonQuantity>
+            <CartButtonQuantity data-testid='cart-button-quantity'>{getTotalItems()}</CartButtonQuantity>
             <Cart isShowing={showCart} closeCart={() => setShowCart(false)} />
-          </StyledHeaderActions>
-        </StyledContainer>
-      </StyledHeaderTop>
+          </HeaderActions>
+        </Container>
+      </HeaderTop>
 
-      <StyledHeaderNav>
+      <HeaderNav>
         <Navigation />
-      </StyledHeaderNav>
+      </HeaderNav>
     </StyledHeader>
   );
 }
@@ -65,12 +65,12 @@ const StyledHeader = styled.header`
   border-bottom: 1px solid #e5e5e5;
 `;
 
-const StyledHeaderTop = styled.div`
+const HeaderTop = styled.div`
   padding: 1rem 0;
   border-bottom: none;
 `;
 
-const StyledContainer = styled.div`
+const Container = styled.div`
   max-width: 1200px;
   width: 1200px;
   margin: 0 auto;
@@ -80,7 +80,7 @@ const StyledContainer = styled.div`
   justify-content: space-between;
 `;
 
-const StyledLogo = styled(Link)`
+const Logo = styled(Link)`
   font-size: 24px;
   font-family: 'Shippori Antique';
   font-weight: bold;
@@ -94,14 +94,14 @@ const StyledLogo = styled(Link)`
   }
 `;
 
-const StyledSearchBar = styled.div`
+const SearchBar = styled.div`
   flex: 2;
   max-width: 400px;
   margin: 0 2rem;
   position: relative;
 `;
 
-const StyledSearchInput = styled.input`
+const SearchInput = styled.input`
   width: 100%;
   padding: 0.75rem 0rem 0.75rem 1rem;
   border-radius: 8px;
@@ -120,7 +120,7 @@ const StyledSearchInput = styled.input`
   }
 `;
 
-const StyledSearchButton = styled.button`
+const SearchButton = styled.button`
   position: absolute;
   right: 0;
   top: 50%;
@@ -141,12 +141,12 @@ const StyledSearchButton = styled.button`
   }
 `;
 
-const StyledHeaderActions = styled.div`
+const HeaderActions = styled.div`
   display: flex;
   align-items: center;
 `;
 
-const StyledCartButton = styled.button`
+const CartButton = styled.button`
   background: none;
   border: none;
   cursor: pointer;
@@ -163,13 +163,13 @@ const StyledCartButton = styled.button`
   }
 `;
 
-const StyledCartButtonQuantity = styled.p`
+const CartButtonQuantity = styled.p`
   font-size: 0.8rem;
   font-weight: bold;
   color: #dcb241;
 `;
 
-const StyledHeaderNav = styled.nav`
+const HeaderNav = styled.nav`
   display: flex;
   justify-items: space-between;
   align-content: center;
