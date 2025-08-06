@@ -4,6 +4,7 @@ import styles from './Carousel.module.css';
 import { useEffect, useRef, useState } from 'react';
 import axios from 'axios';
 import { Endpoint, get } from 'services/api';
+import styled, { keyframes } from 'styled-components';
 
 interface ICarouselItem {
   id: number;
@@ -49,38 +50,169 @@ function Carousel() {
   }, [items]);
 
   return (
-    <section
-      className={styles.carouselSection}
-      style={{
-        backgroundImage: `url(${items[idxItemAtual]?.backgroundImage})`,
-      }}
-    >
-      <div
-        className={styles.carouselContainer}
-      >
-        <div className={styles.carouselContent}>
-          <button className={styles.carouselNavButton} aria-label="Voltar" onClick={previousItem}>
+    <CarouselSection style={{
+      backgroundImage: `url(${items[idxItemAtual]?.backgroundImage})`,
+    }}>
+      <CarouselContainer>
+        <CarouselContent>
+          <CarouselNavButton aria-label="Voltar" onClick={previousItem}>
             <FontAwesomeIcon width="60" height="24" icon={faAngleLeft} style={{ color: 'white' }} />
-          </button>
+          </CarouselNavButton>
 
-          <div className={styles.carouselText}>
-            <span className={styles.carouselSubtitle}>{items[idxItemAtual]?.subtitle}</span>
-            <h1 className={styles.carouselTitle}>{items[idxItemAtual]?.title}</h1>
-            <p className={styles.carouselDescription}>{items[idxItemAtual]?.description}</p>
-            <button
-              className={styles.carouselCtaButton}>
-            comprar agora
+          <CarouselText>
+            <CarouselSubtitle>
+              {items[idxItemAtual]?.subtitle}</CarouselSubtitle>
+            <CarouselTitle>{items[idxItemAtual]?.title}</CarouselTitle>
+            <CarouselDescription>{items[idxItemAtual]?.description}</CarouselDescription>
+            <CarouselCtaButton>
+              comprar agora
               <FontAwesomeIcon icon={faAngleRight} />
-            </button>
-          </div>
-
-          <button className={styles.carouselNavButton} aria-label="Próximo" onClick={nextItem}>
+            </CarouselCtaButton>
+          </CarouselText>
+          <CarouselNavButton aria-label="Próximo" onClick={nextItem}>
             <FontAwesomeIcon width="60" height="24" icon={faAngleRight} style={{ color: 'white' }} />
-          </button>
-        </div>
-      </div>
-    </section>
+          </CarouselNavButton>
+        </CarouselContent>
+      </CarouselContainer>
+    </CarouselSection>
   );
 }
+
+const CarouselSection = styled.section`
+  position: relative;
+  min-height: 500px;
+  display: flex;
+  align-items: center;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(255, 255, 255, 0.85) 40%, transparent 60%),
+              linear-gradient(45deg, #f8f6f3 0%, #e8e4e0 100%);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  overflow: hidden;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, transparent 50%);
+    pointer-events: none;
+  }
+`;
+
+const CarouselContainer = styled.div`
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  position: relative;
+  z-index: 2;
+`;
+
+const CarouselContent = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  max-width: 1000px;
+
+`;
+
+const CarouselNavButton = styled.button`
+  background: rgba(255, 255, 255, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  width: 48px;
+  height: 48px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(10px);
+
+  &:hover {
+    background: rgba(255, 255, 255, 0.3);
+    transform: translateX(-2px);
+  }
+`;
+
+const fadeInUp = keyframes`
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+`;
+
+const CarouselText = styled.div`
+  flex: 1;
+
+  & > * {
+    animation: ${fadeInUp} 0.6s ease-out forwards;
+  }
+`;
+
+const CarouselTitle = styled.h1`
+  font-size: 64px;
+  font-weight: 700;
+  color: #8B4A8B;
+  margin: 0;
+  margin-bottom: 16px;
+  line-height: 1.1;
+  text-shadow: 2px 2px 4px rgba(139, 74, 139, 0.1);
+  animation-delay: 0.2s;
+`;
+
+const CarouselSubtitle = styled.span`
+  display: block;
+  font-size: 16px;
+  color: #8B4A8B;
+  margin-bottom: 8px;
+  font-weight: 400;
+  letter-spacing: 0.5px;
+  animation-delay: 0.1s;
+`;
+
+const CarouselDescription = styled.p`
+  font-size: 18px;
+  color: #666;
+  margin-bottom: 32px;
+  line-height: 1.5;
+  max-width: 400px;
+  animation-delay: 0.3s;
+`;
+
+const CarouselCtaButton = styled.button`
+  background: linear-gradient(135deg, #8B4A8B 0%, #A855A8 100%);
+  color: white;
+  border: none;
+  padding: 16px 32px;
+  border-radius: 32px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  box-shadow: 0 4px 16px rgba(139, 74, 139, 0.3);
+  text-transform: lowercase;
+  animation-delay: 0.4s;
+
+  &:hover {
+    background: linear-gradient(135deg, #7A3E7A 0%, #9333EA 100%);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(139, 74, 139, 0.4);
+  }
+
+  &:active {
+    transform: translateY(0);
+  }
+`;
 
 export default Carousel;

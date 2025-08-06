@@ -1,10 +1,10 @@
 import React from 'react';
-import './App.css';
 import AppRouter from './routes';
 import { ThemeProvider } from 'styled-components';
 import { theme } from './styles/theme';
 import { store } from './store';
 import { Provider } from 'react-redux';
+import { GlobalStyle } from 'styles/GlobalStyle';
 
 function App() {
   return (
@@ -14,6 +14,7 @@ function App() {
           <AppRouter />
         </ThemeProvider>
       </Provider>
+      <GlobalStyle theme={theme} />
     </div>
   );
 }

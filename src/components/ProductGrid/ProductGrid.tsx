@@ -1,4 +1,3 @@
-import './ProductGrid.css';
 import ProductCard from '../ProductCard/ProductCard';
 import { useEffect, useState } from 'react';
 import { CartProduct } from 'types/ICartProduct';
@@ -6,6 +5,7 @@ import productService from '../../services/productService';
 import { IProduct } from '../../types/IProduct';
 import { useSearch } from 'hooks/useSearch';
 import { useCart } from 'hooks/useCart';
+import styled from 'styled-components';
 
 function ProductGrid() {
   const [products, setProducts] = useState<IProduct[]>([]);
@@ -54,11 +54,11 @@ function ProductGrid() {
   };
 
   return (
-    <section className="product-grid-section">
-      <div className="product-grid-container">
-        <h2 className="product-grid-title">{title}</h2>
+    <ProductGridSection>
+      <ProductGridContainer>
+        <ProductGridTitle>{title}</ProductGridTitle>
         {filteredProducts.length > 0 ?
-          <div className="product-grid">
+          <StyledProductGrid>
             {filteredProducts.map((product) => (
               <div key={product.id} data-testid="product-card-grid"
               >
@@ -70,15 +70,46 @@ function ProductGrid() {
                 />
               </div>
             ))}
-          </div>
+          </StyledProductGrid>
           :
           <div>
-            <p className="product-not-found-text">Nenhum produto encontrado</p>
+            <ProductNotFoundText>Nenhum produto encontrado</ProductNotFoundText>
           </div>
         }
-      </div>
-    </section>
+      </ProductGridContainer>
+    </ProductGridSection>
   );
 }
+
+const ProductGridSection = styled.section`
+  padding: 60px 20px;
+  background-color: #ffffff;
+`;
+
+const ProductGridContainer = styled.div`
+  max-width: 1200px;
+  margin: 0 auto;
+`;
+
+const ProductGridTitle = styled.h2`
+  text-align: center;
+  font-size: 24px;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 40px;
+  font-family: 'Arial', sans-serif;
+`;
+
+const StyledProductGrid = styled.div`
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 25px;
+  justify-items: center;
+`;
+
+const ProductNotFoundText = styled.p`
+  text-align: center;
+  font-size: 24px;
+`;
 
 export default ProductGrid;
