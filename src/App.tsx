@@ -1,7 +1,6 @@
 import React from 'react';
 import './App.css';
 import AppRouter from './routes';
-import { CartProvider } from './context/CartContext';
 import { ThemeProvider } from 'styled-components';
 import { theme } from './styles/theme';
 import { store } from './store';
@@ -12,9 +11,7 @@ function App() {
     <div className="App">
       <Provider store={store}>
         <ThemeProvider theme={theme}>
-          <CartProvider>
-            <AppRouter />
-          </CartProvider>
+          <AppRouter />
         </ThemeProvider>
       </Provider>
     </div>

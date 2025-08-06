@@ -1,17 +1,16 @@
 import './ProductGrid.css';
 import ProductCard from '../ProductCard/ProductCard';
-import { useContext, useEffect, useState } from 'react';
-import { CartProduct, useCartContext } from '../../context/CartContext';
-import { SearchContext } from '../../context/SearchContext';
+import { useEffect, useState } from 'react';
+import { CartProduct } from 'types/ICartProduct';
 import productService from '../../services/productService';
 import { IProduct } from '../../types/IProduct';
 import { useSearch } from 'hooks/useSearch';
+import { useCart } from 'hooks/useCart';
 
 function ProductGrid() {
   const [products, setProducts] = useState<IProduct[]>([]);
-  const { items, addItem, updateQuantity } = useCartContext();
+  const { items, addItem, updateQuantity } = useCart();
   const [filteredProducts, setFilteredProducts] = useState<IProduct[]>([]);
-  // const { search } = useContext(SearchContext);
   const { term } = useSearch();
 
   useEffect(() => {

@@ -4,13 +4,12 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCartShopping, faSearch } from '@fortawesome/free-solid-svg-icons';
 import Navigation from '../Navigation/Navigation';
 import Cart from '../Cart/Cart';
-import { useCartContext } from '../../context/CartContext';
 import { useCart } from 'hooks/useCart';
 import { useSearch } from 'hooks/useSearch';
 
 function Header() {
   const [showCart, setShowCart] = useState<boolean>(false);
-  const { getTotalItems } = useCartContext();
+  const { getTotalItems } = useCart();
   const { term, setTerm } = useSearch();
 
   function handleOnChange(e: React.ChangeEvent<HTMLInputElement>) {

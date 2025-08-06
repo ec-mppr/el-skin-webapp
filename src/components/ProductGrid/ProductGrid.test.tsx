@@ -1,10 +1,8 @@
 import { customRender, test, screen, fireEvent, act, waitFor, render } from 'test-utils';
 import ProductGrid from './ProductGrid';
 import { productsMock } from 'mocks/productsMock';
-import { SearchContext } from 'context/SearchContext';
 import userEvent from '@testing-library/user-event';
-import { useState } from 'react';
-import React from 'react';
+import React, { useState } from 'react';
 
 jest.mock('../../hooks/useSearch.ts', () => ({
   useSearch: () => ({

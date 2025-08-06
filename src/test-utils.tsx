@@ -1,17 +1,13 @@
 import { ReactElement } from 'react';
-import { CartProduct, CartProvider } from './context/CartContext';
 import { render, RenderOptions } from '@testing-library/react';
-import { BrowserRouter, BrowserRouter as Router } from 'react-router';
+import { BrowserRouter } from 'react-router';
 import userEvent from '@testing-library/user-event';
-import { IProduct } from 'types/IProduct';
 
 const Providers = ({ children }: { children: React.ReactNode }) => {
   return (
-    <CartProvider>
-      <Router>
-        {children}
-      </Router>
-    </CartProvider>
+    <BrowserRouter>
+      {children}
+    </BrowserRouter>
   );
 };
 
