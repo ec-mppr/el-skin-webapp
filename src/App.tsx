@@ -1,18 +1,23 @@
 import React from 'react';
-import './App.css';
 import AppRouter from './routes';
 import { CartProvider } from './context/CartContext';
 import { SearchProvider } from './context/SearchContext';
+import { ThemeProvider } from 'styled-components';
+import { theme } from './styles/theme';
+import { GlobalStyle } from 'styles/GlobalStyle';
 
-function App() {  
+function App() {
   return (
-    <div className="App">
-      <CartProvider>
-        <SearchProvider>
-          <AppRouter />
-        </SearchProvider>
-      </CartProvider>
-    </div>
+    <>
+      <ThemeProvider theme={theme}>
+        <CartProvider>
+          <SearchProvider>
+            <AppRouter />
+          </SearchProvider>
+        </CartProvider>
+      </ThemeProvider>
+      <GlobalStyle theme={theme} />
+    </>
   );
 }
 

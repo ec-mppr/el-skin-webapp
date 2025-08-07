@@ -1,15 +1,14 @@
-import './ProductGrid.css';
 import ProductCard from '../ProductCard/ProductCard';
 import { useContext, useEffect, useState } from 'react';
 import { CartProduct, useCartContext } from '../../context/CartContext';
 import { SearchContext } from '../../context/SearchContext';
 import productService from '../../services/productService';
 import { IProduct } from '../../types/IProduct';
-import { CartActionType } from '../../reducer/cartReducer';
+import styled from 'styled-components';
 
 function ProductGrid() {
   const [products, setProducts] = useState<IProduct[]>([]);
-  const { state, dispatch } = useCartContext();
+  const { items, addItem, updateQuantity } = useCartContext();
   const [filteredProducts, setFilteredProducts] = useState<IProduct[]>([]);
   const { search } = useContext(SearchContext);
 
@@ -41,32 +40,24 @@ function ProductGrid() {
     console.log(`Produto clicado: ${productId}`);
   };
 
-  const handleBuyClick = (product: IProduct, event: React.MouseEvent) => {
+  const handleBuyClick = (productId: string, event: React.MouseEvent) => {
     event.stopPropagation();
-    const alreadyAdded = state.cartProducts.find((prevProduct) => prevProduct.id == product.id);
-    if (alreadyAdded) {
-      increaseProductQuantity(alreadyAdded);
-      return;
-    } else {
-      addProduct(product);
+    const productToBuy = products.find((prevProduct) => prevProduct.id == productId);
+
+    if (!productToBuy) {
+      console.error(`Produto com id ${productId} não encontrado`);
       return;
     }
-  };
 
-  const addProduct = (product: IProduct) => {
-    dispatch({ type: CartActionType.ADD_PRODUCT, payload: { productToAdd: product } });
-  };
-
-  const increaseProductQuantity = (alreadyAddedProduct: CartProduct) => {
-    dispatch({ type: CartActionType.INCREASE_QUANTITY, payload: { cartProduct: alreadyAddedProduct } });
+    addItem(productToBuy);
   };
 
   return (
-    <section className="product-grid-section">
-      <div className="product-grid-container">
-        <h2 className="product-grid-title">{title}</h2>
+    <ProductGridSection>
+      <ProductGridContainer>
+        <ProductGridTitle>{title}</ProductGridTitle>
         {filteredProducts.length > 0 ?
-          <div className="product-grid">
+          <StyledProductGrid>
             {filteredProducts.map((product) => (
               <div key={product.id} data-testid="product-card-grid"
               >
@@ -78,15 +69,46 @@ function ProductGrid() {
                 />
               </div>
             ))}
-          </div>
+          </StyledProductGrid>
           :
           <div>
-            <p className="product-not-found-text">Nenhum produto encontrado</p>
+            <ProductNotFoundText>Nenhum produto encontrado</ProductNotFoundText>
           </div>
         }
-      </div>
-    </section>
+      </ProductGridContainer>
+    </ProductGridSection>
   );
 }
+
+const ProductGridSection = styled.section`
+  padding: 60px 20px;
+  background-color: ${props => props.theme.colors.background.white};
+`;
+
+const ProductGridContainer = styled.div`
+  max-width: 1200px;
+  margin: 0 auto;
+`;
+
+const ProductGridTitle = styled.h2`
+  text-align: center;
+  font-size: ${props => props.theme.fontSize['2xl']};
+  font-weight: 600;
+  color: ${props => props.theme.colors.text.primary};
+  margin-bottom: 40px;
+  font-family: 'Arial', sans-serif;
+`;
+
+const StyledProductGrid = styled.div`
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 25px;
+  justify-items: center;
+`;
+
+const ProductNotFoundText = styled.p`
+  text-align: center;
+  font-size: ${props => props.theme.fontSize['2xl']};
+`;
 
 export default ProductGrid;
