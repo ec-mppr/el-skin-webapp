@@ -31,7 +31,6 @@ describe('testing CartContext', () => {
     const buyButton = buyButtons[0];
     await user.click(buyButton);
     await waitFor(() => {
-      screen.debug();
       expect(screen.getByTestId('cart-button-quantity')).toHaveTextContent(/1/);
     });
 

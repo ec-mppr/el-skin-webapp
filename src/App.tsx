@@ -8,7 +8,7 @@ import { GlobalStyle } from 'styles/GlobalStyle';
 
 function App() {
   return (
-    <div className="App">
+    <>
       <ThemeProvider theme={theme}>
         <CartProvider>
           <SearchProvider>
@@ -17,7 +17,7 @@ function App() {
         </CartProvider>
       </ThemeProvider>
       <GlobalStyle theme={theme} />
-    </div>
+    </>
   );
 }
 

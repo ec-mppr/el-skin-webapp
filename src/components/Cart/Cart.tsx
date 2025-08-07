@@ -28,29 +28,27 @@ function Cart(props: CartProps) {
         <CartContainer>
           <CartHeader>
             <h3>Carrinho</h3>
-            <CartCloseButton icon={faXmark} color='white' data-testid="cart-close" className='cart-close-icon' size="lg" onClick={() => props.closeCart()} />
+            <CartCloseButton icon={faXmark} color='white' data-testid="cart-close" size="lg" onClick={() => props.closeCart()} />
           </CartHeader>
           <CartBody>
             {items.length > 0 ? (
               items.map((product) => (
-                <>
-                  <div key={product.id}>
-                    <CartItemInner>
-                      <CartItemImage src={product.image ?? '/prod1.jpg'} width={160} />
-                      <CartItemsDetails>
-                        <CartItemTitle data-testid="cart-item-title">{product.name}</CartItemTitle>
-                        <CartItemQuantityContainer>
-                          <ButtonQuantity icon={faMinusSquare} size="xl" className='button-minus' data-testid='decrease-quantity-button' onClick={() => updateQuantity(product.id, product.quantity - 1)} />
-                          <QuantityNumber data-testid="quantity-number" readOnly value={product.quantity} />
-                          <ButtonQuantity icon={faPlusSquare} size="xl" className='button-plus' data-testid='increase-quantity-button' onClick={() => updateQuantity(product.id, product.quantity + 1)} />
-                        </CartItemQuantityContainer>
-                        <p>{totalProductPrice(product.price, product.quantity)}</p>
-                      </CartItemsDetails>
-                      <ButtonRemove icon={faTrashCan} size='xl' className='button-remove' onClick={() => removeItem(product.id)} />
-                    </CartItemInner>
-                  </div>
+                <div key={product.id}>
+                  <CartItemInner>
+                    <CartItemImage src={product.image ?? '/prod1.jpg'} width={160} />
+                    <CartItemsDetails>
+                      <CartItemTitle data-testid="cart-item-title">{product.name}</CartItemTitle>
+                      <CartItemQuantityContainer>
+                        <ButtonQuantity icon={faMinusSquare} size="xl" data-testid='decrease-quantity-button' onClick={() => updateQuantity(product.id, product.quantity - 1)} />
+                        <QuantityNumber data-testid="quantity-number" readOnly value={product.quantity} />
+                        <ButtonQuantity icon={faPlusSquare} size="xl" data-testid='increase-quantity-button' onClick={() => updateQuantity(product.id, product.quantity + 1)} />
+                      </CartItemQuantityContainer>
+                      <p>{totalProductPrice(product.price, product.quantity)}</p>
+                    </CartItemsDetails>
+                    <ButtonRemove icon={faTrashCan} size='xl' onClick={() => removeItem(product.id)} />
+                  </CartItemInner>
                   <CartItemDivider />
-                </>
+                </div>
               ))
             ) : (
               <EmptyCart>Seu carrinho está vazio.</EmptyCart>

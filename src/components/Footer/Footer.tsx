@@ -127,8 +127,8 @@ const Footer: React.FC = () => {
           <FooterSections>
             {footerSections.map((section, index) => (
               <FooterSection key={section.title}>
-                <h3 className="footer-section-title">{section.title}</h3>
-                <ul className="footer-section-links">
+                <h3>{section.title}</h3>
+                <ul>
                   {section.links.map((link) => (
                     <li key={link.label}>
                       <FooterLink to={link.href} key={link.label}>{link.label}</FooterLink>
@@ -142,8 +142,8 @@ const Footer: React.FC = () => {
       </FooterLinks>
       <FooterBottom>
         <FooterContainer>
-          <div className="footer-brand">
-            <h2 className="footer-brand-name">AL SKIN</h2>
+          <div>
+            <h2>AL SKIN</h2>
             <FooterCopyright>
               2025 AL SKIN. Todos os direitos reservados.
             </FooterCopyright>
