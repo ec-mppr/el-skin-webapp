@@ -31,7 +31,6 @@ function Header() {
       <HeaderTop>
         <Container>
           <Logo to={'/'}>AL SKIN</Logo>
-
           <SearchBar>
             <SearchInput type="text"
               placeholder="O que você está procurando?"
@@ -60,13 +59,13 @@ function Header() {
 }
 
 const StyledHeader = styled.header`
-  background-color: #ffffff;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  border-bottom: 1px solid #e5e5e5;
+  background-color: ${props => props.theme.colors.background.white};
+  box-shadow: ${props => props.theme.shadows.sm};
+  border-bottom: 1px solid ${props => props.theme.colors.border.light};
 `;
 
 const HeaderTop = styled.div`
-  padding: 1rem 0;
+  padding: ${props => props.theme.spacing.md} 0;
   border-bottom: none;
 `;
 
@@ -74,17 +73,17 @@ const Container = styled.div`
   max-width: 1200px;
   width: 1200px;
   margin: 0 auto;
-  padding: 0 1rem;
+  padding: 0 ${props => props.theme.spacing.md};
   display: flex;
   align-items: center;
   justify-content: space-between;
 `;
 
 const Logo = styled(Link)`
-  font-size: 24px;
+  font-size: ${props => props.theme.fontSize['2xl']};
   font-family: 'Shippori Antique';
-  font-weight: bold;
-  color: #333;
+  font-weight: ${props => props.theme.fontWeight.bold};
+  color: ${props => props.theme.colors.text.primary};
   margin: 0;
   letter-spacing: 0.5px;
   text-decoration: none;
@@ -97,26 +96,26 @@ const Logo = styled(Link)`
 const SearchBar = styled.div`
   flex: 2;
   max-width: 400px;
-  margin: 0 2rem;
+  margin: 0  ${props => props.theme.spacing.xl};
   position: relative;
 `;
 
 const SearchInput = styled.input`
   width: 100%;
-  padding: 0.75rem 0rem 0.75rem 1rem;
-  border-radius: 8px;
-  font-size: 16px;
+  padding:  ${props => props.theme.spacing.xs} 0rem  ${props => props.theme.spacing.xs} ${props => props.theme.spacing.md};
+  border-radius: ${props => props.theme.borderRadius.md};
+  font-size: ${props => props.theme.fontSize.base};
   outline: none;
-  transition: border-color 0.3s ease;
+  transition: border-color ${props => props.theme.transitions.normal};
   background-color: #F5F5F5;
   font-family: 'Poppins';
   border: none;
   &:focus {
-  border-color: #007bff;
+  border-color: ${props => props.theme.colors.secondary};
   }
 
   &::placeholder {
-      color: #999;
+      color: ${props => props.theme.colors.text.secondary};
   }
 `;
 
@@ -128,16 +127,16 @@ const SearchButton = styled.button`
   background: none;
   border: none;
   cursor: pointer;
-  padding: 0.5rem;
-  border-radius: 50%;
-  color: #666;
+  padding:  ${props => props.theme.spacing.xs};
+  border-radius: ${props => props.theme.borderRadius.round};
+  color: ${props => props.theme.colors.text.secondary};
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: background-color 0.3s ease;
+  transition: background-color ${props => props.theme.transitions.normal};
 
   &:hover {
-      background-color: #f0f0f0;
+    background-color: ${props => props.theme.colors.background.gray};
   }
 `;
 
@@ -150,23 +149,23 @@ const CartButton = styled.button`
   background: none;
   border: none;
   cursor: pointer;
-  padding: 0.5rem;
-  border-radius: 50%;
-  color: #333;
+  padding:  ${props => props.theme.spacing.xs};
+  border-radius: ${props => props.theme.borderRadius.round};
+  color: ${props => props.theme.colors.text.primary};
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: background-color 0.3s ease;
+  transition: background-color ${props => props.theme.transitions.normal};
 
   &:hover {
-      background-color: #f0f0f0;
+    background-color: ${props => props.theme.colors.background.gray};
   }
 `;
 
 const CartButtonQuantity = styled.p`
-  font-size: 0.8rem;
-  font-weight: bold;
-  color: #dcb241;
+  font-size: ${props => props.theme.fontSize.base};
+  font-weight: ${props => props.theme.fontWeight.bold};
+  color: ${props => props.theme.colors.tertiary};
 `;
 
 const HeaderNav = styled.nav`

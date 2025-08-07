@@ -158,19 +158,20 @@ const Footer: React.FC = () => {
 };
 
 const StyledFooter = styled.footer`
-  background-color: #f8f9fa;
+  background-color: ${props => props.theme.colors.background.light};
   margin-top: 60px;
   display: flex;
   flex-direction: column;
 `;
+
 const FooterContainer = styled.div`
   max-width: 1200px;
   margin: 0 auto;
-  padding: 1rem 2rem;
+  padding: ${props => props.theme.spacing.md}  ${props => props.theme.spacing.xl};
   border: none;
 
   & h2 {
-    font-size: 24px;
+    font-size: ${props => props.theme.fontSize['2xl']};
     font-weight: 700;
     margin: 0 0 12px 0;
     color: white;
@@ -178,7 +179,7 @@ const FooterContainer = styled.div`
 `;
 
 const FooterSocial = styled.div`
-  background-color: #f8f9fa;
+  background-color: ${props => props.theme.colors.background.light};
   padding: 40px 0;
   width: 100%;
 `;
@@ -193,7 +194,7 @@ const SocialIcons = styled.div`
 const SocialIcon = styled.button`
   width: 50px;
   height: 50px;
-  border-radius: 50%;
+  border-radius: ${props => props.theme.borderRadius.round};
   background-color: #6c757d;
   color: white;
   border: none;
@@ -201,23 +202,23 @@ const SocialIcon = styled.button`
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  transition: all 0.3s ease;
-  font-size: 20px;
+  transition: all ${props => props.theme.transitions.normal};
+  font-size: ${props => props.theme.fontSize.xl};
 
   &:hover {
-    background-color: #8B4A8B;
+    background-color: ${props => props.theme.colors.primary};
     transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(139, 74, 139, 0.3);
+    box-shadow: ${props => props.theme.shadows.primary};
 
   &:focus {
-    outline: 2px solid #8B4A8B;
+    outline: 2px solid ${props => props.theme.colors.primary};
     outline-offset: 2px;
   }
   }
 `;
 
 const FooterLinks = styled.div`
-  background-color: #f8f9fa;
+  background-color: ${props => props.theme.colors.background.light};
   border: none;
   width: 100%;  
 `;
@@ -236,9 +237,9 @@ const FooterSection = styled.div`
 
 
   & h3 {
-  font-size: 18px;
+  font-size: ${props => props.theme.fontSize.lg};
   font-weight: 600;
-  color: #333;
+  color: ${props => props.theme.colors.text.primary};
   margin-bottom: 20px;
   margin-top: 0;
   text-decoration: underline;
@@ -260,34 +261,34 @@ const FooterLink = styled(Link)`
   background: none;
   border: none;
   color: #6c757d;
-  font-size: 14px;
+  font-size: ${props => props.theme.fontSize.sm};
   cursor: pointer;
-  transition: color 0.3s ease;
+  transition: color ${props => props.theme.transitions.normal};
   text-align: left;
   padding: 0;
   font-family: inherit;
   text-decoration: none;
 
   &:hover {
-    color: #8B4A8B;
+    color: ${props => props.theme.colors.primary};
   }
 
   &:focus {
-    outline: 2px solid #8B4A8B;
+    outline: 2px solid ${props => props.theme.colors.primary};
     outline-offset: 2px;
     border-radius: 2px;
   }
 `;
 
 const FooterBottom = styled.div`
-  background-color: #333;
+  background-color: ${props => props.theme.colors.text.primary};
   color: white;
   padding: 30px 0;
   text-align: center;
   width: 100%;
 
   & h2 {
-    font-size: 24px;
+    font-size: ${props => props.theme.fontSize['2xl']};
     font-weight: 700;
     margin: 0 0 12px 0;
     color: white;
@@ -295,7 +296,7 @@ const FooterBottom = styled.div`
 `;
 
 const FooterCopyright = styled.p`
-  font-size: 14px;
+  font-size: ${props => props.theme.fontSize.sm};
   margin: 0 0 8px 0;
   color: #adb5bd;
 `;

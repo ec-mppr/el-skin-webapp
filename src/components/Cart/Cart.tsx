@@ -46,7 +46,7 @@ function Cart(props: CartProps) {
                         </CartItemQuantityContainer>
                         <p>{totalProductPrice(product.price, product.quantity)}</p>
                       </CartItemsDetails>
-                      <ButtonQuantity icon={faTrashCan} size='xl' className='button-remove' color={'rgb(255, 81, 28)'} onClick={() => removeItem(product.id)} />
+                      <ButtonRemove icon={faTrashCan} size='xl' className='button-remove' onClick={() => removeItem(product.id)} />
                     </CartItemInner>
                   </div>
                   <CartItemDivider />
@@ -56,7 +56,7 @@ function Cart(props: CartProps) {
               <EmptyCart>Seu carrinho está vazio.</EmptyCart>
             )}
             <Footer>
-              <TotalPrice><span>Total: </span>{formattedPrice(totalPrice)}</TotalPrice>
+              <TotalPrice>Total: {formattedPrice(totalPrice)}</TotalPrice>
               <FinalizarCompraButton>Finalizar compra</FinalizarCompraButton>
             </Footer>
           </CartBody>
@@ -73,7 +73,7 @@ function Cart(props: CartProps) {
 }
 
 const CartCloseButton = styled(FontAwesomeIcon)`
-  padding: 1rem 2rem 1rem 2rem;
+  padding: ${props => props.theme.spacing.md}  ${props => props.theme.spacing.xl} ${props => props.theme.spacing.md}  ${props => props.theme.spacing.xl};
   cursor: pointer;
 
   &:hover {
@@ -82,7 +82,8 @@ const CartCloseButton = styled(FontAwesomeIcon)`
 `;
 
 const ButtonQuantity = styled(FontAwesomeIcon)`
-  padding: 1rem;
+  padding: ${props => props.theme.spacing.md};
+  color: ${props => props.theme.colors.cart.controls};
   
   &:hover {
     transform: scale(120%);
@@ -90,16 +91,20 @@ const ButtonQuantity = styled(FontAwesomeIcon)`
     }
 `;
 
+const ButtonRemove = styled(ButtonQuantity)`
+  color: ${props => props.theme.colors.cart.remove}
+`;
+
 const CartOverlay = styled.div`
   width: 100%;
-  z-index: 999;
+  z-index: ${props => props.theme.zIndex.modal};
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
   height: 100%;
-  background-color: rgba(255, 255, 255, 0.5);
+  background-color: ${props => props.theme.colors.cart.overlay};
 `;
 
 const CartContainer = styled.div`
@@ -117,7 +122,7 @@ const CartContainer = styled.div`
   scrollbar-color: rgba(255, 115, 0, 0.319) rgb(255, 255, 255);
   scrollbar-width: thin;
   overflow-x: hidden;
-  box-shadow: 12px 4px 12px rgba(0, 0, 0, 0.08);
+  box-shadow: 12px 4px 12px ${props => props.theme.colors.shadow.medium};
   `;
 
 const CartHeader = styled.div`
@@ -131,23 +136,23 @@ const CartHeader = styled.div`
   justify-content: space-between;
 
   & h3 {
-    padding: 0.25rem 1rem 0 2rem;
+    padding:  ${props => props.theme.spacing.xxs} ${props => props.theme.spacing.md} 0  ${props => props.theme.spacing.xl};
     color: white;
   }
   `;
 
 const CartBody = styled.div`
-  padding: 2rem 2rem 2rem 2rem;
+  padding:  ${props => props.theme.spacing.xl}  ${props => props.theme.spacing.xl}  ${props => props.theme.spacing.xl}  ${props => props.theme.spacing.xl};
   `;
 
 const CartItemInner = styled.div`
   display: flex;
   align-items: center;
-  padding: 0 1rem 2rem 1rem;
+  padding: 0 ${props => props.theme.spacing.md}  ${props => props.theme.spacing.xl} ${props => props.theme.spacing.md};
   `;
 
 const CartItemImage = styled.img`
-  border-radius: 12px;
+  border-radius: ${props => props.theme.borderRadius.lg};
   object-fit: fill;
   `;
 
@@ -158,11 +163,11 @@ const CartItemsDetails = styled.div`
   justify-items: center;
   justify-content: center;
   width: 100%;
-  margin-left: 2rem;
+  margin-left:  ${props => props.theme.spacing.xl};
   `;
 
 const CartItemTitle = styled.p`
-  font-weight: bold;
+  font-weight: ${props => props.theme.fontWeight.bold};
   `;
 
 const CartItemQuantityContainer = styled.div`
@@ -174,22 +179,22 @@ const CartItemQuantityContainer = styled.div`
 
 
 const QuantityNumber = styled.input`
-  padding: 1rem;
-  width: 2rem;
+  padding: ${props => props.theme.spacing.md};
+  width:  ${props => props.theme.spacing.xl};
   height: 16px;
   text-align: center;
   border: none;
   font-family: 'Shippori Antique', sans-serif;
-  font-size: 16px;
+  font-size: ${props => props.theme.fontSize.base};
   `;
 
 const CartItemDivider = styled.hr`
   border-top: 1px dashed #94426E;
-  margin-bottom: 2rem;
+  margin-bottom:  ${props => props.theme.spacing.xl};
   `;
 
 const EmptyCart = styled.p`
-  padding: 2rem 2rem 2rem 2rem;
+  padding:  ${props => props.theme.spacing.xl}  ${props => props.theme.spacing.xl}  ${props => props.theme.spacing.xl}  ${props => props.theme.spacing.xl};
   text-align: center;
   `;
 
@@ -202,29 +207,31 @@ const Footer = styled.div`
   `;
 
 const TotalPrice = styled.p`
-  font-size: 1.1rem;
-  padding: 0 0.5rem 0 0.5rem;
+  font-size: ${props => props.theme.fontSize.base};
+  padding: 0 ${props => props.theme.spacing.xs} 0 ${props => props.theme.spacing.xs};
+  color: ${props => props.theme.colors.cart.price};
+  font-weight: ${props => props.theme.fontWeight.bold};
 
   & span {
-    font-weight: bold;
+    font-weight: ${props => props.theme.fontWeight.bold};
   }
   `;
 
 const FinalizarCompraButton = styled.button`
-  background: linear-gradient(135deg, #8B4A8B 0%, #A855A8 100%);
+  background: ${props => props.theme.colors.primaryGradient};
   color: white;
   border: none;
   padding: 12px 24px;
   border-radius: 32px;
-  font-size: 1rem;
+  font-size: ${props => props.theme.spacing.md};
   font-weight: 600;
   cursor: pointer;
-  transition: all 0.3s ease;
+  transition: all ${props => props.theme.transitions.normal};
   text-transform: lowercase;
   margin: 0;
 
   &:hover {
-  background: linear-gradient(135deg, #7A3E7A 0%, #9333EA 100%);
+  background: ${props => props.theme.colors.primaryGradientHover};
   transform: translateY(-1px);
   box-shadow: 0 4px 12px rgba(139, 74, 139, 0.3);
   }
@@ -234,7 +241,7 @@ const FinalizarCompraButton = styled.button`
   }
 
   &:focus {
-    outline: 2px solid #8B4A8B;
+    outline: 2px solid ${props => props.theme.colors.primary};
     outline-offset: 2px;
   }
   `;

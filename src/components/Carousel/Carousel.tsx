@@ -124,12 +124,12 @@ const CarouselNavButton = styled.button`
   border: 1px solid rgba(255, 255, 255, 0.3);
   width: 48px;
   height: 48px;
-  border-radius: 8px;
+  border-radius: ${props => props.theme.borderRadius.md};
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  transition: all 0.3s ease;
+  transition: all ${props => props.theme.transitions.normal};
   backdrop-filter: blur(10px);
 
   &:hover {
@@ -153,14 +153,14 @@ const CarouselText = styled.div`
   flex: 1;
 
   & > * {
-    animation: ${fadeInUp} 0.6s ease-out forwards;
+    animation: ${fadeInUp} ${props => props.theme.transitions.slow}-out forwards;
   }
 `;
 
 const CarouselTitle = styled.h1`
-  font-size: 64px;
+  font-size: ${props => props.theme.fontSize['6xl']};
   font-weight: 700;
-  color: #8B4A8B;
+  color: ${props => props.theme.colors.primary};
   margin: 0;
   margin-bottom: 16px;
   line-height: 1.1;
@@ -170,8 +170,8 @@ const CarouselTitle = styled.h1`
 
 const CarouselSubtitle = styled.span`
   display: block;
-  font-size: 16px;
-  color: #8B4A8B;
+  font-size: ${props => props.theme.fontSize.base};
+  color: ${props => props.theme.colors.primary};
   margin-bottom: 8px;
   font-weight: 400;
   letter-spacing: 0.5px;
@@ -179,8 +179,8 @@ const CarouselSubtitle = styled.span`
 `;
 
 const CarouselDescription = styled.p`
-  font-size: 18px;
-  color: #666;
+  font-size: ${props => props.theme.fontSize.lg};
+  color: ${props => props.theme.colors.text.secondary};
   margin-bottom: 32px;
   line-height: 1.5;
   max-width: 400px;
@@ -188,26 +188,26 @@ const CarouselDescription = styled.p`
 `;
 
 const CarouselCtaButton = styled.button`
-  background: linear-gradient(135deg, #8B4A8B 0%, #A855A8 100%);
+  background: ${props => props.theme.colors.primaryGradient};
   color: white;
   border: none;
   padding: 16px 32px;
   border-radius: 32px;
-  font-size: 16px;
+  font-size: ${props => props.theme.fontSize.base};
   font-weight: 600;
   cursor: pointer;
-  transition: all 0.3s ease;
+  transition: all ${props => props.theme.transitions.normal};
   display: flex;
   align-items: center;
   gap: 8px;
-  box-shadow: 0 4px 16px rgba(139, 74, 139, 0.3);
+  box-shadow: 0 4px 16px ${props => props.theme.colors.shadow.primary};
   text-transform: lowercase;
   animation-delay: 0.4s;
 
   &:hover {
-    background: linear-gradient(135deg, #7A3E7A 0%, #9333EA 100%);
+    background: ${props => props.theme.colors.primaryGradientHover};
     transform: translateY(-2px);
-    box-shadow: 0 8px 24px rgba(139, 74, 139, 0.4);
+    box-shadow: 0 8px 24px ${props => props.theme.colors.shadow.primaryHover};
   }
 
   &:active {

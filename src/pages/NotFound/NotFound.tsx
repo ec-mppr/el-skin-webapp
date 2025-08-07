@@ -21,7 +21,7 @@ const ContainerNotFound = styled.div`
   align-content: center;
   text-align: start;
   object-fit: fill;
-  background-image: url("../../assets/img_1_carousel.png");
+  background-image: url("/img_1_carousel.png");
 `;
 
 const TitleNotFound = styled.div`
@@ -35,10 +35,10 @@ const TitleNotFound = styled.div`
   p {
     font-size: 32px;
     color: white;
-    padding: 2rem;
-    font-weight: bold;
+    padding:  ${props => props.theme.spacing.xl};
+    font-weight: ${props => props.theme.fontWeight.bold};
     background-color: rgba(255, 255, 255, 0.3);
-    border-radius: 8px;
+    border-radius: ${props => props.theme.borderRadius.md};
     margin-left: 6rem;
   }
 `;

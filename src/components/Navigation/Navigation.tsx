@@ -23,7 +23,7 @@ function Navigation() {
           </NavigationItem>
         ))}
       </NavigationList>
-      <PromotionBanner>Kits até 50% OFF</PromotionBanner>
+      <PromotionText>Kits até 50% OFF</PromotionText>
     </NavigationContainer>
   );
 }
@@ -40,25 +40,25 @@ const NavigationContainer = styled.div`
 const NavigationList = styled.ul`
   display: flex;
   margin-left: 0;
-  padding-left: 1rem;
+  padding-left: ${props => props.theme.spacing.md};
   list-style-type: none;
   max-width: 1230px;
 `;
 
 const NavigationItem = styled.li`
   text-decoration: none;
-  padding: 0 6rem 0.25rem 0;
+  padding: 0 6rem  ${props => props.theme.spacing.xxs} 0;
 `;
 
-const PromotionBanner = styled.p`
-  font-weight: bold;
-  color: #DC5E5E;
+const PromotionText = styled.p`
+  font-weight: ${props => props.theme.fontWeight.bold};
+  color: ${props => props.theme.colors.promo};
 `;
 
 const NavigationLink = styled(Link)`
   text-decoration: none;
   color: #222222;
-  font-size: 16px;
+  font-size: ${props => props.theme.fontSize.base};
 
   &:hover {
     opacity: 70%;
