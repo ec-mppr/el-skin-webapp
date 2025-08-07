@@ -72,7 +72,7 @@ const SectionColumn = styled.section`
 `;
 
 const Title = styled.h2`
-  font-size: 20px;
+  font-size: ${props => props.theme.fontSize.xl};
 `;
 
 const Subtitle = styled.p`
@@ -88,7 +88,7 @@ const ButtonContainer = styled.div`
 `;
 
 const CoverImageContainer = styled.div`
-  margin-top: 3rem;
+  margin-top:  ${props => props.theme.spacing.xxl};
   position: relative;
   width: 100%;
   height: 100%;
@@ -109,7 +109,7 @@ const StyledLink = styled(Link)`
   background-color: #94426E;
   color: white;
   border: none;
-  border-radius: 8px;
+  border-radius: ${props => props.theme.borderRadius.md};
   text-align: center;
   display: flex;
   padding: 15px 61px;

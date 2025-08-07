@@ -113,7 +113,7 @@ const ContainerForm = styled.div`
 const ContainerFAQ = styled.div`
   margin-left: 144px;
   margin-right: 144px;
-  padding: 2rem;
+  padding:  ${props => props.theme.spacing.xl};
 `;
 
 const Column = styled.div`
@@ -121,7 +121,7 @@ const Column = styled.div`
 `;
 
 const Title = styled.h2`
-  font-size: 20px;
+  font-size: ${props => props.theme.fontSize.xl};
 `;
 
 const FormContact = styled.form`
@@ -136,8 +136,8 @@ const CheckboxContainer = styled.div`
 `;
 
 const SingleCheckboxContainer = styled.div`
-  padding-right: 2rem;
-  padding-bottom: 1rem;
+  padding-right:  ${props => props.theme.spacing.xl};
+  padding-bottom: ${props => props.theme.spacing.md};
   display: flex;   
 `;
 
@@ -145,7 +145,7 @@ const ButtonEnviarMensagem = styled.button`
   background-color: #94426E;
   color: white;
   border: none;
-  border-radius: 8px;
+  border-radius: ${props => props.theme.borderRadius.md};
   text-align: center;
   display: flex;
   padding: 15px 61px;
@@ -163,21 +163,21 @@ const ButtonEnviarMensagem = styled.button`
 `;
 
 const IconEnviarMensagem = styled(FontAwesomeIcon)`
-  padding: 1rem 0 1rem 0.5rem;
+  padding: ${props => props.theme.spacing.md} 0 ${props => props.theme.spacing.md}  ${props => props.theme.spacing.xs};
 `;
 
 const TextInput = styled.input`
   width: 100%;
-  padding: 0.75rem 0rem 0.75rem 1rem;
-  border: 1px solid #ddd;
-  border-radius: 8px;
-  font-size: 16px;
+  padding:  ${props => props.theme.spacing.xs} 0rem  ${props => props.theme.spacing.xs} ${props => props.theme.spacing.md};
+  border: 1px solid ${props => props.theme.colors.border.medium};
+  border-radius: ${props => props.theme.borderRadius.md};
+  font-size: ${props => props.theme.fontSize.base};
   outline: none;
-  transition: border-color 0.3s ease;
+  transition: border-color ${props => props.theme.transitions.normal};
   background-color: #F5F5F5;
   font-family: 'Poppins';
   border: none;
-  margin-bottom: 1rem;
+  margin-bottom: ${props => props.theme.spacing.md};
 `;
 
 const TextArea = styled(TextInput)`
