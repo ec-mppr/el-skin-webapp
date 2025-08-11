@@ -6,23 +6,19 @@ import { IProduct } from '../../types/IProduct';
 import { useSearch } from 'hooks/useSearch';
 import { useCart } from 'hooks/useCart';
 import styled from 'styled-components';
+import { useProducts } from 'hooks/useProducts';
 
 function ProductGrid() {
-  const [products, setProducts] = useState<IProduct[]>([]);
   const { items, addItem, updateQuantity } = useCart();
   const [filteredProducts, setFilteredProducts] = useState<IProduct[]>([]);
   const { term } = useSearch();
+  const { products, loadProducts } = useProducts();
 
   useEffect(() => {
-    productService.getProducts()
-      .then((data: IProduct[]) => {
-        setProducts(data);
-      })
-      .catch((error: Error) => {
-        console.error('Erro ao buscar produtos:', error);
-      }
-      );
-  }, []);
+    if (products.length === 0) {
+      loadProducts();
+    }
+  }, [products.length, loadProducts]);
 
   useEffect(() => {
     if (term) {

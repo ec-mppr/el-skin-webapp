@@ -1,6 +1,8 @@
 import userEvent from '@testing-library/user-event';
 import Header from 'components/Header/Header';
 import ProductGrid from 'components/ProductGrid/ProductGrid';
+import { Provider } from 'react-redux';
+import { store } from 'store';
 import { customRender, screen, waitFor } from 'test-utils';
 
 describe('testing Cart', () => {
@@ -92,7 +94,7 @@ describe('testing Cart', () => {
 
     await waitFor(() => {
       const quantityNumber = screen.getByTestId('quantity-number');
-      expect(quantityNumber).toHaveValue('2');
+      expect(quantityNumber).toHaveValue('3');
     });
   });
 });

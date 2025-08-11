@@ -34,11 +34,19 @@ export const useCart = (): UseCartReturn => {
   }, [dispatch]);
 
   const getTotalItems = useCallback(() => {
-    return items.reduce((total, item) => total + item.quantity, 0);
+    if (items && items.length > 0) {
+      return items.reduce((total, item) => total + item.quantity, 0);
+    } else {
+      return 0;
+    }
   }, [items]);
 
   const totalPrice = useMemo(() => {
-    return items.reduce((total, item) => total + (item.price * item.quantity), 0);
+    if (items && items.length > 0) {
+      return items.reduce((total, item) => total + (item.price * item.quantity), 0);
+    } else {
+      return 0;
+    }
   }, [items]);
 
   return {

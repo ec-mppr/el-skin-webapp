@@ -33,6 +33,7 @@ function Header() {
           <Logo to={'/'}>AL SKIN</Logo>
           <SearchBar>
             <SearchInput type="text"
+              data-testid="search-box"
               placeholder="O que você está procurando?"
               onChange={handleOnChange} />
             <SearchButton data-testid="search-button" onClick={onClickSearch}>
