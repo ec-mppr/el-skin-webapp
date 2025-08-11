@@ -7,12 +7,14 @@ import { useSearch } from 'hooks/useSearch';
 import { useCart } from 'hooks/useCart';
 import styled from 'styled-components';
 import { useProducts } from 'hooks/useProducts';
+import { useGetProductsQuery } from 'store/api/apiSlice';
 
 function ProductGrid() {
   const { items, addItem, updateQuantity } = useCart();
   const [filteredProducts, setFilteredProducts] = useState<IProduct[]>([]);
   const { term } = useSearch();
   const { products, loadProducts } = useProducts();
+  const { data: dataProducts = [], isLoading: isLoadingProducts, error: errorProducts } = useGetProductsQuery();
 
   useEffect(() => {
     if (products.length === 0) {
@@ -53,7 +55,9 @@ function ProductGrid() {
     <ProductGridSection>
       <ProductGridContainer>
         <ProductGridTitle>{title}</ProductGridTitle>
-        {filteredProducts.length > 0 ?
+        {isLoadingProducts && <h2>Carregando produtos</h2>}
+        {errorProducts && <h2> Erro ao carregar produtos</h2>}
+        {filteredProducts.length > 0 && !isLoadingProducts && !errorProducts &&
           <StyledProductGrid>
             {filteredProducts.map((product) => (
               <div key={product.id} data-testid="product-card-grid"
@@ -67,7 +71,8 @@ function ProductGrid() {
               </div>
             ))}
           </StyledProductGrid>
-          :
+        }
+        {filteredProducts.length == 0 && !isLoadingProducts && !errorProducts &&
           <div>
             <ProductNotFoundText>Nenhum produto encontrado</ProductNotFoundText>
           </div>

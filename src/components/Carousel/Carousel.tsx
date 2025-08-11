@@ -6,7 +6,7 @@ import axios from 'axios';
 import { Endpoint, get } from 'services/api';
 import styled, { keyframes } from 'styled-components';
 
-interface ICarouselItem {
+export interface ICarouselItem {
   id: string;
   subtitle: string;
   title: string;
