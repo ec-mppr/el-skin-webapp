@@ -12,7 +12,7 @@ const firstProduct: IProduct = {
   name: 'Protetor Solar SPF 50',
   description: 'Protetor solar de alta proteção contra raios UVA/UVB, resistente à água.',
   price: 89.90,
-  image: 'prod5.jpg',
+  image: '/prod5.jpg',
   tags: [
     { label: 'rosto', type: 'face' }
   ]
@@ -23,7 +23,7 @@ const secondProduct: IProduct = {
   name: 'Bálsamo Labial Hidratante',
   description: 'Bálsamo com manteiga de karité para lábios ressecados e proteção diária.',
   price: 12.75,
-  image: 'prod5.jpg',
+  image: '/prod5.jpg',
   tags: [
     { label: 'lábios', type: 'lips' },
     { label: 'hidratação', type: 'hydration' }

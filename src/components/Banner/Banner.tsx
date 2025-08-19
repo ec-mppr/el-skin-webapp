@@ -26,7 +26,7 @@ const ContainerBanner = styled.div`
 `;
 
 const Texto1 = styled.p`
-  font-weight: ${props => props.theme.fontWeight.bold};
+  font-weight: 700;
   color: white;
 `;
 
@@ -38,7 +38,7 @@ const Texto3 = styled.p`
   margin-left:  ${props => props.theme.spacing.xl};
   border-radius: ${props => props.theme.borderRadius.md};
   background-color: white;
-  font-weight: ${props => props.theme.fontWeight.bold};
+  font-weight: 700;
   padding: 2px 13px;
 `;
 

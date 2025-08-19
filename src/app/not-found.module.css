@@ -1,0 +1,31 @@
+.containerNotFound {
+  width: 100vw;
+  height: 80vh;
+  display: flex;
+  justify-items: start;
+  justify-content: start;
+  align-content: center;
+  text-align: start;
+  object-fit: fill;
+  background-image: url("/img_1_carousel.png");
+}
+
+
+.titleNotFound {
+  justify-self: center;
+  max-width: 1200px;
+  height: 50vh;
+  margin-top: auto;
+  text-align: center;
+  justify-content: center;
+}
+
+.titleNotFound p {
+  font-size: 32px;
+  color: white;
+  padding: 2rem;
+  font-weight: 700;
+  background-color: rgba(255, 255, 255, 0.3);
+  border-radius: 8px;
+  margin-left: 6rem;
+}

@@ -71,7 +71,7 @@ function Cart(props: CartProps) {
 }
 
 const CartCloseButton = styled(FontAwesomeIcon)`
-  padding: ${props => props.theme.spacing.md}  ${props => props.theme.spacing.xl} ${props => props.theme.spacing.md}  ${props => props.theme.spacing.xl};
+  padding: 1rem  ${props => props.theme.spacing.xl} 1rem  ${props => props.theme.spacing.xl};
   cursor: pointer;
 
   &:hover {
@@ -80,7 +80,7 @@ const CartCloseButton = styled(FontAwesomeIcon)`
 `;
 
 const ButtonQuantity = styled(FontAwesomeIcon)`
-  padding: ${props => props.theme.spacing.md};
+  padding: 1rem;
   color: ${props => props.theme.colors.cart.controls};
   
   &:hover {
@@ -134,7 +134,7 @@ const CartHeader = styled.div`
   justify-content: space-between;
 
   & h3 {
-    padding:  ${props => props.theme.spacing.xxs} ${props => props.theme.spacing.md} 0  ${props => props.theme.spacing.xl};
+    padding:  ${props => props.theme.spacing.xxs} 1rem 0  ${props => props.theme.spacing.xl};
     color: white;
   }
   `;
@@ -146,7 +146,7 @@ const CartBody = styled.div`
 const CartItemInner = styled.div`
   display: flex;
   align-items: center;
-  padding: 0 ${props => props.theme.spacing.md}  ${props => props.theme.spacing.xl} ${props => props.theme.spacing.md};
+  padding: 0 1rem  ${props => props.theme.spacing.xl} 1rem;
   `;
 
 const CartItemImage = styled.img`
@@ -165,7 +165,7 @@ const CartItemsDetails = styled.div`
   `;
 
 const CartItemTitle = styled.p`
-  font-weight: ${props => props.theme.fontWeight.bold};
+  font-weight: 700;
   `;
 
 const CartItemQuantityContainer = styled.div`
@@ -177,7 +177,7 @@ const CartItemQuantityContainer = styled.div`
 
 
 const QuantityNumber = styled.input`
-  padding: ${props => props.theme.spacing.md};
+  padding: 1rem;
   width:  ${props => props.theme.spacing.xl};
   height: 16px;
   text-align: center;
@@ -208,10 +208,10 @@ const TotalPrice = styled.p`
   font-size: ${props => props.theme.fontSize.base};
   padding: 0 ${props => props.theme.spacing.xs} 0 ${props => props.theme.spacing.xs};
   color: ${props => props.theme.colors.cart.price};
-  font-weight: ${props => props.theme.fontWeight.bold};
+  font-weight: 700;
 
   & span {
-    font-weight: ${props => props.theme.fontWeight.bold};
+    font-weight: 700;
   }
   `;
 
@@ -221,7 +221,7 @@ const FinalizarCompraButton = styled.button`
   border: none;
   padding: 12px 24px;
   border-radius: 32px;
-  font-size: ${props => props.theme.spacing.md};
+  font-size: 1rem;
   font-weight: 600;
   cursor: pointer;
   transition: all ${props => props.theme.transitions.normal};

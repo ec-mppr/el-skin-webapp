@@ -1,21 +1,16 @@
 import React from 'react';
-import AppRouter from './routes';
-import { ThemeProvider } from 'styled-components';
-import { theme } from './styles/theme';
-import { store } from './store';
-import { Provider } from 'react-redux';
-import { GlobalStyle } from 'styles/GlobalStyle';
+import Banner from 'components/Banner/Banner';
+import Layout from 'components/Layout';
+import Carousel from 'components/Carousel/Carousel';
+import ProductGrid from 'components/ProductGrid/ProductGrid';
 
 function App() {
   return (
-    <>
-      <Provider store={store}>
-        <ThemeProvider theme={theme}>
-          <AppRouter />
-        </ThemeProvider>
-      </Provider>
-      <GlobalStyle theme={theme} />
-    </>
+    <Layout>
+      <Banner />
+      <Carousel />
+      <ProductGrid />
+    </Layout>
   );
 }
 

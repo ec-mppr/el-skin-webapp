@@ -8,7 +8,9 @@
     ],
     "baseUrl": "src",
     "paths": {
-      "test-utils": ["./test-utils"]
+      "test-utils": [
+        "./test-utils"
+      ]
     },
     "allowJs": true,
     "skipLibCheck": true,
@@ -22,10 +24,23 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
     "noEmit": true,
-    "jsx": "react-jsx",
+    "jsx": "preserve",
+    "incremental": true,
+    "plugins": [
+      {
+        "name": "next"
+      }
+    ]
   },
   "include": [
+    "./jest.setup.ts",
+    "next-env.d.ts",
     "src",
-    "./jest.setup.ts"
+    "app/**/*",
+    "src/**/*",
+    "build/types/**/*.ts"
+  ],
+  "exclude": [
+    "node_modules"
   ]
 }

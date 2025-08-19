@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react';
+import React, { useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCartShopping, faSearch } from '@fortawesome/free-solid-svg-icons';
 import Navigation from '../Navigation/Navigation';
@@ -6,7 +6,8 @@ import Cart from '../Cart/Cart';
 import { useCart } from 'hooks/useCart';
 import { useSearch } from 'hooks/useSearch';
 import styled from 'styled-components';
-import { Link } from 'react-router';
+import Link from 'next/link'
+import styles from './Header.module.css'
 
 function Header() {
   const [showCart, setShowCart] = useState<boolean>(false);
@@ -30,7 +31,7 @@ function Header() {
     <StyledHeader>
       <HeaderTop>
         <Container>
-          <Logo to={'/'}>AL SKIN</Logo>
+          <Link href="/" className={styles.logo}>AL SKIN</Link>
           <SearchBar>
             <SearchInput type="text"
               data-testid="search-box"
@@ -66,7 +67,7 @@ const StyledHeader = styled.header`
 `;
 
 const HeaderTop = styled.div`
-  padding: ${props => props.theme.spacing.md} 0;
+  padding: 1rem;
   border-bottom: none;
 `;
 
@@ -74,25 +75,25 @@ const Container = styled.div`
   max-width: 1200px;
   width: 1200px;
   margin: 0 auto;
-  padding: 0 ${props => props.theme.spacing.md};
+  padding: 0 1rem;
   display: flex;
   align-items: center;
   justify-content: space-between;
 `;
 
-const Logo = styled(Link)`
-  font-size: ${props => props.theme.fontSize['2xl']};
-  font-family: 'Shippori Antique';
-  font-weight: ${props => props.theme.fontWeight.bold};
-  color: ${props => props.theme.colors.text.primary};
-  margin: 0;
-  letter-spacing: 0.5px;
-  text-decoration: none;
+// const Logo = styled(Link)`
+//   font-size: ${props => props.theme.fontSize['2xl']};
+//   font-family: 'Shippori Antique';
+//   font-weight: 700;
+//   color: ${props => props.theme.colors.text.primary};
+//   margin: 0;
+//   letter-spacing: 0.5px;
+//   text-decoration: none;
 
-  &:hover {
-    opacity: 80%;
-  }
-`;
+//   &:hover {
+//     opacity: 80%;
+//   }
+// `;
 
 const SearchBar = styled.div`
   flex: 2;
@@ -103,7 +104,7 @@ const SearchBar = styled.div`
 
 const SearchInput = styled.input`
   width: 100%;
-  padding:  ${props => props.theme.spacing.xs} 0rem  ${props => props.theme.spacing.xs} ${props => props.theme.spacing.md};
+  padding:  ${props => props.theme.spacing.xs} 0rem  ${props => props.theme.spacing.xs} 1rem;
   border-radius: ${props => props.theme.borderRadius.md};
   font-size: ${props => props.theme.fontSize.base};
   outline: none;
@@ -165,7 +166,7 @@ const CartButton = styled.button`
 
 const CartButtonQuantity = styled.p`
   font-size: ${props => props.theme.fontSize.base};
-  font-weight: ${props => props.theme.fontWeight.bold};
+  font-weight: 700;
   color: ${props => props.theme.colors.tertiary};
 `;
 

@@ -9,9 +9,9 @@ import {
 } from '@fortawesome/free-brands-svg-icons';
 import { faGlobe } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-// import './Footer.css';
-import { Link } from 'react-router';
+import Link from 'next/link';
 import styled from 'styled-components';
+import './Footer.module.css'
 
 interface FooterLink {
   label: string;
@@ -131,7 +131,7 @@ const Footer: React.FC = () => {
                 <ul>
                   {section.links.map((link) => (
                     <li key={link.label}>
-                      <FooterLink to={link.href} key={link.label}>{link.label}</FooterLink>
+                      <Link href={link.href} className='footer-link' key={link.label}>{link.label}</Link>
                     </li>
                   ))}
                 </ul>
@@ -167,7 +167,7 @@ const StyledFooter = styled.footer`
 const FooterContainer = styled.div`
   max-width: 1200px;
   margin: 0 auto;
-  padding: ${props => props.theme.spacing.md}  ${props => props.theme.spacing.xl};
+  padding: 1rem;
   border: none;
 
   & h2 {
@@ -257,28 +257,28 @@ const FooterSection = styled.div`
   }
 `;
 
-const FooterLink = styled(Link)`
-  background: none;
-  border: none;
-  color: #6c757d;
-  font-size: ${props => props.theme.fontSize.sm};
-  cursor: pointer;
-  transition: color ${props => props.theme.transitions.normal};
-  text-align: left;
-  padding: 0;
-  font-family: inherit;
-  text-decoration: none;
+// const FooterLink = styled(Link)`
+//   background: none;
+//   border: none;
+//   color: #6c757d;
+//   font-size: ${props => props.theme.fontSize.sm};
+//   cursor: pointer;
+//   transition: color ${props => props.theme.transitions.normal};
+//   text-align: left;
+//   padding: 0;
+//   font-family: inherit;
+//   text-decoration: none;
 
-  &:hover {
-    color: ${props => props.theme.colors.primary};
-  }
+//   &:hover {
+//     color: ${props => props.theme.colors.primary};
+//   }
 
-  &:focus {
-    outline: 2px solid ${props => props.theme.colors.primary};
-    outline-offset: 2px;
-    border-radius: 2px;
-  }
-`;
+//   &:focus {
+//     outline: 2px solid ${props => props.theme.colors.primary};
+//     outline-offset: 2px;
+//     border-radius: 2px;
+//   }
+// `;
 
 const FooterBottom = styled.div`
   background-color: ${props => props.theme.colors.text.primary};

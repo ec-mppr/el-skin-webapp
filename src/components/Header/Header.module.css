@@ -1,0 +1,14 @@
+.logo {
+  font-size: 1.5rem;
+  font-family: 'Shippori Antique';
+  font-weight: bold;
+  color: #333;
+  margin: 0;
+  letter-spacing: 0.5px;
+  text-decoration: none;
+
+  &:hover {
+    opacity: 80%;
+  }
+
+}
