@@ -10,11 +10,7 @@ import { store } from 'store';
 const TestProviders = ({ children }: { children: React.ReactNode }) => {
   return (
     <Provider store={store}>
-      <ThemeProvider theme={theme}>
-        <BrowserRouter>
-          {children}
-        </BrowserRouter>
-      </ThemeProvider>
+      {children}
     </Provider>
   );
 };
