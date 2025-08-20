@@ -1,4 +1,4 @@
-  .footer-link {
+  .footerLink {
     background: none;
     border: none;
     color: #6c757d;
@@ -11,11 +11,11 @@
     text-decoration: none;
   }
 
-  .footer-link:hover {
+  .footerLink:hover {
     color: #8B4A8B
   }
 
-  .footer-link:focus {
+  .footerLink:focus {
     outline: 2px solid #8B4A8B;
     outline-offset: 2px;
     border-radius: 2px;

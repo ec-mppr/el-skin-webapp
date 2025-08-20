@@ -12,7 +12,7 @@ import { faGlobe } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Link from 'next/link';
 import styled from 'styled-components';
-import './Footer.module.css'
+import styles from './Footer.module.css'
 
 interface FooterLink {
   label: string;
@@ -132,7 +132,7 @@ const Footer: React.FC = () => {
                 <ul>
                   {section.links.map((link) => (
                     <li key={link.label}>
-                      <Link href={link.href} className='footer-link' key={link.label}>{link.label}</Link>
+                      <Link href={link.href} className={styles.footerLink} key={link.label}>{link.label}</Link>
                     </li>
                   ))}
                 </ul>

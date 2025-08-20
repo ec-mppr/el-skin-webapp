@@ -1,4 +1,4 @@
-import searchReducer, { setTerm } from './searchSlice';
+import searchReducer, { setTerm } from 'store/slices/searchSlice';
 
 const initialState = { term: 'olhos' };
 
