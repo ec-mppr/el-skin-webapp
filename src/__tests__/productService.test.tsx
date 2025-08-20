@@ -1,6 +1,6 @@
 import { productsMock } from 'mocks/productsMock';
 import { IProduct } from 'types/IProduct';
-import productService from './productService';
+import productService from 'services/productService';
 import { customRender } from 'test-utils';
 import ProductGrid from 'components/ProductGrid/ProductGrid';
 

@@ -1,0 +1,84 @@
+.contactContainer {
+  margin-left: 144px;
+  margin-right: 144px;
+}
+
+.contactFormContainer {
+  display: flex;
+  align-items: center;
+  gap: 2em;
+  justify-content: center;
+}
+
+.containerFAQ {
+  margin-left: 144px;
+  margin-right: 144px;
+  padding: 32px;
+}
+
+.column {
+  flex: 1;
+}
+
+.title {
+  font-size: 2rem;
+}
+
+.formContact {
+  display: flex;
+  flex-direction: column;
+}
+
+.checkboxContainer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.singleCheckboxContainer {
+  padding-right: 32px;
+  padding-bottom: 16px;
+  display: flex;
+}
+
+.buttonEnviarMensagem {
+  background-color: #94426E;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  text-align: center;
+  display: flex;
+  padding: 15px 61px;
+  cursor: pointer;
+  width: 100%;
+  justify-content: center;
+  margin: auto;
+  transition: opacity 0.5s ease;
+}
+
+.buttonEnviarMensagem:hover {
+  opacity: 70%;
+}
+
+.iconEnviarMensagem {
+  padding: 16px 0 16px 4px;
+}
+
+.textInput {
+  width: 100%;
+  padding: 0.75rem 0rem 0.75rem 1rem;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-size: 16px;
+  outline: none;
+  transition: border-color 0.3s ease;
+  background-color: #F5F5F5;
+  font-family: 'Poppins', sans-serif;
+  border: none;
+  margin-bottom: 1rem;
+}
+
+.checkbox {
+  accent-color: #94426E;
+  margin-right: 5px;
+}

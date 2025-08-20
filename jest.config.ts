@@ -1,25 +1,18 @@
-// require('ts-jest');
-import { createDefaultPreset } from 'ts-jest';
-const tsJestTransformCfg = createDefaultPreset().transform;
-import type { Config } from 'jest';
+import type { Config } from 'jest'
+import nextJest from 'next/jest.js'
+
+const createJestConfig = nextJest({
+  dir: './',
+})
 
 const config: Config = {
-  clearMocks: true,
-  collectCoverage: true,
-  collectCoverageFrom: ['src/**'],
-  coverageDirectory: 'coverage',
   coverageProvider: 'v8',
-  moduleDirectories: ['node_modules', 'src'], // @see https://stackoverflow.com/a/51174924/1614677
-  modulePaths: ['<rootDir>/src'],
-  preset: 'ts-jest',
-  resetMocks: true,
-  restoreMocks: true,
-  roots: ['<rootDir>/src'],
-  testEnvironment: 'jsdom',
-  testMatch: ['**/?(*.)+(spec|test).[tj]s?(x)'],
-  transform: { '.(ts|tsx)': 'ts-jest' },
-  transformIgnorePatterns: ['node_modules/(?!axios)'],
+  testEnvironment: 'jest-fixed-jsdom',
   setupFilesAfterEnv: ['<rootDir>/jest.setup.ts'],
-};
+  moduleNameMapper: {
+    '/test-utils/': './test-utils',
+  },
+  transformIgnorePatterns: ['node_modules/(?!axios)'],
+}
 
-export default config;
+export default createJestConfig(config)

@@ -7,6 +7,8 @@
 #
 # To enable this hook, rename this file to "pre-commit".
 
+# TODO: nova configuração do eslint
+
 npm run lint
 linting_result=$?
 

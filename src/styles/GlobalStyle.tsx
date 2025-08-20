@@ -3,9 +3,9 @@ import { createGlobalStyle } from 'styled-components';
 export const GlobalStyle = createGlobalStyle`
   body {
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
-    font-size: ${({ theme }) => theme.fontSize.base};
-    color: ${({ theme }) => theme.colors.text.primary};
-    background-color: ${({ theme }) => theme.colors.background.white};
+    font-size: 1rem;
+    color: #333;
+    background-color: #ffffff;
     min-height: 100vh;
     margin: 0;
   }

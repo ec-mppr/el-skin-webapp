@@ -1,4 +1,4 @@
-import cartReducer, { addItem, CartState, clearCart, ICartItem, removeItem, updateQuantity } from './cartSlice';
+import cartReducer, { addItem, CartState, clearCart, ICartItem, removeItem, updateQuantity } from 'store/slices/cartSlice';
 
 const estadoAnterior: CartState = {
   items: [],

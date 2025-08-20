@@ -1,6 +1,6 @@
 import { customRender, screen, jest, test, act, renderWithRouter } from 'test-utils';
 import { userEvent } from '@testing-library/user-event';
-import About from './About';
+import About from 'app/about/page';
 
 test('loads and displays page title', async () => {
   customRender(<About />);
@@ -11,8 +11,8 @@ test('loads and displays page title', async () => {
 });
 
 test('has a button that navigates to contact page', async () => {
-  const render = renderWithRouter(<About />, {route: '/about'});
-  
+  const render = renderWithRouter(<About />, { route: '/about' });
+
   const faleConoscoButton = screen.getByRole('link', {
     name: /Fale conosco/i
   });
@@ -30,12 +30,12 @@ test('has a button that navigates to contact page', async () => {
 
 test('loads and displays main text', async () => {
   customRender(<About />);
-  
+
   expect(screen.getByText(/QUEM SOMOS/i)).toBeInTheDocument();
 });
 
 test('has images with alt text', async () => {
-  customRender(<About/>);
+  customRender(<About />);
   expect(screen.getByAltText('Conta-gotas')).toBeInTheDocument();
   expect(screen.getByAltText('Hidratante')).toBeInTheDocument();
 });

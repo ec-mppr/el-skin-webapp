@@ -2,7 +2,7 @@ import { renderHook, screen, waitFor } from '@testing-library/react';
 import { act } from 'react';
 import { TestProviders } from 'test-utils';
 import { productsMock } from 'mocks/productsMock';
-import { useProducts } from './useProducts';
+import { useProducts } from 'hooks/useProducts';
 
 describe('testing useProducts', () => {
   it('starts with empty product list as initial state', () => {

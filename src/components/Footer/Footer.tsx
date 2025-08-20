@@ -1,3 +1,4 @@
+'use client';
 import { IconDefinition } from '@fortawesome/fontawesome-svg-core';
 import {
   faFacebook,
@@ -9,9 +10,9 @@ import {
 } from '@fortawesome/free-brands-svg-icons';
 import { faGlobe } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-// import './Footer.css';
-import { Link } from 'react-router';
+import Link from 'next/link';
 import styled from 'styled-components';
+import styles from './Footer.module.css'
 
 interface FooterLink {
   label: string;
@@ -131,7 +132,7 @@ const Footer: React.FC = () => {
                 <ul>
                   {section.links.map((link) => (
                     <li key={link.label}>
-                      <FooterLink to={link.href} key={link.label}>{link.label}</FooterLink>
+                      <Link href={link.href} className={styles.footerLink} key={link.label}>{link.label}</Link>
                     </li>
                   ))}
                 </ul>
@@ -158,7 +159,7 @@ const Footer: React.FC = () => {
 };
 
 const StyledFooter = styled.footer`
-  background-color: ${props => props.theme.colors.background.light};
+  background-color: #f8f9fa;
   margin-top: 60px;
   display: flex;
   flex-direction: column;
@@ -167,11 +168,11 @@ const StyledFooter = styled.footer`
 const FooterContainer = styled.div`
   max-width: 1200px;
   margin: 0 auto;
-  padding: ${props => props.theme.spacing.md}  ${props => props.theme.spacing.xl};
+  padding: 1rem;
   border: none;
 
   & h2 {
-    font-size: ${props => props.theme.fontSize['2xl']};
+    font-size: 1.5rem;
     font-weight: 700;
     margin: 0 0 12px 0;
     color: white;
@@ -179,7 +180,7 @@ const FooterContainer = styled.div`
 `;
 
 const FooterSocial = styled.div`
-  background-color: ${props => props.theme.colors.background.light};
+  background-color: #f8f9fa;
   padding: 40px 0;
   width: 100%;
 `;
@@ -194,7 +195,7 @@ const SocialIcons = styled.div`
 const SocialIcon = styled.button`
   width: 50px;
   height: 50px;
-  border-radius: ${props => props.theme.borderRadius.round};
+  border-radius: 50%;
   background-color: #6c757d;
   color: white;
   border: none;
@@ -202,23 +203,23 @@ const SocialIcon = styled.button`
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  transition: all ${props => props.theme.transitions.normal};
-  font-size: ${props => props.theme.fontSize.xl};
+  transition: all 0.3s ease;
+  font-size: 1.25rem;
 
   &:hover {
-    background-color: ${props => props.theme.colors.primary};
+    background-color: #8B4A8B;
     transform: translateY(-2px);
-    box-shadow: ${props => props.theme.shadows.primary};
+    box-shadow: 0 4px 16px rgba(139, 74, 139, 0.3);
 
   &:focus {
-    outline: 2px solid ${props => props.theme.colors.primary};
+    outline: 2px solid #8B4A8B;
     outline-offset: 2px;
   }
   }
 `;
 
 const FooterLinks = styled.div`
-  background-color: ${props => props.theme.colors.background.light};
+  background-color: #f8f9fa;
   border: none;
   width: 100%;  
 `;
@@ -237,9 +238,9 @@ const FooterSection = styled.div`
 
 
   & h3 {
-  font-size: ${props => props.theme.fontSize.lg};
+  font-size: 1.125rem;
   font-weight: 600;
-  color: ${props => props.theme.colors.text.primary};
+  color: #333;
   margin-bottom: 20px;
   margin-top: 0;
   text-decoration: underline;
@@ -257,38 +258,38 @@ const FooterSection = styled.div`
   }
 `;
 
-const FooterLink = styled(Link)`
-  background: none;
-  border: none;
-  color: #6c757d;
-  font-size: ${props => props.theme.fontSize.sm};
-  cursor: pointer;
-  transition: color ${props => props.theme.transitions.normal};
-  text-align: left;
-  padding: 0;
-  font-family: inherit;
-  text-decoration: none;
+// const FooterLink = styled(Link)`
+//   background: none;
+//   border: none;
+//   color: #6c757d;
+//   font-size: 0.85rem;
+//   cursor: pointer;
+//   transition: color 0.3s ease;
+//   text-align: left;
+//   padding: 0;
+//   font-family: inherit;
+//   text-decoration: none;
 
-  &:hover {
-    color: ${props => props.theme.colors.primary};
-  }
+//   &:hover {
+//     color: #8B4A8B;
+//   }
 
-  &:focus {
-    outline: 2px solid ${props => props.theme.colors.primary};
-    outline-offset: 2px;
-    border-radius: 2px;
-  }
-`;
+//   &:focus {
+//     outline: 2px solid #8B4A8B;
+//     outline-offset: 2px;
+//     border-radius: 2px;
+//   }
+// `;
 
 const FooterBottom = styled.div`
-  background-color: ${props => props.theme.colors.text.primary};
+  background-color: #333;
   color: white;
   padding: 30px 0;
   text-align: center;
   width: 100%;
 
   & h2 {
-    font-size: ${props => props.theme.fontSize['2xl']};
+    font-size: 1.5rem;
     font-weight: 700;
     margin: 0 0 12px 0;
     color: white;
@@ -296,7 +297,7 @@ const FooterBottom = styled.div`
 `;
 
 const FooterCopyright = styled.p`
-  font-size: ${props => props.theme.fontSize.sm};
+  font-size: 0.85rem;
   margin: 0 0 8px 0;
   color: #adb5bd;
 `;

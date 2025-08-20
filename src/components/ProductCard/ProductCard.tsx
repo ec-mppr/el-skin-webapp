@@ -62,21 +62,21 @@ const ProductCard: React.FC<ProductCardProps> = ({
 
 const Card = styled.div`
   background-color: white;
-  border-radius: ${props => props.theme.borderRadius.lg};
+  border-radius: 12px;
   overflow: hidden;
-  box-shadow: ${props => props.theme.shadows.md};
-  transition: all ${props => props.theme.transitions.normal};
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  transition: all 0.3s ease;
   cursor: pointer;
   width: 100%;
   max-width: 300px;
-  border: 1px solid ${props => props.theme.colors.background.gray};
+  border: 1px solid #f0f0f0;
   padding: 0;
   text-align: left;
   font-family: inherit;
 
   &:hover {
     transform: translateY(-4px);
-    box-shadow: 0 8px 24px ${props => props.theme.colors.shadow.dark};
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
   }
 `;
 
@@ -112,50 +112,50 @@ const ProductFooter = styled.div`
 `;
 
 const ProductBuyButton = styled.button`
-  background: ${props => props.theme.colors.primaryGradient};
+  background: linear-gradient(135deg, #8B4A8B 0%, #A855A8 100%);
   color: white;
   border: none;
   padding: 10px 20px;
-  border-radius: ${props => props.theme.borderRadius.xxl};
-  font-size: ${props => props.theme.fontSize.sm};
+  border-radius: 20px;
+  font-size: 0.85rem;
   font-weight: 600;
   cursor: pointer;
-  transition: all ${props => props.theme.transitions.normal};
+  transition: all 0.3s ease;
   text-transform: lowercase;
 
-&:hover {
-  background: ${props => props.theme.colors.primaryGradientHover};
-  transform: translateY(-1px);
-  box-shadow: ${props => props.theme.shadows.primary};
-}
+  &:hover {
+    background: linear-gradient(135deg, #7A3E7A 0%, #9333EA 100%);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 16px rgba(139, 74, 139, 0.3);
+  }
 
-&:active {
-  transform: translateY(0);
-}
+  &:active {
+    transform: translateY(0);
+  }
 
-&:focus {
-  outline: 2px solid ${props => props.theme.colors.primary};
-  outline-offset: 2px;
-}
+  &:focus {
+    outline: 2px solid #8B4A8B;
+    outline-offset: 2px;
+  }
 `;
 
 const ProductPrice = styled.span`
-  font-size: ${props => props.theme.fontSize.lg};
+  font-size: 1.125rem;
   font-weight: 700;
-  color: ${props => props.theme.colors.text.primary};
+  color: #333;
 `;
 
 const ProductName = styled.h3`
-  font-size: ${props => props.theme.fontSize.base};
+  font-size: 1rem;
   font-weight: 600;
-  color: ${props => props.theme.colors.text.primary};
+  color: #333;
   margin: 0 0 8px 0;
   line-height: 1.3;
 `;
 
 const ProductDescription = styled.p`
-  font-size: ${props => props.theme.fontSize.sm};
-  color: ${props => props.theme.colors.text.secondary};
+  font-size: 0.85rem;
+  color: #666;
   margin: 0 0 16px 0;
   line-height: 1.4;
   display: -webkit-box;
@@ -179,13 +179,19 @@ enum ProductTagType {
 
 const ProductTag = styled.span<{ $tagType: ProductTagType }>`
   padding: 4px 12px;
-  border-radius: ${props => props.theme.borderRadius.xl};
-  font-size: ${props => props.theme.fontSize.xs};
+  border-radius: 16px;
+  font-size: 0.7rem;
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.5px;
-  background-color: ${({ theme, $tagType }) => $tagType == ProductTagType.FACE ? theme.colors.tag.face.bg : ($tagType == ProductTagType.PROTECTION ? theme.colors.tag.protection.bg : theme.colors.tag.others.bg)};
-  color: ${({ theme, $tagType }) => $tagType == ProductTagType.FACE ? theme.colors.tag.face.text : ($tagType == ProductTagType.PROTECTION ? theme.colors.tag.protection.text : theme.colors.tag.others.text)};
+  background-color: ${({ $tagType }) =>
+    $tagType == ProductTagType.FACE ? '#FCE4EC' :
+      $tagType == ProductTagType.PROTECTION ? '#E3F2FD' :
+        '#F3FDE3'};
+  color: ${({ $tagType }) =>
+    $tagType == ProductTagType.FACE ? '#C2185B' :
+      $tagType == ProductTagType.PROTECTION ? '#1976D2' :
+        '#5f7d2f'};
 `;
 
 export default ProductCard;

@@ -14,7 +14,7 @@ function Banner() {
 
 const StyledBanner = styled.div`
   display: flex;
-  background-color: ${props => props.theme.colors.tertiary};
+  background-color: #DC995E;
   padding: 0.1rem;
   justify-content: center;
 `;
@@ -26,19 +26,19 @@ const ContainerBanner = styled.div`
 `;
 
 const Texto1 = styled.p`
-  font-weight: ${props => props.theme.fontWeight.bold};
+  font-weight: 700;
   color: white;
 `;
 
 const Texto2 = styled.p`
-  margin-left:  ${props => props.theme.spacing.xl};
+  margin-left:  2rem;
 `;
 
 const Texto3 = styled.p`
-  margin-left:  ${props => props.theme.spacing.xl};
-  border-radius: ${props => props.theme.borderRadius.md};
+  margin-left:  2rem;
+  border-radius: 8px;
   background-color: white;
-  font-weight: ${props => props.theme.fontWeight.bold};
+  font-weight: 700;
   padding: 2px 13px;
 `;
 
