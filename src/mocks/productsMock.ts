@@ -1,6 +1,6 @@
 export const productsMock = [
   {
-    'id': 1,
+    'id': '1',
     'name': 'Creme Hidratante Facial',
     'description': 'Creme nutritivo para hidratação profunda da pele do rosto, com extrato de aloe vera.',
     'price': 45.99,
@@ -11,7 +11,7 @@ export const productsMock = [
     ]
   },
   {
-    'id': 2,
+    'id': '2',
     'name': 'Protetor Solar SPF 50',
     'description': 'Protetor solar de alta proteção contra raios UVA/UVB, resistente à água.',
     'price': 89.90,
@@ -22,7 +22,7 @@ export const productsMock = [
     ]
   },
   {
-    'id': 3,
+    'id': '3',
     'name': 'Máscara de Argila Verde',
     'description': 'Máscara purificante para controle de oleosidade e limpeza dos poros.',
     'price': 32.50,
@@ -33,7 +33,7 @@ export const productsMock = [
     ]
   },
   {
-    'id': 4,
+    'id': '4',
     'name': 'Sérum Antirrugas',
     'description': 'Sérum com ácido hialurônico para redução de linhas finas e rugas.',
     'price': 78.20,
@@ -44,7 +44,7 @@ export const productsMock = [
     ]
   },
   {
-    'id': 5,
+    'id': '5',
     'name': 'Bálsamo Labial Hidratante',
     'description': 'Bálsamo com manteiga de karité para lábios ressecados e proteção diária.',
     'price': 12.75,
@@ -55,7 +55,7 @@ export const productsMock = [
     ]
   },
   {
-    'id': 6,
+    'id': '6',
     'name': 'Esfoliante Facial',
     'description': 'Esfoliante suave com microesferas naturais para renovação da pele.',
     'price': 25.80,
@@ -66,7 +66,7 @@ export const productsMock = [
     ]
   },
   {
-    'id': 7,
+    'id': '7',
     'name': 'Tônico Revitalizante',
     'description': 'Tônico refrescante com extrato de chá verde para equilibrar o pH da pele.',
     'price': 38.40,
@@ -77,7 +77,7 @@ export const productsMock = [
     ]
   },
   {
-    'id': 8,
+    'id': '8',
     'name': 'Óleo Corporal Hidratante',
     'description': 'Óleo leve com fragrância de lavanda para hidratação intensiva da pele.',
     'price': 65.30,

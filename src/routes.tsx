@@ -5,18 +5,19 @@ import Footer from './components/Footer/Footer';
 import Header from './components/Header/Header';
 import NotFound from './pages/NotFound/NotFound';
 import Contact from './pages/Contact/Contact';
+import Main from 'pages/Main/Main';
 
 export default function AppRouter() {
   return (
     <Router>
-      <Header />
       <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/about" element={<About />} />
-        <Route path="/contact" element={<Contact />} />
-        <Route path="*" element={<NotFound />} />
+        <Route path="/" element={<Main />}>
+          <Route index path="/" element={<Home />} />
+          <Route path="about" element={<About />} />
+          <Route path="contact" element={<Contact />} />
+          <Route path="*" element={<NotFound />} />
+        </Route>
       </Routes>
-      <Footer />
     </Router>
   );
 }

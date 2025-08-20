@@ -1,7 +1,7 @@
-import { useCartContext } from '../../context/CartContext';
 import { faXmark } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlusSquare, faMinusSquare, faTrashCan } from '@fortawesome/free-solid-svg-icons';
+import { useCart } from 'hooks/useCart';
 import styled from 'styled-components';
 
 interface CartProps {
@@ -10,7 +10,7 @@ interface CartProps {
 }
 
 function Cart(props: CartProps) {
-  const { updateQuantity, totalPrice, getTotalItems, items, removeItem } = useCartContext();
+  const { updateQuantity, totalPrice, getTotalItems, items, removeItem } = useCart();
 
   const formattedPrice = (price: number): string => {
     const roundedPrice = price.toFixed(2);

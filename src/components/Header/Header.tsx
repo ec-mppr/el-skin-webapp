@@ -3,22 +3,22 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCartShopping, faSearch } from '@fortawesome/free-solid-svg-icons';
 import Navigation from '../Navigation/Navigation';
 import Cart from '../Cart/Cart';
-import { SearchContext } from '../../context/SearchContext';
-import { useCartContext } from '../../context/CartContext';
+import { useCart } from 'hooks/useCart';
+import { useSearch } from 'hooks/useSearch';
 import styled from 'styled-components';
 import { Link } from 'react-router';
 
 function Header() {
   const [showCart, setShowCart] = useState<boolean>(false);
-  const { search, setSearch } = useContext(SearchContext);
-  const { getTotalItems } = useCartContext();
+  const { getTotalItems } = useCart();
+  const { term, setTerm } = useSearch();
 
   function handleOnChange(e: React.ChangeEvent<HTMLInputElement>) {
-    setSearch(e.target.value);
+    setTerm(e.target.value);
   }
 
   function onClickSearch(): void {
-    console.log(`Você pesquisou por: ${search}`);
+    console.log(`Você pesquisou por: ${term}`);
   }
 
   async function openCart(event: React.MouseEvent<HTMLButtonElement, MouseEvent>): Promise<void> {
@@ -33,6 +33,7 @@ function Header() {
           <Logo to={'/'}>AL SKIN</Logo>
           <SearchBar>
             <SearchInput type="text"
+              data-testid="search-box"
               placeholder="O que você está procurando?"
               onChange={handleOnChange} />
             <SearchButton data-testid="search-button" onClick={onClickSearch}>
