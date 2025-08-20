@@ -11,10 +11,9 @@
 
 npm run lint
 linting_result=$?
-echo $linting_result
 
-#if [ $linting_result -ne 0 ]; then
-#   echo "Lint falhou; corrigir os problemas apontados antes de commitar."
-#   echo $linting_result
-#   exit 1
-# fi
+if [ $linting_result -ne 0 ]; then
+  echo "Lint falhou; corrigir os problemas apontados antes de commitar."
+  echo $linting_result
+  exit 1
+fi

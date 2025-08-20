@@ -84,7 +84,7 @@ function ProductGrid() {
 
 const ProductGridSection = styled.section`
   padding: 60px 20px;
-  background-color: ${props => props.theme.colors.background.white};
+  background-color: #ffffff;
 `;
 
 const ProductGridContainer = styled.div`
@@ -94,9 +94,9 @@ const ProductGridContainer = styled.div`
 
 const ProductGridTitle = styled.h2`
   text-align: center;
-  font-size: ${props => props.theme.fontSize['2xl']};
+  font-size: 1.5rem;
   font-weight: 600;
-  color: ${props => props.theme.colors.text.primary};
+  color: #333;
   margin-bottom: 40px;
   font-family: 'Arial', sans-serif;
 `;
@@ -110,7 +110,7 @@ const StyledProductGrid = styled.div`
 
 const ProductNotFoundText = styled.p`
   text-align: center;
-  font-size: ${props => props.theme.fontSize['2xl']};
+  font-size: 1.5rem;
 `;
 
 export default ProductGrid;

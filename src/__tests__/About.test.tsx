@@ -1,6 +1,6 @@
 import { customRender, screen, jest, test, act, renderWithRouter } from 'test-utils';
 import { userEvent } from '@testing-library/user-event';
-import About from './page';
+import About from 'app/about/page';
 
 test('loads and displays page title', async () => {
   customRender(<About />);

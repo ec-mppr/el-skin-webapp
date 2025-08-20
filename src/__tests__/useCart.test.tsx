@@ -1,5 +1,5 @@
 import { renderHook } from '@testing-library/react';
-import { useCart } from './useCart';
+import { useCart } from '../hooks/useCart';
 import { act } from 'react';
 import { TestProviders } from 'test-utils';
 import { productsMock } from 'mocks/productsMock';

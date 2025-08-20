@@ -1,3 +1,4 @@
+'use client'
 import React, { useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCartShopping, faSearch } from '@fortawesome/free-solid-svg-icons';
@@ -61,9 +62,9 @@ function Header() {
 }
 
 const StyledHeader = styled.header`
-  background-color: ${props => props.theme.colors.background.white};
-  box-shadow: ${props => props.theme.shadows.sm};
-  border-bottom: 1px solid ${props => props.theme.colors.border.light};
+  background-color: #ffffff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  border-bottom: 1px solid #e5e5e5;
 `;
 
 const HeaderTop = styled.div`
@@ -81,43 +82,29 @@ const Container = styled.div`
   justify-content: space-between;
 `;
 
-// const Logo = styled(Link)`
-//   font-size: ${props => props.theme.fontSize['2xl']};
-//   font-family: 'Shippori Antique';
-//   font-weight: 700;
-//   color: ${props => props.theme.colors.text.primary};
-//   margin: 0;
-//   letter-spacing: 0.5px;
-//   text-decoration: none;
-
-//   &:hover {
-//     opacity: 80%;
-//   }
-// `;
-
 const SearchBar = styled.div`
   flex: 2;
   max-width: 400px;
-  margin: 0  ${props => props.theme.spacing.xl};
+  margin: 0 2rem;
   position: relative;
 `;
 
 const SearchInput = styled.input`
   width: 100%;
-  padding:  ${props => props.theme.spacing.xs} 0rem  ${props => props.theme.spacing.xs} 1rem;
-  border-radius: ${props => props.theme.borderRadius.md};
-  font-size: ${props => props.theme.fontSize.base};
+  padding: 0.5rem 0rem 0.5rem 1rem;
+  border-radius: 8px;
+  font-size: 1rem;
   outline: none;
-  transition: border-color ${props => props.theme.transitions.normal};
+  transition: border-color 0.3s ease;
   background-color: #F5F5F5;
   font-family: 'Poppins';
   border: none;
   &:focus {
-  border-color: ${props => props.theme.colors.secondary};
+    border-color: #007BFF;
   }
 
   &::placeholder {
-      color: ${props => props.theme.colors.text.secondary};
+    color: #666;
   }
 `;
 
@@ -129,16 +116,16 @@ const SearchButton = styled.button`
   background: none;
   border: none;
   cursor: pointer;
-  padding:  ${props => props.theme.spacing.xs};
-  border-radius: ${props => props.theme.borderRadius.round};
-  color: ${props => props.theme.colors.text.secondary};
+  padding: 0.5rem;
+  border-radius: 50%;
+  color: #666;
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: background-color ${props => props.theme.transitions.normal};
+  transition: background-color 0.3s ease;
 
   &:hover {
-    background-color: ${props => props.theme.colors.background.gray};
+    background-color: #f0f0f0;
   }
 `;
 
@@ -151,23 +138,23 @@ const CartButton = styled.button`
   background: none;
   border: none;
   cursor: pointer;
-  padding:  ${props => props.theme.spacing.xs};
-  border-radius: ${props => props.theme.borderRadius.round};
-  color: ${props => props.theme.colors.text.primary};
+  padding: 0.5rem;
+  border-radius: 50%;
+  color: #333;
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: background-color ${props => props.theme.transitions.normal};
+  transition: background-color 0.3s ease;
 
   &:hover {
-    background-color: ${props => props.theme.colors.background.gray};
+    background-color: #f0f0f0;
   }
 `;
 
 const CartButtonQuantity = styled.p`
-  font-size: ${props => props.theme.fontSize.base};
+  font-size: 1rem;
   font-weight: 700;
-  color: ${props => props.theme.colors.tertiary};
+  color: #DC995E;
 `;
 
 const HeaderNav = styled.nav`

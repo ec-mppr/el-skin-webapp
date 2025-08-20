@@ -1,5 +1,5 @@
 import { customRender, screen, act, renderWithRouter } from 'test-utils';
-import ProductCard from './ProductCard';
+import ProductCard from '../components/ProductCard/ProductCard';
 import { IProduct } from 'types/IProduct';
 import userEvent from '@testing-library/user-event';
 

@@ -1,4 +1,3 @@
-'use client';
 import Link from 'next/link';
 import Img1 from '../../assets/about_img_1.png';
 import Img2 from '../../assets/about_img_2.png';

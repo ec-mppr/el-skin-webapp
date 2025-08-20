@@ -1,5 +1,5 @@
 import { customRender, test, screen, fireEvent, act, waitFor, render } from 'test-utils';
-import ProductGrid from './ProductGrid';
+import ProductGrid from '../components/ProductGrid/ProductGrid';
 import { productsMock } from 'mocks/productsMock';
 import userEvent from '@testing-library/user-event';
 import React, { useState } from 'react';
